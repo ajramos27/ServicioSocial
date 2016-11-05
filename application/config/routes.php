@@ -68,4 +68,4 @@ $route['admin/categories/edit/(:any)'] = 'admin/categories/edit/$1';
 //products routes
 $route['admin/products'] = 'admin/products';
 $route['admin/products/create'] = 'admin/products/create';
-$route['admin/products/edit/(:any)'] = 'admin/products/edit/$1'
+$route['admin/products/edit/(:any)'] = 'admin/products/edit/$1';
