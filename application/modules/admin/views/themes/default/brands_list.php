@@ -1,12 +1,12 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-      <div class="page-header users-header">
-        <h2>
-          Brands
-          <a  href="<?=base_url('admin/brands/create')?>" class="btn btn-success">Add a new</a>
-        </h2>
-      </div>
+            <div class="page-header users-header">
+                <h2>
+                    Brands
+                    <a  href="<?= base_url('admin/brands/create') ?>" class="btn btn-success">Add a new</a>
+                </h2>
+            </div>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -31,26 +31,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd gradeX">
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 4.0</td>
-                                    <td>Win 95+</td>
-                                    <td>4</td>
-                                    <td>
-                                        <a href="<?=base_url('admin/brands/edit/1')?>" class="btn btn-info">edit</a>  
-                                        <a href="<?=base_url('admin/brands/delete/1')?>" class="btn btn-danger">delete</a>
-                                    </td>
-                                </tr>
-                                <tr class="even gradeC">
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 5.0</td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>
-                                        <a href="<?=base_url('admin/brands/edit/2')?>" class="btn btn-info">edit</a>  
-                                        <a href="<?=base_url('admin/brands/delete/2')?>" class="btn btn-danger">delete</a>
-                                    </td>
-                                </tr>
+                                <?php if (count($brands)): ?>
+                                    <?php foreach ($brands as $key => $list): ?>
+                                        <tr class="odd gradeX">
+                                            <td><?=$list['id']?></td>
+                                            <td><?=$list['description']?></td>
+                                            <td><?=$list['created_from_ip']?></td>
+                                            <td><?=$list['updated_from_ip']?></td>
+                                            <td>
+                                                <a href="<?= base_url('admin/brands/edit/'.$list['id']) ?>" class="btn btn-info">edit</a>  
+                                                <a href="<?= base_url('admin/brands/delete/'.$list['id']) ?>" class="btn btn-danger">delete</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <tr class="even gradeC">
+                                        <td>No data</td>
+                                        <td>No data</td>
+                                        <td>No data</td>
+                                        <td>No data</td>
+                                        <td>
+                                            <a href="#" class="btn btn-info">edit</a>  
+                                            <a href="#" class="btn btn-danger">delete</a>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
                             </tbody>
                             <tfooter>
                                 <tr>

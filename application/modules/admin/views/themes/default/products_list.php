@@ -33,30 +33,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd gradeX">
-                                    <td>1</td>
-                                    <td>Fujifilm FinePix S2950 Digital Camera</td>
-                                    <td>FinePix S2950HD</td>
-                                    <td>- (14MP, 18x Optical Zoom) 3-inch LCD</td>
-                                    <td>48</td>
-                                    <td>300</td>
-                                    <td>
-                                        <a href="<?= base_url('admin/products/edit/1') ?>" class="btn btn-info">edit</a>  
-                                        <a href="<?= base_url('admin/products/delete/1') ?>" class="btn btn-danger">delete</a>
-                                    </td>
-                                </tr>
-                                <tr class="even gradeC">
-                                    <td>2</td>
-                                    <td>Scandisk</td>
-                                    <td>S2950HD</td>
-                                    <td>- (14MP, 18x Optical Zoom) 3-inch LCD</td>
-                                    <td>22</td>
-                                    <td>33</td>
-                                    <td>
-                                        <a href="<?= base_url('admin/products/edit/2') ?>" class="btn btn-info">edit</a>  
-                                        <a href="<?= base_url('admin/products/delete/2') ?>" class="btn btn-danger">delete</a>
-                                    </td>
-                                </tr>
+                                <?php if (count($products)): ?>
+                                    <?php foreach ($products as $key => $list): ?>
+                                        <tr class="odd gradeX">
+                                            <td><?=$list['id']?></td>
+                                            <td><?=$list['name']?></td>
+                                            <td><?=$list['model']?></td>
+                                            <td><?=$list['tag_line']?></td>
+                                            <td><?=$list['price']?></td>
+                                            <td><?=$list['qty_at_hand']?></td>
+                                            <td>
+                                                <a href="<?= base_url('admin/products/edit/'.$list['id']) ?>" class="btn btn-info">edit</a>  
+                                                <a href="<?= base_url('admin/products/delete/'.$list['id']) ?>" class="btn btn-danger">delete</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <tr class="even gradeC">
+                                        <td>No data</td>
+                                        <td>No data</td>
+                                        <td>No data</td>
+                                        <td>No data</td>
+                                        <td>No data</td>
+                                        <td>No data</td>
+                                        <td>
+                                            <a href="#" class="btn btn-info">edit</a>  
+                                            <a href="#" class="btn btn-danger">delete</a>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
                             </tbody>
                             <tfooter>
                                 <tr>

@@ -18,26 +18,50 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form">
+                            <form role="form" method="POST" action="<?= base_url('admin/products/edit/' . $product->id) ?>">
                                 <div class="form-group">
                                     <label>Product Id Input</label>
-                                    <input class="form-control" value="1" placeholder="Auto generated" disabled="1">
+                                    <input value="<?= $product->id ?>" class="form-control" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input value="Fujifilm FinePix S2950 Digital Camera" class="form-control" placeholder="Enter brand description">
+                                    <input value="<?= $product->name ?>" class="form-control" placeholder="Enter product name" id="name" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input value="<?= $product->price ?>" class="form-control" placeholder="Enter product name" id="price" name="price">
                                 </div>
                                 <div class="form-group">
                                     <label>Model</label>
-                                    <input value="FinePix S2950HD" class="form-control" placeholder="Enter brand description">
+                                    <input value="<?= $product->model ?>" class="form-control" placeholder="Enter product mode" id="model" name="model">
+                                </div>
+                                <div class="form-group">
+                                    <label>Brand</label>
+                                    <select class="form-control" id="brand_id" name="brand_id">
+                                        <?php if (count($brands)): ?>
+                                            <?php foreach ($brands as $key => $brand): ?>
+                                                <option value="<?= $brand['id'] ?>" <?= ($product->brand_id == $brand['id']) ? 'selected="selected"' : '' ?>> <?= $brand['description'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select class="form-control" id="category_id" name="category_id">
+                                        <?php if (count($categories)): ?>
+                                            <?php foreach ($categories as $key => $category): ?>
+                                                <option value="<?= $category['id'] ?>" <?= ($product->category_id == $category['id']) ? 'selected="selected"' : '' ?>> <?= $category['description'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Tag Line</label>
-                                    <input value="- (14MP, 18x Optical Zoom) 3-inch LCD" class="form-control" placeholder="Enter brand description">
+                                    <input value="<?= $product->tag_line ?>" class="form-control" placeholder="Enter product description" id="tag_line" name="tag_line">
                                 </div>
                                 <div class="form-group">
                                     <label>Features</label>
-                                    <textarea class="form-control" rows="3">14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution. Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2 ×81.4x73.4mm. Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery and memory card). </textarea>
+                                    <textarea class="form-control" rows="3" id="features" name="features"><?= $product->features ?></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit Button</button>
                                 <button type="reset" class="btn btn-default">Reset Button</button>
