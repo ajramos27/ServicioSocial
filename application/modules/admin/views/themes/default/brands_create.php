@@ -17,6 +17,14 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
+                        <?php if ($this->session->flashdata('message')): ?>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="alert alert-info alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <?=$this->session->flashdata('message')?>
+                            </div>
+                        </div>
+                        <?php endif; ?>
                         <div class="col-lg-6">
                             <form role="form" method="POST" action="<?=base_url('admin/brands/create')?>">
                                 <div class="form-group">

@@ -22,21 +22,18 @@
 
         <!-- DataTables Responsive CSS -->
         <link href="<?= base_url() ?>assets/admin/css/dataTables.responsive.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-        <link href="<?= base_url() ?>assets/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        
         <!-- Custom CSS -->
         <link href="<?= base_url() ?>assets/admin/css/sb-admin-2.css" rel="stylesheet">
 
-
+        <!-- Custom Fonts -->
+        <link href="<?= base_url() ?>assets/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 
     </head>
 
@@ -53,7 +50,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?= base_url('admin/dashboard') ?>">CI My Admin v1.0</a>
+                    <a class="navbar-brand" href="<?= base_url('admin/dashboard') ?>">Welcome <?=$this->logged_in_name?> | CI My Admin v1.0</a>
                 </div>
                 <!-- /.navbar-header -->
 
@@ -253,13 +250,11 @@
                             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                            </li>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                            </li>
+                            <li><a href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
@@ -281,18 +276,14 @@
                                 </div>
                                 <!-- /input-group -->
                             </li>
-                            <li>
-                                <a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('admin/brands') ?>"><i class="fa fa-table fa-fw"></i> Brands</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('admin/categories') ?>"><i class="fa fa-edit fa-fw"></i> Categories</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('admin/products') ?>"><i class="fa fa-edit fa-fw"></i> Products</a>
-                            </li>
+                            <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                            <li><a href="<?= base_url('admin/brands') ?>"><i class="fa fa-table fa-fw"></i> Brands</a></li>
+                            <li><a href="<?= base_url('admin/categories') ?>"><i class="fa fa-edit fa-fw"></i> Categories</a></li>
+                            <li><a href="<?= base_url('admin/products') ?>"><i class="fa fa-edit fa-fw"></i> Products</a></li>
+                            <?php if ($this->is_admin): ?>
+                            <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
+                            <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-edit fa-fw"></i> Users</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->

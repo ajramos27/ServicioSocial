@@ -7,6 +7,14 @@
     </div>
     <!-- /.row -->
     <div class="row">
+        <?php if ($this->session->flashdata('message')): ?>
+        <div class="col-lg-12 col-md-12">
+            <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <?=$this->session->flashdata('message')?>
+            </div>
+        </div>
+        <?php endif; ?>
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
