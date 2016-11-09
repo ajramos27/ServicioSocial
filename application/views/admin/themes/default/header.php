@@ -281,9 +281,6 @@
                             <li><a href="<?= base_url('admin/responsables') ?>"><i class="fa fa-table fa-fw"></i> Responsables</a></li>
                             <li><a href="<?= base_url('admin/proyectos') ?>"><i class="fa fa-table fa-fw"></i> Proyectos</a></li>
                             <li><a href="<?= base_url('admin/dependencias') ?>"><i class="fa fa-table fa-fw"></i> Dependencias</a></li>
-                            <li><a href="<?= base_url('admin/brands') ?>"><i class="fa fa-table fa-fw"></i> Brands</a></li>
-                            <li><a href="<?= base_url('admin/categories') ?>"><i class="fa fa-edit fa-fw"></i> Categories</a></li>
-                            <li><a href="<?= base_url('admin/products') ?>"><i class="fa fa-edit fa-fw"></i> Products</a></li>
                             <?php if ($this->is_admin): ?>
                             <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
                             <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-edit fa-fw"></i> Users</a></li>

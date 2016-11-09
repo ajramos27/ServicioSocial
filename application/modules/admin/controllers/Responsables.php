@@ -11,12 +11,15 @@ class Responsables extends Admin_Controller {
         }
 
         $this->load->model(array('admin/responsable'));
+        $this->load->model(array('admin/dependencia'));
     }
 
     public function index() {
         $responsables = $this->responsable->get_all();
+        $dependencias = $this->dependencia->get_all();
 
         $data['responsables'] = $responsables;
+        $data['dependencias'] = $dependencias;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsables_list";
         $this->load->view($this->_container, $data);
     }
@@ -34,6 +37,9 @@ class Responsables extends Admin_Controller {
 
             redirect('/admin/responsables', 'refresh');
         }
+
+        $dependencias = $this->dependencia->get_all();
+        $data['dependencias'] = $dependencias;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsables_create";
         $this->load->view($this->_container, $data);
@@ -54,10 +60,10 @@ class Responsables extends Admin_Controller {
         }
 
         $responsable = $this->responsable->get($id);
-
-        //$proyecto = $this->proyecto->get_all();
+        $dependencias = $this->dependencia->get_all();
 
         $data['responsable'] = $responsable;
+        $data['dependencias'] = $dependencias;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsables_edit";
         $this->load->view($this->_container, $data);
     }

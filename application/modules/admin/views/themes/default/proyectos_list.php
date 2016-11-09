@@ -33,7 +33,13 @@
                                     <?php foreach ($proyectos as $key => $list): ?>
                                         <tr class="odd gradeX">
                                             <td><?=$list['descripcion']?></td>
-                                            <td><?=$list['responsable_id']?></td>
+                                            <td>
+                                              <?php foreach ($responsables as $key => $responsable): ?>
+                                                <?php if ($list['responsable_id'] == $responsable['id']): ?>
+                                                    <?= $responsable['nombres'].' '.$responsable['apellidos'] ?>
+                                                <?php endif; ?>
+                                              <?php endforeach; ?>
+                                            </td>
                                             <td>
                                                 <a href="<?= base_url('admin/proyectos/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
                                                 <a href="<?= base_url('admin/proyectos/delete/'.$list['id']) ?>" class="btn btn-danger">Eliminar</a>

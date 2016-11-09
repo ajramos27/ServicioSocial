@@ -11,12 +11,15 @@ class Alumnos extends Admin_Controller {
         }
 
         $this->load->model(array('admin/alumno'));
+        $this->load->model(array('admin/proyecto'));
     }
 
     public function index() {
         $alumnos = $this->alumno->get_all();
+        $proyectos = $this->proyecto->get_all();
 
         $data['alumnos'] = $alumnos;
+        $data['proyectos'] = $proyectos;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_list";
         $this->load->view($this->_container, $data);
     }
@@ -35,6 +38,9 @@ class Alumnos extends Admin_Controller {
 
             redirect('/admin/alumnos', 'refresh');
         }
+
+        $proyectos = $this->proyecto->get_all();
+        $data['proyectos'] = $proyectos;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_create";
         $this->load->view($this->_container, $data);
@@ -56,10 +62,10 @@ class Alumnos extends Admin_Controller {
         }
 
         $alumno = $this->alumno->get($id);
-
-        //$proyecto = $this->proyecto->get_all();
+        $proyectos = $this->proyecto->get_all();
 
         $data['alumno'] = $alumno;
+        $data['proyectos'] = $proyectos;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_edit";
         $this->load->view($this->_container, $data);
     }

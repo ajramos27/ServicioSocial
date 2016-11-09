@@ -49,7 +49,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Dependencia</label>
-                                    <input class="form-control" placeholder="Enter product mode" id="dependencia_id" name="dependencia_id">
+                                    <select class="form-control" id="dependencia_id" name="dependencia_id">
+                                        <?php if (count($dependencias)): ?>
+                                          <?php foreach ($dependencias as $key => $dependencia): ?>
+                                            <option value="<?= $dependencia['id'] ?>"><?= $dependencia['nombre'] ?></option>
+                                          <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>

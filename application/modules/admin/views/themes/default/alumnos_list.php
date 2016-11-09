@@ -41,7 +41,13 @@
                                             <td><?=$list['correo']?></td>
                                             <td><?=$list['facultad']?></td>
                                             <td><?=$list['licenciatura']?></td>
-                                            <td><?=$list['proyecto_id']?></td>
+                                            <td>
+                                              <?php foreach ($proyectos as $key => $proyecto): ?>
+                                                <?php if ($list['proyecto_id'] == $proyecto['id']): ?>
+                                                    <?= $proyecto['descripcion'] ?>
+                                                <?php endif; ?>
+                                              <?php endforeach; ?>
+                                            </td>
                                             <td>
                                                 <a href="<?= base_url('admin/alumnos/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
                                                 <a href="<?= base_url('admin/alumnos/delete/'.$list['id']) ?>" class="btn btn-danger">Eliminar</a>

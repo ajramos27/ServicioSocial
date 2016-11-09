@@ -39,7 +39,13 @@
                                             <td><?=$list['apellidos']?></td>
                                             <td><?=$list['correo']?></td>
                                             <td><?=$list['telefono']?></td>
-                                            <td><?=$list['dependencia_id']?></td>
+                                            <td>
+                                              <?php foreach ($dependencias as $key => $dependencia): ?>
+                                                <?php if ($list['dependencia_id'] == $dependencia['id']): ?>
+                                                    <?= $dependencia['nombre'] ?>
+                                                <?php endif; ?>
+                                              <?php endforeach; ?>
+                                            </td>
                                             <td>
                                                 <a href="<?= base_url('admin/responsables/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
                                                 <a href="<?= base_url('admin/responsables/delete/'.$list['id']) ?>" class="btn btn-danger">Eliminar</a>

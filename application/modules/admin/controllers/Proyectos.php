@@ -11,12 +11,16 @@ class Proyectos extends Admin_Controller {
         }
 
         $this->load->model(array('admin/proyecto'));
+        $this->load->model(array('admin/responsable'));
     }
 
     public function index() {
         $proyectos = $this->proyecto->get_all();
+        $responsables = $this->responsable->get_all();
 
         $data['proyectos'] = $proyectos;
+        $data['responsables'] = $responsables;
+
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "proyectos_list";
         $this->load->view($this->_container, $data);
     }
@@ -30,6 +34,9 @@ class Proyectos extends Admin_Controller {
 
             redirect('/admin/proyectos', 'refresh');
         }
+
+        $responsables = $this->responsable->get_all();
+        $data['responsables'] = $responsables;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "proyectos_create";
         $this->load->view($this->_container, $data);
@@ -46,10 +53,11 @@ class Proyectos extends Admin_Controller {
         }
 
         $proyecto = $this->proyecto->get($id);
-
-        //$proyecto = $this->proyecto->get_all();
+        $responsables = $this->responsable->get_all();        
 
         $data['proyecto'] = $proyecto;
+        $data['responsables'] = $responsables;
+
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "proyectos_edit";
         $this->load->view($this->_container, $data);
     }

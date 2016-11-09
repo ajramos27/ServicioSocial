@@ -53,7 +53,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Proyecto</label>
-                                    <input value="<?= $alumno->proyecto_id ?>" class="form-control" placeholder="Enter product mode" id="proyecto_id" name="proyecto_id">
+                                    <select class="form-control" id="proyecto_id" name="proyecto_id">
+                                        <?php if (count($proyectos)): ?>
+                                            <?php foreach ($proyectos as $key => $proyecto): ?>
+                                                <option value="<?= $proyecto['id'] ?>" <?= ($alumno->proyecto_id == $proyecto['id']) ? 'selected="selected"' : '' ?>> <?= $proyecto['descripcion'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Usuario</label>
