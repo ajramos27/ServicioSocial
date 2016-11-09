@@ -276,8 +276,11 @@
                                 </div>
                                 <!-- /input-group -->
                             </li>
-                            <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                            <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Inicio</a></li>
                             <li><a href="<?= base_url('admin/alumnos') ?>"><i class="fa fa-table fa-fw"></i> Prestadores</a></li>
+                            <li><a href="<?= base_url('admin/responsables') ?>"><i class="fa fa-table fa-fw"></i> Responsables</a></li>
+                            <li><a href="<?= base_url('admin/proyectos') ?>"><i class="fa fa-table fa-fw"></i> Proyectos</a></li>
+                            <li><a href="<?= base_url('admin/dependencias') ?>"><i class="fa fa-table fa-fw"></i> Dependencias</a></li>
                             <li><a href="<?= base_url('admin/brands') ?>"><i class="fa fa-table fa-fw"></i> Brands</a></li>
                             <li><a href="<?= base_url('admin/categories') ?>"><i class="fa fa-edit fa-fw"></i> Categories</a></li>
                             <li><a href="<?= base_url('admin/products') ?>"><i class="fa fa-edit fa-fw"></i> Products</a></li>
