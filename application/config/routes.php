@@ -70,4 +70,9 @@ $route['admin/products'] = 'admin/products';
 $route['admin/products/create'] = 'admin/products/create';
 $route['admin/products/edit/(:any)'] = 'admin/products/edit/$1';
 
+//alumnos routes
+$route['admin/alumnos'] = 'admin/alumnos';
+$route['admin/alumnos/create'] = 'admin/alumnos/create';
+$route['admin/alumnos/edit/(:any)'] = 'admin/alumnos/edit/$1';
+
 $route['brands'] = 'admin/brands/brands_list';

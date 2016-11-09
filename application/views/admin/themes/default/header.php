@@ -277,6 +277,7 @@
                                 <!-- /input-group -->
                             </li>
                             <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                            <li><a href="<?= base_url('admin/alumnos') ?>"><i class="fa fa-table fa-fw"></i> Prestadores</a></li>
                             <li><a href="<?= base_url('admin/brands') ?>"><i class="fa fa-table fa-fw"></i> Brands</a></li>
                             <li><a href="<?= base_url('admin/categories') ?>"><i class="fa fa-edit fa-fw"></i> Categories</a></li>
                             <li><a href="<?= base_url('admin/products') ?>"><i class="fa fa-edit fa-fw"></i> Products</a></li>
