@@ -75,4 +75,13 @@ class Alumnos extends Admin_Controller {
 
         redirect('/admin/alumnos', 'refresh');
     }
+
+    public function view($id){
+
+      $alumno = $this->alumno->get($id);
+      $data['alumno'] = $alumno;
+      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_view";
+      $this->load->view($this->_container, $data);
+
+    }
 }

@@ -49,7 +49,8 @@
                                               <?php endforeach; ?>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url('admin/alumnos/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
+                                                <a href="<?= base_url('admin/alumnos/view/'.$list['id']) ?>" class="btn btn-info">Ver</a>
+                                                <a href="<?= base_url('admin/alumnos/edit/'.$list['id']) ?>" class="btn btn-warning">Editar</a>
                                                 <a href="<?= base_url('admin/alumnos/delete/'.$list['id']) ?>" class="btn btn-danger">Eliminar</a>
                                             </td>
                                         </tr>
