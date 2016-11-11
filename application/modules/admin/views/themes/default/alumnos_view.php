@@ -49,21 +49,94 @@
                                 <td><?= $alumno->licenciatura ?></td>
                                 </tr>
 
-                                <tr>
-                                <th>Proyecto:</th>
-                                <td><?= $alumno->proyecto_id ?></td>
-                                </tr>
-                                <tr>
+                                <?php if (count($proyectos)): ?>
+                                    <?php foreach ($proyectos as $key => $proyecto): ?>
+                                        <?php if ($alumno->proyecto_id == $proyecto['id']): ?>
+                                          <tr>
+                                          <th>Proyecto:</th>
+                                          <td><?= $proyecto['descripcion'] ?></td>
+                                          </tr>
+                                          <tr>
 
-                                <th>Responsable:</th>
-                                <td><?= $alumno->nombres ?></td>
-                                </tr>
-
-
+                                          <th>Responsable:</th>
+                                          <td><?= $proyecto['responsable_id'] ?></td>
+                                          </tr>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
 
                             </table>
                           </center>
+
+
                         </div>
+                        <?php if (count($formularios)): ?>
+                            <?php foreach ($formularios as $key => $list): ?>
+
+                              <div class="col-lg-8 col-lg-offset-2">
+                                <center>
+                                <br><br>
+                                  <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Conducta</th>
+                                            <th>Evaluación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th>1</th>
+                                        <td>Asistió puntualmente.</td>
+                                        <td><?=$list['asistePuntual']?> </td>
+                                        </tr>
+                                      <tr>
+                                        <th>2</th>
+                                        <td>Cumple el horario establecido para la realización del servicio social
+                                        o en su defecto, notifica la necesidad de modificar su horario.</td>
+                                        <td><?=$list['cumpleHorario']?> </td>
+                                        </tr>
+                                      <tr>
+                                        <th>3</th>
+                                        <td>Demuestra organización en el desarrollo de las actividades.</td>
+                                        <td><?=$list['demuestraOrganizacion']?> </td>
+                                      </tr>
+                                      <tr>
+                                        <th>4</th>
+                                        <td>Demuestra competencias (genéricas o específicas ) propias de su
+                                        perfil profesional (LE-LEII)</td>
+                                        <td><?=$list['demuestraCompetencias']?> </td>
+                                      </tr>
+                                      <tr>
+                                        <th>5</th>
+                                        <td>Optimiza los recursos con los que cuenta la unidad receptora para
+                                        la realización de las actividades propias del servicio social.</td>
+                                        <td><?=$list['optimizaRecursos']?> </td>
+                                      </tr>
+                                      <tr>
+                                        <th>6</th>
+                                        <td>Establece relaciones favorables con los responsables del proyecto
+                                        y del prestador o con quienes interactúa.</td>
+                                        <td><?=$list['estableceRelaciones']?> </td>
+                                      </tr>
+                                      <tr>
+                                        <th>7</th>
+                                        <td>Atiende las indicaciones que se le proporcionan.</td>
+                                        <td><?=$list['atiendeIndicaciones']?> </td>
+                                      </tr>
+                                      <tr>
+                                        <th>8</th>
+                                        <td>Observaciones.</td>
+                                        <td><?=$list['observaciones']?> </td>
+                                      </tr>
+                                    </tbody>
+
+                                  </table>
+                                </center>
+                              </div>
+
+                            <?php endforeach; ?>
+                        <?php endif; ?>
 
 
                     </div>
