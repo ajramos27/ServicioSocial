@@ -12,7 +12,9 @@
         <title>CI My Admin</title>
 
         <!-- Bootstrap Core CSS -->
+
         <link href="<?= base_url() ?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
         <link href="<?= base_url() ?>assets/admin/css/metisMenu.min.css" rel="stylesheet">
@@ -27,6 +29,9 @@
 
         <!-- Custom Fonts -->
         <link href="<?= base_url() ?>assets/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -281,6 +286,7 @@
                             <li><a href="<?= base_url('admin/responsables') ?>"><i class="fa fa-table fa-fw"></i> Responsables</a></li>
                             <li><a href="<?= base_url('admin/proyectos') ?>"><i class="fa fa-table fa-fw"></i> Proyectos</a></li>
                             <li><a href="<?= base_url('admin/dependencias') ?>"><i class="fa fa-table fa-fw"></i> Dependencias</a></li>
+                            <li><a href="<?= base_url('admin/accesoresponsable') ?>"><i class="fa fa-table fa-fw"></i> Proyectos y Alumnos</a></li>
                             <?php if ($this->is_admin): ?>
                             <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
                             <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-edit fa-fw"></i> Users</a></li>

@@ -15,6 +15,7 @@ if (!defined('BASEPATH'))
  class Admin_Controller extends MY_Controller {
      public $is_admin;
      public $logged_in_name;
+     public $logged_in_id;
 
      function __construct() {
          parent::__construct();
@@ -32,6 +33,7 @@ if (!defined('BASEPATH'))
          $this->is_admin = $this->ion_auth->is_admin();
          $user = $this->ion_auth->user()->row();
          $this->logged_in_name = $user->first_name;
+         $this->logged_in_id = $user->id;
 
          log_message('debug', 'CI My Admin : Admin_Controller class loaded');
      }
