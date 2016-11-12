@@ -58,8 +58,8 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
-                                        <td>No data</a>
-                                        </td>
+                                        <td>No data</td>
+                                        <td></td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>

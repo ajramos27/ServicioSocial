@@ -28,23 +28,22 @@
                         <div class="col-lg-6">
                             <form role="form" method="POST" action="<?=base_url('admin/dependencias/edit/'.$dependencia->id)?>">
                                 <div class="form-group">
-                                    <label>Brand Id Input</label>
-                                    <input class="form-control" value="<?=$dependencia->id?>" placeholder="Auto generated" disabled="1">
+                                    <input type="hidden" class="form-control" value="<?=$dependencia->id?>" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
                                     <label>Nombre de la dependencia</label>
-                                    <input class="form-control" value="<?=$dependencia->nombre?>" placeholder="Enter dependencia description" id="nombre" name="nombre">
+                                    <input class="form-control" value="<?=$dependencia->nombre?>" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label>Dirección</label>
-                                    <input class="form-control" value="<?=$dependencia->direccion?>" placeholder="Enter dependencia description" id="direccion" name="direccion">
+                                    <input class="form-control" value="<?=$dependencia->direccion?>" id="direccion" name="direccion">
                                 </div>
                                 <div class="form-group">
                                     <label>Teléfono</label>
-                                    <input class="form-control" value="<?=$dependencia->telefono?>" placeholder="Enter dependencia description" id="telefono" name="telefono">
+                                    <input class="form-control" value="<?=$dependencia->telefono?>" id="telefono" name="telefono">
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Submit Button</button>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
                             </form>
                         </div>
 

@@ -4,7 +4,7 @@
             <div class="page-header users-header">
                 <h2>
                     User Groups
-                    <a  href="<?= base_url('admin/user-groups/create') ?>" class="btn btn-success">Add New</a>
+                    <a  href="<?= base_url('admin/usergroups/create') ?>" class="btn btn-success">Add New</a>
                 </h2>
             </div>
         </div>
@@ -26,8 +26,6 @@
                                     <th>Group ID</th>
                                     <th>Name</th>
                                     <th>Description</th>
-                                    <th>Created From IP</th>
-                                    <th>Updated From IP</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -38,11 +36,9 @@
                                             <td><?=$group->id?></td>
                                             <td><?=$group->name?></td>
                                             <td><?=$group->description?></td>
-                                            <td><?=$group->created_from_ip?></td>
-                                            <td><?=$group->updated_from_ip?></td>
                                             <td>
-                                                <a href="<?= base_url('admin/user-groups/edit/'.$group->id) ?>" class="btn btn-info">edit</a>  
-                                                <a href="<?= base_url('admin/user-groups/delete/'.$group->id) ?>" class="btn btn-danger">delete</a>
+                                                <a href="<?= base_url('admin/usergroups/edit/'.$group->id) ?>" class="btn btn-info">edit</a>
+                                                <a href="<?= base_url('admin/usergroups/delete/'.$group->id) ?>" class="btn btn-danger">delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -54,22 +50,13 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>
-                                            <a href="#" class="btn btn-info">edit</a>  
+                                            <a href="#" class="btn btn-info">edit</a>
                                             <a href="#" class="btn btn-danger">delete</a>
                                         </td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
-                            <tfooter>
-                                <tr>
-                                    <th>Group ID</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Created From IP</th>
-                                    <th>Updated From IP</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfooter>
+
                         </table>
                     </div>
                 </div>

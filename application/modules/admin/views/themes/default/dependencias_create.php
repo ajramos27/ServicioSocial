@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Dependencias
-                <a  href="<?= base_url('admin/brands') ?>" class="btn btn-warning">Go back to brands listing</a>
+                <a  href="<?= base_url('admin/dependencias') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->
@@ -28,20 +28,19 @@
                         <div class="col-lg-6">
                             <form role="form" method="POST" action="<?=base_url('admin/dependencias/create')?>">
                                 <div class="form-group">
-                                    <label>Id</label>
-                                    <input class="form-control" placeholder="Auto generated" disabled="1">
+                                    <input type="hidden" class="form-control" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
-                                    <label>Nombre de la dependencia</label>
-                                    <input class="form-control" placeholder="Enter brand description" id="nombre" name="nombre">
+                                    <label>Nombre de la dependencia:</label>
+                                    <input class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
-                                    <label>Dirección</label>
-                                    <input class="form-control" placeholder="Enter brand description" id="direccion" name="direccion">
+                                    <label>Dirección:</label>
+                                    <input class="form-control" id="direccion" name="direccion">
                                 </div>
                                 <div class="form-group">
-                                    <label>Teléfono</label>
-                                    <input class="form-control" placeholder="Enter brand description" id="telefono" name="telefono">
+                                    <label>Teléfono:</label>
+                                    <input class="form-control" id="telefono" name="telefono">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>

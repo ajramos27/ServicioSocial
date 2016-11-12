@@ -6,7 +6,7 @@ class UserGroups extends Admin_Controller {
         parent::__construct();
 
         $group = 'admin';
-        
+
         if (!$this->ion_auth->in_group($group))
         {
             $this->session->set_flashdata('message', 'You must be an administrator to view the user groups page.');
@@ -14,7 +14,7 @@ class UserGroups extends Admin_Controller {
         }
     }
 
-    public function index() {    
+    public function index() {
         $groups = $this->ion_auth->groups()->result();
 
         $data['groups'] = $groups;
@@ -35,7 +35,7 @@ class UserGroups extends Admin_Controller {
             }
             else
             {
-                redirect('/admin/user-groups', 'refresh');
+                redirect('/admin/usergroups', 'refresh');
             }
         }
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "groups_create";
@@ -49,7 +49,7 @@ class UserGroups extends Admin_Controller {
 
             $group_update = $this->ion_auth->update_group($id, $name, $description);
 
-            redirect('/admin/user-groups', 'refresh');
+            redirect('/admin/usergroups', 'refresh');
         }
 
         $group =  $this->ion_auth->group($id)->row();
@@ -62,6 +62,6 @@ class UserGroups extends Admin_Controller {
     public function delete($id) {
         $group_delete = $this->ion_auth->delete_group($id);
 
-        redirect('/admin/user-groups', 'refresh');
+        redirect('/admin/usergroups', 'refresh');
     }
 }

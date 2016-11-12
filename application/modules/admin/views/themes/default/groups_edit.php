@@ -18,7 +18,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" method="POST" action="<?=base_url('admin/user-groups/edit/'.$group->id)?>">
+                            <form role="form" method="POST" action="<?=base_url('admin/usergroups/edit/'.$group->id)?>">
                                 <div class="form-group">
                                     <label>Group Id</label>
                                     <input class="form-control" value="<?=$group->id?>" placeholder="Auto generated" disabled="1">

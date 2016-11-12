@@ -28,27 +28,26 @@
                         <div class="col-lg-6">
                             <form role="form" method="POST" action="<?=base_url('admin/responsables/edit/'.$responsable->id)?>">
                                 <div class="form-group">
-                                    <label>Id Input</label>
-                                    <input class="form-control" value="<?=$responsable->id?>" placeholder="Auto generated" disabled="1">
+                                    <input type="hidden" class="form-control" value="<?=$responsable->id?>" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
-                                    <label>Nombre(s)</label>
-                                    <input value="<?= $responsable->nombres ?>" class="form-control" placeholder="Enter product name" id="nombres" name="nombres">
+                                    <label>Nombre(s):</label>
+                                    <input value="<?= $responsable->nombres ?>" class="form-control" id="nombres" name="nombres">
                                 </div>
                                 <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input value="<?= $responsable->apellidos ?>" class="form-control" placeholder="Enter product name" id="apellidos" name="apellidos">
+                                    <label>Apellidos:</label>
+                                    <input value="<?= $responsable->apellidos ?>" class="form-control" id="apellidos" name="apellidos">
                                 </div>
                                 <div class="form-group">
-                                    <label>Correo</label>
-                                    <input value="<?= $responsable->correo ?>"  class="form-control" placeholder="Enter product mode" id="correo" name="correo">
+                                    <label>Correo:</label>
+                                    <input value="<?= $responsable->correo ?>"  class="form-control" id="correo" name="correo">
                                 </div>
                                 <div class="form-group">
-                                    <label>Telefono</label>
-                                    <input value="<?= $responsable->telefono ?>"class="form-control" placeholder="Enter product mode" id="telefono" name="telefono">
+                                    <label>Teléfono:</label>
+                                    <input value="<?= $responsable->telefono ?>"class="form-control" id="telefono" name="telefono">
                                 </div>
                                 <div class="form-group">
-                                    <label>Dependencia</label>
+                                    <label>Dependencia:</label>
                                     <select class="form-control" id="dependencia_id" name="dependencia_id">
                                         <?php if (count($dependencias)): ?>
                                           <?php foreach ($dependencias as $key => $dependencia): ?>
@@ -58,8 +57,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Usuario</label>
-                                    <input value="<?= $responsable->usuario_id ?>" class="form-control" placeholder="Enter product mode" id="usuario_id" name="usuario_id">
+                                    <label>Usuario:</label>
+                                    <input value="<?= $responsable->usuario_id ?>" class="form-control" id="usuario_id" name="usuario_id">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Actualizar</button>

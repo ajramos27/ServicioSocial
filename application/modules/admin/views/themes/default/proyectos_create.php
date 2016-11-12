@@ -28,16 +28,21 @@
                         <div class="col-lg-6">
                             <form role="form" method="POST" action="<?=base_url('admin/proyectos/create')?>">
                                 <div class="form-group">
-                                    <label>Id</label>
-                                    <input class="form-control" placeholder="Auto generated" disabled="1">
+                                    <input type="hidden" class="form-control" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
-                                    <label>Descripción</label>
-                                    <input class="form-control" placeholder="Enter product name" id="descripcion" name="descripcion">
+                                    <label>Descripción:</label>
+                                    <input class="form-control" id="descripcion" name="descripcion">
                                 </div>
                                 <div class="form-group">
-                                    <label>Responsable</label>
-                                    <input class="form-control" placeholder="Enter product mode" id="responsable_id" name="responsable_id">
+                                    <label>Responsable:</label>
+                                    <select class="form-control" id="responsable_id" name="responsable_id">
+                                        <?php if (count($responsables)): ?>
+                                            <?php foreach ($responsables as $key => $responsable): ?>
+                                                <option value="<?= $responsable['id'] ?>"><?=$responsable['nombres'].' '.$responsable['apellidos'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>

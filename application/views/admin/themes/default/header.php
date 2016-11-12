@@ -283,7 +283,7 @@
                             <li><a href="<?= base_url('admin/dependencias') ?>"><i class="fa fa-table fa-fw"></i> Dependencias</a></li>
                             <li><a href="<?= base_url('admin/accesoresponsable') ?>"><i class="fa fa-table fa-fw"></i> Proyectos y Alumnos</a></li>
                             <?php if ($this->is_admin): ?>
-                            <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
+                            <li><a href="<?= base_url('admin/usergroups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
                             <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-edit fa-fw"></i> Users</a></li>
                             <?php endif; ?>
                         </ul>

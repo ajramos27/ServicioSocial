@@ -28,31 +28,30 @@
                         <div class="col-lg-6">
                             <form role="form" method="POST" action="<?=base_url('admin/alumnos/create')?>">
                                 <div class="form-group">
-                                    <label>Id</label>
-                                    <input class="form-control" placeholder="Auto generated" disabled="1">
+                                    <input type="hidden" class="form-control" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
-                                    <label>Nombre(s)</label>
-                                    <input class="form-control" placeholder="Enter product name" id="nombres" name="nombres">
+                                    <label>Nombre(s):</label>
+                                    <input class="form-control" id="nombres" name="nombres">
                                 </div>
                                 <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input class="form-control" placeholder="Enter product name" id="apellidos" name="apellidos">
+                                    <label>Apellidos:</label>
+                                    <input class="form-control" id="apellidos" name="apellidos">
                                 </div>
                                 <div class="form-group">
-                                    <label>Correo</label>
-                                    <input class="form-control" placeholder="Enter product mode" id="correo" name="correo">
+                                    <label>Correo:</label>
+                                    <input class="form-control" id="correo" name="correo">
                                 </div>
                                 <div class="form-group">
-                                    <label>Facultad</label>
-                                    <input class="form-control" placeholder="Enter product mode" id="facultad" name="facultad">
+                                    <label>Facultad:</label>
+                                    <input class="form-control" id="facultad" name="facultad">
                                 </div>
                                 <div class="form-group">
-                                    <label>Licenciatura</label>
-                                    <input class="form-control" placeholder="Enter product mode" id="licenciatura" name="licenciatura">
+                                    <label>Licenciatura:</label>
+                                    <input class="form-control" id="licenciatura" name="licenciatura">
                                 </div>
                                 <div class="form-group">
-                                    <label>Proyecto</label>
+                                    <label>Proyecto:</label>
                                     <select class="form-control" id="proyecto_id" name="proyecto_id">
                                         <?php if (count($proyectos)): ?>
                                             <?php foreach ($proyectos as $key => $proyecto): ?>

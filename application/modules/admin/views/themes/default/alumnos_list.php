@@ -25,7 +25,6 @@
                                 <tr>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
-                                    <th>Correo</th>
                                     <th>Facultad</th>
                                     <th>Licenciatura</th>
                                     <th>Proyecto</th>
@@ -38,7 +37,6 @@
                                         <tr class="odd gradeX">
                                             <td><?=$list['nombres']?></td>
                                             <td><?=$list['apellidos']?></td>
-                                            <td><?=$list['correo']?></td>
                                             <td><?=$list['facultad']?></td>
                                             <td><?=$list['licenciatura']?></td>
                                             <td>
@@ -61,8 +59,8 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
-                                        <td>No data</a>
-                                        </td>
+                                        <td>No data</td>
+                                        <td></td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>

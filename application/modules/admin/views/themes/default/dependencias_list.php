@@ -47,10 +47,7 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
-                                        <td>
-                                            <a href="#" class="btn btn-info">edit</a>
-                                            <a href="#" class="btn btn-danger">delete</a>
-                                        </td>
+                                        <td></td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>

@@ -28,31 +28,30 @@
                         <div class="col-lg-6">
                             <form role="form" method="POST" action="<?=base_url('admin/alumnos/edit/'.$alumno->id)?>">
                                 <div class="form-group">
-                                    <label>Id Input</label>
-                                    <input class="form-control" value="<?=$alumno->id?>" placeholder="Auto generated" disabled="1">
+                                    <input type="hidden" class="form-control" value="<?=$alumno->id?>" disabled="1">
                                 </div>
                                 <div class="form-group">
-                                    <label>Nombre(s)</label>
-                                    <input value="<?= $alumno->nombres ?>" class="form-control" placeholder="Enter product name" id="nombres" name="nombres">
+                                    <label>Nombre(s):</label>
+                                    <input value="<?= $alumno->nombres ?>" class="form-control" id="nombres" name="nombres">
                                 </div>
                                 <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input value="<?= $alumno->apellidos ?>" class="form-control" placeholder="Enter product name" id="apellidos" name="apellidos">
+                                    <label>Apellidos:</label>
+                                    <input value="<?= $alumno->apellidos ?>" class="form-control" id="apellidos" name="apellidos">
                                 </div>
                                 <div class="form-group">
-                                    <label>Correo</label>
-                                    <input value="<?= $alumno->correo ?>"  class="form-control" placeholder="Enter product mode" id="correo" name="correo">
+                                    <label>Correo:</label>
+                                    <input value="<?= $alumno->correo ?>"  class="form-control" id="correo" name="correo">
                                 </div>
                                 <div class="form-group">
-                                    <label>Facultad</label>
-                                    <input value="<?= $alumno->facultad ?>" class="form-control" placeholder="Enter product mode" id="facultad" name="facultad">
+                                    <label>Facultad:</label>
+                                    <input value="<?= $alumno->facultad ?>" class="form-control" id="facultad" name="facultad">
                                 </div>
                                 <div class="form-group">
-                                    <label>Licenciatura</label>
-                                    <input value="<?= $alumno->licenciatura ?>" class="form-control" placeholder="Enter product mode" id="licenciatura" name="licenciatura">
+                                    <label>Licenciatura:</label>
+                                    <input value="<?= $alumno->licenciatura ?>" class="form-control" id="licenciatura" name="licenciatura">
                                 </div>
                                 <div class="form-group">
-                                    <label>Proyecto</label>
+                                    <label>Proyecto:</label>
                                     <select class="form-control" id="proyecto_id" name="proyecto_id">
                                         <?php if (count($proyectos)): ?>
                                             <?php foreach ($proyectos as $key => $proyecto): ?>
@@ -62,8 +61,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Usuario</label>
-                                    <input value="<?= $alumno->usuario_id ?>" class="form-control" placeholder="Enter product mode" id="usuario_id" name="usuario_id">
+                                    <label>Usuario:</label>
+                                    <input value="<?= $alumno->usuario_id ?>" class="form-control" id="usuario_id" name="usuario_id">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Actualizar</button>

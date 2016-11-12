@@ -23,8 +23,9 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Descripcion</th>
+                                    <th>Descripción</th>
                                     <th>Responsable</th>
+                                    <th>Dependencia</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -33,13 +34,21 @@
                                     <?php foreach ($proyectos as $key => $list): ?>
                                         <tr class="odd gradeX">
                                             <td><?=$list['descripcion']?></td>
-                                            <td>
+
                                               <?php foreach ($responsables as $key => $responsable): ?>
                                                 <?php if ($list['responsable_id'] == $responsable['id']): ?>
-                                                    <?= $responsable['nombres'].' '.$responsable['apellidos'] ?>
+                                                  <td><?= $responsable['nombres'].' '.$responsable['apellidos'] ?></td>
+                                                    <td>
+                                                    <?php foreach ($dependencias as $key => $dependencia): ?>
+                                                      <?php if ($responsable['dependencia_id'] == $dependencia['id']): ?>
+                                                        <?= $dependencia['nombre']?>
+                                                      <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                    </td>
                                                 <?php endif; ?>
                                               <?php endforeach; ?>
-                                            </td>
+
+
                                             <td>
                                                 <a href="<?= base_url('admin/proyectos/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
                                                 <a href="<?= base_url('admin/proyectos/delete/'.$list['id']) ?>" class="btn btn-danger">Eliminar</a>
@@ -51,6 +60,7 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
+                                        <td></td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
