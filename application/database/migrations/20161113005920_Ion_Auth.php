@@ -68,7 +68,8 @@ class Migration_Ion_auth extends CI_Migration {
             ),
             'salt' => array(
                 'type' => 'VARCHAR',
-                'constraint' => '40'
+                'constraint' => '40',
+                'null' => TRUE
             ),
             'email' => array(
                 'type' => 'VARCHAR',
@@ -178,6 +179,21 @@ class Migration_Ion_auth extends CI_Migration {
                 'type' => 'MEDIUMINT',
                 'constraint' => '8',
                 'unsigned' => TRUE
+            ),
+            'created_from_ip' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'updated_from_ip' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            )
+            ,
+            'date_created' => array(
+                'type' => 'DATETIME'
+            ),
+            'date_updated' => array(
+                'type' => 'DATETIME'
             )
         ));
         $this->dbforge->add_key('id', TRUE);

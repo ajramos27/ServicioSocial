@@ -26,12 +26,28 @@ class Responsables extends Admin_Controller {
 
     public function create() {
         if ($this->input->post('nombres')) {
+            //Crear usuario
+            $username = $this->input->post('correo');
+            $password = $this->input->post('password');
+            $email = $this->input->post('correo');
+            $group_id = array( $this->input->post('group_id'));
+
+            $additional_data = array(
+                'first_name' => $this->input->post('nombres'),
+                'last_name' => $this->input->post('apellidos'),
+                'username' => $this->input->post('correo'),
+                'phone' => $this->input->post('telefono'),
+            );
+
+
+            $user = $this->ion_auth->register($email, $password, $email, $additional_data,$group_id);
+
             $data['nombres'] = $this->input->post('nombres');
             $data['apellidos'] = $this->input->post('apellidos');
             $data['correo'] = $this->input->post('correo');
             $data['telefono'] = $this->input->post('telefono');
             $data['dependencia_id'] = $this->input->post('dependencia_id');
-            $data['usuario_id'] = $this->input->post('usuario_id');
+            $data['usuario_id'] = $user;
 
             $this->responsable->insert($data);
 
@@ -41,6 +57,7 @@ class Responsables extends Admin_Controller {
         $dependencias = $this->dependencia->get_all();
         $data['dependencias'] = $dependencias;
 
+        $data['groups'] = $this->ion_auth->groups()->result();
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsables_create";
         $this->load->view($this->_container, $data);
     }

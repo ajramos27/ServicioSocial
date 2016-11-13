@@ -939,7 +939,7 @@ class Ion_auth_model extends CI_Model
 
 		$this->trigger_events('post_register');
 
-		return (isset($id)) ? $id : FALSE;
+		return $id;
 	}
 
 	/**

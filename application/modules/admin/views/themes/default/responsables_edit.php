@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h2>
-                Prestadores
+                Responsables
                 <a  href="<?= base_url('admin/responsables') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
@@ -13,7 +13,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Actualizar prestador
+                    Actualizar responsable
                 </div>
                 <div class="panel-body">
                     <div class="row">
