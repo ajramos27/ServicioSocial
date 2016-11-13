@@ -5,9 +5,16 @@ class Proyectos extends Admin_Controller {
     function __construct() {
         parent::__construct();
 
+        $group = 'admin';
         $this->load->library(array('ion_auth'));
+
         if (!$this->ion_auth->logged_in()) {
             redirect('/auth', 'refresh');
+        }
+
+        if(!$this->ion_auth->in_group($group)){
+          $this->session->set_flashdata('message', 'Solo el administrador puede ver esta sección');
+          redirect('admin/dashboard');
         }
 
         $this->load->model(array('admin/proyecto'));

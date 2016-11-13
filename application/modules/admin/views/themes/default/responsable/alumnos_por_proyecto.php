@@ -48,7 +48,7 @@
                                               <?php endforeach; ?>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url('admin/alumnos/view/'.$list['id']) ?>" class="btn btn-info">Ver</a>
+                                                <a href="<?= base_url('admin/accesoresponsable/viewAlumno/'.$list['id']) ?>" class="btn btn-info">Ver</a>
                                                 <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-toggle="modal" class="open-EvaluacionModal btn btn-info">Evaluar</button>
                                             </td>
                                         </tr>

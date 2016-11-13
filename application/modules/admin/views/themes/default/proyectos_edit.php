@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Responsable:</label>
-                                    <select class="form-control" id="proyecto_id" name="proyecto_id">
+                                    <select class="form-control" id="responsable_id" name="responsable_id">
                                         <?php if (count($responsables)): ?>
                                             <?php foreach ($responsables as $key => $responsable): ?>
                                                 <option value="<?= $responsable['id'] ?>" <?= ($proyecto->responsable_id == $responsable['id']) ? 'selected="selected"' : '' ?>> <?= $responsable['nombres'].' '.$responsable['apellidos'] ?></option>

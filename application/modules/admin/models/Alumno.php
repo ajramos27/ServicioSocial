@@ -23,4 +23,25 @@ class Alumno extends MY_Model {
 
         return $data;
     }
+
+    public function get_by_responsable() {
+        $data = array();
+        $this->db->select('alumnos.id, alumnos.nombres, alumnos.apellidos, alumnos.correo, facultad, licenciatura,
+         proyecto_id, proyectos.descripcion, proyectos.responsable_id,
+         responsables.usuario_id');
+        $this->db->from('alumnos');
+        $this->db->join('proyectos', 'proyectos.id = alumnos.proyecto_id');
+        $this->db->join('responsables', 'proyectos.responsable_id = responsables.id');
+        $Q = $this->db->get();
+
+        if ($Q->num_rows() > 0) {
+            foreach ($Q->result_array() as $row) {
+                $data[] = $row;
+            }
+        }
+
+        $Q->free_result();
+
+        return $data;
+    }
 }

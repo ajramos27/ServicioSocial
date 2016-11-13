@@ -41,7 +41,7 @@
                                                 <?php endforeach; ?>
                                               </td>
                                               <td>
-                                                  <a href="<?= base_url('admin/accesoresponsable/viewalumnos/'.$list['id']) ?>" class="btn btn-info">Alumnos</a>
+                                                  <a href="<?= base_url('admin/adminresponsable/viewalumnos/'.$list['id']) ?>" class="btn btn-info">Alumnos</a>
                                               </td>
                                           </tr>
                                       <?php endif; ?>
