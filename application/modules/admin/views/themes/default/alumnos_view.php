@@ -67,7 +67,7 @@
 
                             </table>
                           </center>
-
+                        <a  href="<?= base_url('admin/alumnos/generarCarta') ?>" class="btn btn-warning">Generar Carta</a>  
 
                         </div>
                         <?php if (count($formularios)): ?>
