@@ -3,8 +3,8 @@
         <div class="col-lg-12">
             <div class="page-header users-header">
                 <h2>
-                    Users
-                    <a  href="<?= base_url('admin/users/create') ?>" class="btn btn-success">Add New</a>
+                    Usuarios
+                    <a  href="<?= base_url('admin/users/create') ?>" class="btn btn-success">Nuevo Usuario</a>
                 </h2>
             </div>
         </div>
@@ -14,9 +14,6 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    User listing
-                </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="dataTable_wrapper">
@@ -43,8 +40,8 @@
                                             <td><?=$user->ip_address?></td>
                                             <td><?=$user->active?></td>
                                             <td>
-                                                <a href="<?= base_url('admin/users/edit/'.$user->id) ?>" class="btn btn-info">edit</a>  
-                                                <a href="<?= base_url('admin/users/delete/'.$user->id) ?>" class="btn btn-danger">delete</a>
+                                                <a href="<?= base_url('admin/users/edit/'.$user->id) ?>" class="btn btn-info">Editar</a>
+                                                <a href="<?= base_url('admin/users/delete/'.$user->id) ?>" class="btn btn-danger">Eliminar</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -57,23 +54,13 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>
-                                            <a href="#" class="btn btn-info">edit</a>  
+                                            <a href="#" class="btn btn-info">edit</a>
                                             <a href="#" class="btn btn-danger">delete</a>
                                         </td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
-                            <tfooter>
-                                <tr>
-                                  <th>ID</th>
-                                    <th>Username</th>
-                                    <th>Fullname</th>
-                                    <th>Email</th>
-                                    <th>IP Address</th>
-                                    <th>Active</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfooter>
+
                         </table>
                     </div>
                 </div>

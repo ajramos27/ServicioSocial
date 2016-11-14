@@ -10,7 +10,7 @@ class Users extends Admin_Controller {
         if (!$this->ion_auth->in_group($group))
         {
             $this->session->set_flashdata('message', 'You must be an administrator to view the users page.');
-            redirect('admin/dashboard');
+            redirect('admin/');
         }
     }
 

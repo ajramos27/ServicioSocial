@@ -14,7 +14,7 @@ class Dependencias extends Admin_Controller {
 
         if(!$this->ion_auth->in_group($group)){
           $this->session->set_flashdata('message', 'Solo el administrador puede ver esta sección');
-          redirect('admin/dashboard');
+          redirect('admin/');
         }
 
         $this->load->model(array('admin/dependencia'));

@@ -22,7 +22,9 @@
 
         <!-- DataTables Responsive CSS -->
         <link href="<?= base_url() ?>assets/admin/css/dataTables.responsive.css" rel="stylesheet">
+
         <!-- Custom CSS -->
+        <link href="<?= base_url() ?>assets/admin/css/styles.css" rel="stylesheet">
         <link href="<?= base_url() ?>assets/admin/css/sb-admin-2.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
@@ -38,6 +40,9 @@
     </head>
 
     <body>
+      <div class="banner">
+        <img src="<?=base_url()?>assets/admin/images/banner.png" alt="" />
+      </div>
 
         <div id="wrapper">
 
@@ -50,211 +55,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?= base_url('admin/dashboard') ?>">Welcome <?=$this->logged_in_name?> | CI My Admin v1.0</a>
-                </div>
+                    </div>
                 <!-- /.navbar-header -->
 
                 <ul class="nav navbar-top-links navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-messages">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <strong>John Smith</strong>
-                                        <span class="pull-right text-muted">
-                                            <em>Yesterday</em>
-                                        </span>
-                                    </div>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <strong>John Smith</strong>
-                                        <span class="pull-right text-muted">
-                                            <em>Yesterday</em>
-                                        </span>
-                                    </div>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <strong>John Smith</strong>
-                                        <span class="pull-right text-muted">
-                                            <em>Yesterday</em>
-                                        </span>
-                                    </div>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>Read All Messages</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-messages -->
-                    </li>
                     <!-- /.dropdown -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-tasks">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <p>
-                                            <strong>Task 1</strong>
-                                            <span class="pull-right text-muted">40% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                                <span class="sr-only">40% Complete (success)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <p>
-                                            <strong>Task 2</strong>
-                                            <span class="pull-right text-muted">20% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                                <span class="sr-only">20% Complete</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <p>
-                                            <strong>Task 3</strong>
-                                            <span class="pull-right text-muted">60% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                <span class="sr-only">60% Complete (warning)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <p>
-                                            <strong>Task 4</strong>
-                                            <span class="pull-right text-muted">80% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                <span class="sr-only">80% Complete (danger)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>See All Tasks</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-tasks -->
-                    </li>
-                    <!-- /.dropdown -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-alerts">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-comment fa-fw"></i> New Comment
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                        <span class="pull-right text-muted small">12 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-tasks fa-fw"></i> New Task
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-alerts -->
-                    </li>
-                    <!-- /.dropdown -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-user fa-fw"></i><?=$this->logged_in_name?> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a></li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Opciones</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                            <li><a href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a></li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
@@ -265,29 +80,23 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                                <!-- /input-group -->
-                            </li>
-                            <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Inicio</a></li>
+                            <li><a href="<?= base_url('admin/') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
                             <?php if ($this->is_admin): ?>
-                            <li><a href="<?= base_url('admin/alumnos') ?>"><i class="fa fa-table fa-fw"></i> Prestadores</a></li>
-                            <li><a href="<?= base_url('admin/responsables') ?>"><i class="fa fa-table fa-fw"></i> Responsables</a></li>
-                            <li><a href="<?= base_url('admin/proyectos') ?>"><i class="fa fa-table fa-fw"></i> Proyectos</a></li>
-                            <li><a href="<?= base_url('admin/dependencias') ?>"><i class="fa fa-table fa-fw"></i> Dependencias</a></li>
-                            <li><a href="<?= base_url('admin/accesoresponsable') ?>"><i class="fa fa-table fa-fw"></i> Proyectos y Alumnos</a></li>
-                            <li><a href="<?= base_url('admin/usergroups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
-                            <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-edit fa-fw"></i> Users</a></li>
+                              <li><a href="#"><i class="fa fa-chevron-down fa-fw"></i> Menú Administrador<span class="fa arrow"></span></a>
+                                  <ul class="nav nav-second-level">
+                                    <li><a href="<?= base_url('admin/alumnos') ?>"><i class="fa fa-user fa-fw"></i> Prestadores</a></li>
+                                    <li><a href="<?= base_url('admin/responsables') ?>"><i class="fa fa-user fa-fw"></i> Responsables</a></li>
+                                    <li><a href="<?= base_url('admin/proyectos') ?>"><i class="fa fa-book fa-fw"></i> Proyectos</a></li>
+                                    <li><a href="<?= base_url('admin/dependencias') ?>"><i class="fa fa-university fa-fw"></i> Dependencias</a></li>
+                                    <li><a href="<?= base_url('admin/usergroups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
+                                    <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-users fa-fw"></i> Usuarios</a></li>
+                                  </ul>
+                              </li>
                             <?php endif; ?>
-                            <li><a href="<?= base_url('admin/adminresponsable/listProyectos') ?>"><i class="fa fa-table fa-fw"></i> Proyectos</a></li>
-                            <li><a href="<?= base_url('admin/adminresponsable/listAllAlumnos') ?>"><i class="fa fa-table fa-fw"></i> Alumnos</a></li>
+                            <li><a href="<?= base_url('admin/adminresponsable/listAllAlumnos') ?>"><i class="fa fa-user fa-fw"></i> Lista de Prestadores</a></li>
+                            <li><a href="<?= base_url('admin/adminresponsable/listProyectos') ?>"><i class="fa fa-book fa-fw"></i> Lista de Proyectos</a></li>
+
+
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->

@@ -17,16 +17,9 @@ class AdminResponsable extends Admin_Controller {
     }
 
     public function index() {
-        $proyectos = $this->proyecto->get_all();
-        $responsables = $this->responsable->get_all();
-        $proyectosresponsables = $this->proyecto->get_all_responsable();
 
-        $data['proyectos'] = $proyectos;
-        $data['responsables'] = $responsables;
-        $data['proyectosresponsables'] = $proyectosresponsables;
-
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/proyectos_list";
-        $this->load->view($this->_container, $data);
+      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/home";
+      $this->load->view($this->_container, $data);
     }
 
     public function listProyectos() {
@@ -45,13 +38,11 @@ class AdminResponsable extends Admin_Controller {
     public function listAlumnos($id) {
         $proyectos = $this->proyecto->get_all();
         $alumnos = $this->alumno->get_by_proyecto($id);
-        $proyectosresponsables = $this->proyecto->get_all_responsable();
-        $alumnosproyectos = $this->proyecto->get_all_proyectos();
 
         $data['alumnos'] = $alumnos;
         $data['proyectos'] = $proyectos;
 
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_proyecto";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_por_proyecto";
         $this->load->view($this->_container, $data);
     }
 
@@ -64,7 +55,7 @@ class AdminResponsable extends Admin_Controller {
       $data['formularios'] = $formularios;
       $data['alumno'] = $alumno;
       $data['proyectos'] = $proyectos;
-      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_view";
+      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_view_one";
       $this->load->view($this->_container, $data);
     }
 
@@ -73,7 +64,7 @@ class AdminResponsable extends Admin_Controller {
         $proyectos = $this->proyecto->get_all();
         $alumnos = $this->alumno->get_by_responsable();
         $responsables = $this->responsable->get_all();
-        
+
         $data['alumnos'] = $alumnos;
         $data['proyectos'] = $proyectos;
         $data['responsables'] = $responsables;

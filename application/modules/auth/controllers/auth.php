@@ -18,7 +18,7 @@ class Auth extends MY_Controller {
 
     public function index() {
         if ($this->ion_auth->logged_in()) {
-            redirect('admin/dashboard', 'refresh');
+            redirect('admin/', 'refresh');
         } else {
             $data['page'] = $this->config->item('ci_my_admin_template_dir_public') . "login_form";
             $data['module'] = 'auth';
@@ -36,7 +36,11 @@ class Auth extends MY_Controller {
 
             if ($this->ion_auth->login($this->input->post('email'), $this->input->post('password'), $remember)) {
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect('/admin/dashboard', 'refresh');
+                if($this->ion_auth->is_admin()){
+                redirect('/admin', 'refresh');
+              } else{
+                redirect('/admin/adminresponsable', 'refresh');
+              }
             } else {
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
                 redirect('auth', 'refresh');

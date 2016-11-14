@@ -40,7 +40,7 @@ class Formularios extends Admin_Controller {
 
             $this->formulario->insert($data);
 
-            redirect('/admin/accesoresponsable/viewalumnos/'.$id, 'refresh');
+            redirect('/admin/adminresponsable/listAlumnos/'.$id, 'refresh');
 
         }
 
@@ -84,5 +84,27 @@ class Formularios extends Admin_Controller {
       $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_view";
       $this->load->view($this->_container, $data);
 
+    }
+
+    public function create2() {
+        if ($this->input->post('alumno_id')) {
+            $data['alumno_id'] = $this->input->post('alumno_id');
+            $data['asistePuntual'] = $this->input->post('asistePuntual');
+            $data['cumpleHorario'] = $this->input->post('cumpleHorario');
+            $data['demuestraOrganizacion'] = $this->input->post('demuestraOrganizacion');
+            $data['demuestraCompetencias'] = $this->input->post('demuestraCompetencias');
+            $data['optimizaRecursos'] = $this->input->post('optimizaRecursos');
+            $data['estableceRelaciones'] = $this->input->post('estableceRelaciones');
+            $data['atiendeIndicaciones'] = $this->input->post('atiendeIndicaciones');
+            $data['observaciones'] = $this->input->post('observaciones');
+
+            $this->formulario->insert($data);
+
+            redirect('/admin/adminresponsable/listAllAlumnos/', 'refresh');
+
+        }
+
+        //$data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "formularios_create";
+        //$this->load->view($this->_container, $data);
     }
 }

@@ -1,6 +1,10 @@
 </div>
 <!-- /#wrapper -->
 
+<div class="footer">
+  <p>© Todos los Derechos Reservados Facultad de Educación, UADY.
+</p>
+</div>
 <!-- jQuery -->
 <script src="<?= base_url() ?>assets/admin/js/jquery.min.js"></script>
 
