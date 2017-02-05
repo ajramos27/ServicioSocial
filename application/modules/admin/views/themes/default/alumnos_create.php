@@ -44,11 +44,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Facultad:</label>
-                                    <input class="form-control" id="facultad" name="facultad">
+                                    <select class="form-control" id="facultad" name="facultad">
+                                      <option>Educación</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Licenciatura:</label>
-                                    <input class="form-control" id="licenciatura" name="licenciatura">
+                                    <select class="form-control" id="licenciatura" name="licenciatura">
+                                      <option>Educación</option>
+                                      <option>Enseñanza del idioma inglés</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Proyecto:</label>

@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>CI My Admin</title>
+        <title>Servicio Social UADY</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="<?= base_url() ?>assets/admin/css/bootstrap.min.css" rel="stylesheet">

@@ -57,18 +57,21 @@
                                           <td><?= $proyecto['descripcion'] ?></td>
                                           </tr>
                                           <tr>
-
+                                    <?php foreach ($responsables as $key => $responsable): ?>
+                                        <?php if ($responsable['id'] == $proyecto['responsable_id']): ?>
                                           <th>Responsable:</th>
-                                          <td><?= $proyecto['responsable_id'] ?></td>
+                                          <td><?= $responsable['nombres'].' '.$responsable['apellidos'] ?></td>
                                           </tr>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
 
                             </table>
                           </center>
-                        <a  href="<?= base_url('admin/alumnos/generarCarta') ?>" class="btn btn-warning">Generar Carta</a>  
-
+                        <a  href="<?= base_url('admin/alumnos/generarCarta') ?>" class="btn btn-warning">Generar Carta</a>
+                        <a  href="" class="btn btn-warning">Finalizar Servicio</a>
                         </div>
                         <?php if (count($formularios)): ?>
                             <?php foreach ($formularios as $key => $list): ?>

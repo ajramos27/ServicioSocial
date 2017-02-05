@@ -92,6 +92,7 @@ class Alumnos extends Admin_Controller {
 
       $alumno = $this->alumno->get($id);
       $proyectos = $this->proyecto->get_all();
+      $responsables = $this->responsable->get_all();
       $formularios = $this->formulario->get_formularios_by_alumno($id);
       $dompdf = new Dompdf();
 
@@ -99,6 +100,7 @@ class Alumnos extends Admin_Controller {
       $data['formularios'] = $formularios;
       $data['alumno'] = $alumno;
       $data['proyectos'] = $proyectos;
+      $data['responsables'] = $responsables;
       $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_view";
 
       $this->load->view($this->_container, $data);

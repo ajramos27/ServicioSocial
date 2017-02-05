@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
+<title>Servicio Social UADY</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="<?=base_url()?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
