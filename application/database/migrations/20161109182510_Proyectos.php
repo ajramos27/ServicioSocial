@@ -13,6 +13,18 @@ class Migration_Proyectos extends CI_Migration {
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
+            'licenciaturas' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'vigencia' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'tipo' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
             'responsable_id' => array(
                 'type' => 'INT',
                 'constraint' => 11

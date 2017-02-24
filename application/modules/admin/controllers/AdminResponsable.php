@@ -1,27 +1,30 @@
 <?php
-
+//Controlador de la seccion de Responsables
 class AdminResponsable extends Admin_Controller {
 
     function __construct() {
         parent::__construct();
 
+        //Si no esta logeado enviar a auth
         $this->load->library(array('ion_auth'));
         if (!$this->ion_auth->logged_in()) {
             redirect('/auth', 'refresh');
         }
 
+        //Cargar modelos que se utilizan
         $this->load->model(array('admin/proyecto'));
         $this->load->model(array('admin/responsable'));
         $this->load->model(array('admin/alumno'));
         $this->load->model(array('admin/formulario'));
     }
 
+    //Index
     public function index() {
-
       $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/home";
       $this->load->view($this->_container, $data);
     }
 
+    //Lista los proyectos pertenecientes al responsable
     public function listProyectos() {
         $proyectos = $this->proyecto->get_all();
         $responsables = $this->responsable->get_all();
@@ -35,6 +38,7 @@ class AdminResponsable extends Admin_Controller {
         $this->load->view($this->_container, $data);
     }
 
+    //Lista los alumnos pertenecientes a cada proyecto del responsable
     public function listAlumnos($id) {
         $proyectos = $this->proyecto->get_all();
         $alumnos = $this->alumno->get_by_proyecto($id);
@@ -46,6 +50,7 @@ class AdminResponsable extends Admin_Controller {
         $this->load->view($this->_container, $data);
     }
 
+    //Ver alumno
     public function viewAlumno($id) {
       $alumno = $this->alumno->get($id);
       $proyectos = $this->proyecto->get_all();
@@ -61,6 +66,7 @@ class AdminResponsable extends Admin_Controller {
       $this->load->view($this->_container, $data);
     }
 
+    //Lista los alumnos pertenecientes a todos los proyectos del responsable
     public function listAllAlumnos() {
 
         $proyectos = $this->proyecto->get_all();
