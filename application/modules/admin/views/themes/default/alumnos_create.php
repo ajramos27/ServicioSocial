@@ -60,7 +60,7 @@
                                     <select class="form-control" id="proyecto_id" name="proyecto_id">
                                         <?php if (count($proyectos)): ?>
                                             <?php foreach ($proyectos as $key => $proyecto): ?>
-                                                <option value="<?= $proyecto['id'] ?>"><?= $proyecto['descripcion'] ?></option>
+                                                <option value="<?= $proyecto['id'] ?>"><?= $proyecto['nombre'] ?></option>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                     </select>

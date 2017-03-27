@@ -19,7 +19,7 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Descripción</th>
+                                    <th>Nombre</th>
                                     <th>Responsable</th>
                                     <th>Dependencia</th>
                                     <th>Acciones</th>
@@ -29,7 +29,7 @@
                                 <?php if (count($proyectos)): ?>
                                     <?php foreach ($proyectos as $key => $list): ?>
                                         <tr class="odd gradeX">
-                                            <td><?=$list['descripcion']?></td>
+                                            <td><?=$list['nombre']?></td>
 
                                               <?php foreach ($responsables as $key => $responsable): ?>
                                                 <?php if ($list['responsable_id'] == $responsable['id']): ?>

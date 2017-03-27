@@ -59,7 +59,7 @@ class Migration_Responsables extends CI_Migration {
             'correo' => 'alfredo@gmail.com',
             'telefono' => '1234456',
             'dependencia_id' => '1',
-            'usuario_id' => '3',
+            'usuario_id' => '1',
         );
         $this->db->insert('responsables', $data);
     }

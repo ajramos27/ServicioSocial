@@ -29,7 +29,7 @@
                                     <?php foreach ($proyectosresponsables as $key => $list): ?>
                                       <?php if ($this->logged_in_id == $list['usuario_id']): ?>
                                           <tr class="odd gradeX">
-                                              <td><?=$list['descripcion']?></td>
+                                              <td><?=$list['nombre']?></td>
                                               <td>
                                                 <?php foreach ($responsables as $key => $responsable): ?>
                                                   <?php if ($list['responsable_id'] == $responsable['id']): ?>

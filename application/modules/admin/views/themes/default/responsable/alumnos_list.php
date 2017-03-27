@@ -38,7 +38,7 @@
                                             <td>
                                               <?php foreach ($proyectos as $key => $proyecto): ?>
                                                 <?php if ($list['proyecto_id'] == $proyecto['id']): ?>
-                                                    <?= $proyecto['descripcion'] ?>
+                                                    <?= $proyecto['nombre'] ?>
                                                 <?php endif; ?>
                                               <?php endforeach; ?>
                                             </td>

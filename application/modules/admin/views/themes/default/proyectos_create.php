@@ -31,8 +31,8 @@
                                     <input type="hidden" class="form-control" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
-                                    <label>Descripción:</label>
-                                    <input class="form-control" id="descripcion" name="descripcion">
+                                    <label>Nombre:</label>
+                                    <input class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label>Responsable:</label>
@@ -43,6 +43,19 @@
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Licenciaturas:</label> <br>
+                                    <input type="checkbox" id="licEdu" name="licEdu" value="1">Educacion<br>
+                                    <input type="checkbox" id="licEi" name="licEi" value="1">Ensenanza Ingles<br>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tipo:</label>
+                                    <input class="form-control" id="tipo" name="tipo">
+                                </div>
+                                <div class="form-group">
+                                    <label>Vigencia:</label>
+                                    <input class="form-control" id="vigencia" name="vigencia">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>

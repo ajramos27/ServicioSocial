@@ -36,9 +36,13 @@ class Proyectos extends Admin_Controller {
     }
 
     public function create() {
-        if ($this->input->post('descripcion')) {
-            $data['descripcion'] = $this->input->post('descripcion');
+        if ($this->input->post('nombre')) {
+            $data['nombre'] = $this->input->post('nombre');
             $data['responsable_id'] = $this->input->post('responsable_id');
+            $data['licEdu'] = $this->input->post('licEdu');
+            $data['licEi'] = $this->input->post('licEi');
+            $data['tipo'] = $this->input->post('tipo');
+            $data['vigencia'] = $this->input->post('vigencia');
 
             $this->proyecto->insert($data);
 
@@ -53,8 +57,8 @@ class Proyectos extends Admin_Controller {
     }
 
     public function edit($id) {
-        if ($this->input->post('descripcion')) {
-            $data['descripcion'] = $this->input->post('descripcion');
+        if ($this->input->post('nombre')) {
+            $data['nombre'] = $this->input->post('nombre');
             $data['responsable_id'] = $this->input->post('responsable_id');
 
             $this->proyecto->update($data, $id);

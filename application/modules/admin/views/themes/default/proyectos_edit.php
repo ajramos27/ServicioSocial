@@ -31,8 +31,8 @@
                                     <input type="hidden" class="form-control" value="<?=$proyecto->id?>" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
-                                    <label>Descripción:</label>
-                                    <input value="<?=$proyecto->descripcion?>" class="form-control" id="descripcion" name="descripcion">
+                                    <label>Nombre:</label>
+                                    <input value="<?=$proyecto->nombre?>" class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label>Responsable:</label>
@@ -43,6 +43,30 @@
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                     </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Licenciaturas:</label> <br>
+
+                                    <?php if($proyecto->licEdu): ?>
+                                    <input type="checkbox" id="licEdu" name="licEdu" value="1" checked>Educacion<br>
+                                    <?php else : ?>
+                                    <input type="checkbox" id="licEdu" name="licEdu" value="1">Educacion<br>
+                                    <?php endif; ?>
+
+                                    <?php if($proyecto->licEi): ?>
+                                    <input type="checkbox" id="licEi" name="licEi" value="1" checked>Enseñanza Ingles<br>
+                                    <?php else : ?>
+                                    <input type="checkbox" id="licEi" name="licEi" value="1">Enseñanza Ingles<br>
+                                    <?php endif; ?>                                
+                                </div>
+                                <div class="form-group">
+                                    <label>Tipo:</label>
+                                    <input value="<?=$proyecto->tipo?>" class="form-control" id="tipo" name="tipo">
+                                </div>
+                                <div class="form-group">
+                                    <label>Vigencia:</label>
+                                    <input value="<?=$proyecto->vigencia?>" class="form-control" id="vigencia" name="vigencia">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Actualizar</button>

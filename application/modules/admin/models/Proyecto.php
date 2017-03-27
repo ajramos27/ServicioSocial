@@ -8,7 +8,7 @@ class Proyecto extends MY_Model {
 
     public function get_all_responsable() {
         $data = array();
-        $this->db->select('proyectos.id, descripcion, responsable_id, responsables.usuario_id');
+        $this->db->select('proyectos.id, nombre, responsable_id, responsables.usuario_id');
         $this->db->from('proyectos');
         $this->db->join('responsables', 'responsables.id = proyectos.responsable_id');
         $Q = $this->db->get();

@@ -54,7 +54,7 @@
                                         <?php if ($alumno->proyecto_id == $proyecto['id']): ?>
                                           <tr>
                                           <th>Proyecto:</th>
-                                          <td><?= $proyecto['descripcion'] ?></td>
+                                          <td><?= $proyecto['nombre'] ?></td>
                                           </tr>
                                           <tr>
                                             <?php foreach ($responsables as $key => $responsable): ?>

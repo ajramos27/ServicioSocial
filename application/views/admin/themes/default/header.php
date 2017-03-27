@@ -80,8 +80,14 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li><a href="<?= base_url('admin/') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+                            <?php if ($this->is_responsable): ?>
+                            <li><a href="<?= base_url('admin/adminresponsable') ?>"><i class="fa fa-home fa-fw"></i> Inicio R</a></li>
+                            <?php endif; ?>
+                            <?php if ($this->is_prestador): ?>
+                            <li><a href="<?= base_url('admin/adminresponsable') ?>"><i class="fa fa-home fa-fw"></i> Inicio P</a></li>
+                            <?php endif; ?>
                             <?php if ($this->is_admin): ?>
+                              <li><a href="<?= base_url('admin/') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
                               <li><a href="#"><i class="fa fa-chevron-down fa-fw"></i> Menú Administrador<span class="fa arrow"></span></a>
                                   <ul class="nav nav-second-level">
                                     <li><a href="<?= base_url('admin/alumnos') ?>"><i class="fa fa-user fa-fw"></i> Prestadores</a></li>

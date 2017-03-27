@@ -74,16 +74,16 @@ class Migration_Alumnos extends CI_Migration {
 
         $data = array(
             'id' => '1',
-            'matricula' => '12216281'
+            'matricula' => '12216281',
             'nombres' => 'Aaron Jesus',
             'apellidos' => 'Ramos Cabrera',
             'correo' => 'aaron@gmail.com',
-            'telefono' => '9992274834'
+            'telefono' => '9992274834',
             'facultad' => 'Matematicas',
             'licenciatura' => 'Ciencias de la Computacion',
             'proyecto_id' => '1',
-            'periodo' => '2016'
-            'status' => 'Activo'
+            'periodo' => '2016',
+            'status' => 'Activo',
             'usuario_id' => '1',
         );
         $this->db->insert('alumnos', $data);
