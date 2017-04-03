@@ -34,8 +34,8 @@ if (!defined('BASEPATH'))
          $user = $this->ion_auth->user()->row();
          $this->logged_in_name = $user->first_name;
          $this->logged_in_id = $user->id;
-         $this->is_responsable = $this->ion_auth->in_group('Responsable');
-         $this->is_prestador = $this->ion_auth->in_group('Prestador');
+         $this->is_responsable = $this->ion_auth->in_group('responsable');
+         $this->is_prestador = $this->ion_auth->in_group('prestador');
 
          log_message('debug', 'CI My Admin : Admin_Controller class loaded');
      }

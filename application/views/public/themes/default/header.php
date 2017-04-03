@@ -33,5 +33,5 @@
 </head>
 <body>
   <div class="banner">
-    <img src="<?=base_url()?>assets/admin/images/banner.png" alt="" />
+    <img src="<?=base_url()?>assets/admin/images/banner2.png" alt="" />
   </div>

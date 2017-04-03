@@ -25,6 +25,7 @@ class Alumnos extends Admin_Controller {
         $this->load->model(array('admin/formulario'));
     }
 
+    //Index: Lista de alumnos
     public function index() {
         $alumnos = $this->alumno->get_all();
         $proyectos = $this->proyecto->get_all();
@@ -36,6 +37,7 @@ class Alumnos extends Admin_Controller {
         $this->load->view($this->_container, $data);
     }
 
+    //Crea un nuevo alumno
     public function create() {
         if ($this->input->post('nombres')) {
             $data['nombres'] = $this->input->post('nombres');
@@ -58,6 +60,7 @@ class Alumnos extends Admin_Controller {
         $this->load->view($this->_container, $data);
     }
 
+    //Editar un alumno
     public function edit($id) {
         if ($this->input->post('nombres')) {
             $data['nombres'] = $this->input->post('nombres');
@@ -88,6 +91,7 @@ class Alumnos extends Admin_Controller {
         redirect('/admin/alumnos', 'refresh');
     }
 
+    //Obtiene un solo registro de alumno
     public function view($id){
 
       $alumno = $this->alumno->get($id);

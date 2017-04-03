@@ -41,7 +41,7 @@
 
     <body>
       <div class="banner">
-        <img src="<?=base_url()?>assets/admin/images/banner.png" alt="" />
+        <img src="<?=base_url()?>assets/admin/images/banner2.png" alt="" />
       </div>
 
         <div id="wrapper">
@@ -80,7 +80,7 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <?php if ($this->is_responsable): ?>
+                            <?php if ($this->is_responsable && !$this->is_admin): ?>
                             <li><a href="<?= base_url('admin/adminresponsable') ?>"><i class="fa fa-home fa-fw"></i> Inicio R</a></li>
                             <?php endif; ?>
                             <?php if ($this->is_prestador): ?>
