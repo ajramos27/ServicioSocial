@@ -14,6 +14,7 @@ class AdminResponsable extends Admin_Controller {
         //Cargar modelos que se utilizan
         $this->load->model(array('admin/proyecto'));
         $this->load->model(array('admin/responsable'));
+        $this->load->model(array('admin/dependencia'));
         $this->load->model(array('admin/alumno'));
         $this->load->model(array('admin/formulario'));
     }
@@ -28,10 +29,12 @@ class AdminResponsable extends Admin_Controller {
     public function listProyectos() {
         $proyectos = $this->proyecto->get_all();
         $responsables = $this->responsable->get_all();
+        $dependencias = $this->dependencia->get_all();
         $proyectosresponsables = $this->proyecto->get_all_responsable();
 
         $data['proyectos'] = $proyectos;
         $data['responsables'] = $responsables;
+        $data['dependencias'] = $dependencias;
         $data['proyectosresponsables'] = $proyectosresponsables;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/proyectos_list";

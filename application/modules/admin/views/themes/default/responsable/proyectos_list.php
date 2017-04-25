@@ -16,11 +16,12 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="dataTable_wrapper">
-                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>Descripcion</th>
                                     <th>Responsable</th>
+                                    <th>Dependencia</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -34,6 +35,17 @@
                                                 <?php foreach ($responsables as $key => $responsable): ?>
                                                   <?php if ($list['responsable_id'] == $responsable['id']): ?>
                                                       <?= $responsable['nombres'].' '.$responsable['apellidos'] ?>
+                                                  <?php endif; ?>
+                                                <?php endforeach; ?>
+                                              </td>
+                                              <td>
+                                                <?php foreach ($responsables as $key => $responsable): ?>
+                                                  <?php if ($list['responsable_id'] == $responsable['id']): ?>
+                                                    <?php foreach ($dependencias as $key => $dependencia): ?>
+                                                      <?php if ($responsable['dependencia_id'] == $dependencia['id']): ?>
+                                                        <?= $dependencia['nombre']?>
+                                                      <?php endif; ?>
+                                                    <?php endforeach; ?>
                                                   <?php endif; ?>
                                                 <?php endforeach; ?>
                                               </td>

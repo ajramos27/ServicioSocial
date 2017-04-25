@@ -39,13 +39,17 @@ class Alumnos extends Admin_Controller {
 
     //Crea un nuevo alumno
     public function create() {
-        if ($this->input->post('nombres')) {
+        if ($this->input->post('matricula')) {
+            $data['matricula'] = $this->input->post('matricula');
             $data['nombres'] = $this->input->post('nombres');
             $data['apellidos'] = $this->input->post('apellidos');
             $data['correo'] = $this->input->post('correo');
+            $data['telefono'] = $this->input->post('telefono');
             $data['facultad'] = $this->input->post('facultad');
             $data['licenciatura'] = $this->input->post('licenciatura');
             $data['proyecto_id'] = $this->input->post('proyecto_id');
+            $data['periodo'] = $this->input->post('licenciatura');
+            $data['status'] = $this->input->post('status');
             $data['usuario_id'] = $this->input->post('usuario_id');
 
             $this->alumno->insert($data);

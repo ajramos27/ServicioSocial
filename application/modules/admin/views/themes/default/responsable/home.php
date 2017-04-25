@@ -12,7 +12,7 @@
 
         <div class="inicio">
             <h1>BIENVENIDO</h1>
-            <h2>Sistema de Evaluación de Servicio Social</h1>
+            <h2>Sistema de Seguimiento de Servicio Social</h1>
             <br>
             <p>
 
@@ -21,7 +21,6 @@
             <br><br>
 
             <h4><a href="#">Evaluar Prestadores</a></h4>
-            <h4><a href="#">Evaluar Responsables</a></h4>
             <h4><a href="#">Ver Proyectos</a></h4>
 
         </div>

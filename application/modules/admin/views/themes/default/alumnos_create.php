@@ -31,6 +31,10 @@
                                     <input type="hidden" class="form-control" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
+                                    <label>Matricula:</label>
+                                    <input class="form-control" id="matricula" name="matricula">
+                                </div>
+                                <div class="form-group">
                                     <label>Nombre(s):</label>
                                     <input class="form-control" id="nombres" name="nombres">
                                 </div>
@@ -43,6 +47,10 @@
                                     <input class="form-control" id="correo" name="correo">
                                 </div>
                                 <div class="form-group">
+                                    <label>Teléfono:</label>
+                                    <input class="form-control" id="telefono" name="telefono">
+                                </div>
+                                <div class="form-group">
                                     <label>Facultad:</label>
                                     <select class="form-control" id="facultad" name="facultad">
                                       <option>Educación</option>
@@ -50,7 +58,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Licenciatura:</label>
-                                    <select class="form-control" id="licenciatura" name="licenciatura">
+                                    <select class="form-control" id="licenciatura" name="licenciatura" required>
+                                      <option value="">Elija una opción</option>
                                       <option>Educación</option>
                                       <option>Enseñanza del idioma inglés</option>
                                     </select>
@@ -64,6 +73,16 @@
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                     </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Periodo:</label>
+                                    <input class="form-control" id="periodo" name="periodo">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Status:</label>
+                                    <input class="form-control" id="status" name="status">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>
