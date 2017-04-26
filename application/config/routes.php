@@ -74,3 +74,6 @@ $route['admin/proyectos/edit/(:any)'] = 'admin/proyectos/edit/$1';
 $route['admin/dependecias'] = 'admin/dependecias';
 $route['admin/dependecias/create'] = 'admin/dependecias/create';
 $route['admin/dependecias/edit/(:any)'] = 'admin/dependecias/edit/$1';
+
+//Admin responsable
+$route['responsable'] = 'admin/adminresponsable/index';

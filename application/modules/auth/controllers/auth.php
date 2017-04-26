@@ -39,7 +39,12 @@ class Auth extends MY_Controller {
                 if($this->ion_auth->is_admin()){
                 redirect('/admin', 'refresh');
               } else{
-                redirect('/admin/adminresponsable', 'refresh');
+                if($this->ion_auth->in_group('responsable')){
+                    redirect('/responsable', 'refresh');
+                }
+                if($this->ion_auth->in_group('prestador')){
+                    redirect('/admin/adminprestador', 'refresh');
+                }
               }
             } else {
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
