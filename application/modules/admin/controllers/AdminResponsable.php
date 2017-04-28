@@ -1,4 +1,5 @@
 <?php
+require_once 'vendor/autoload.php';
 //Controlador de la seccion de Responsables
 class AdminResponsable extends Admin_Controller {
 
@@ -161,5 +162,34 @@ class AdminResponsable extends Admin_Controller {
       $dompdf->stream();
     }
 
+    public function carta(){
+      $phpWord = new \PhpOffice\PhpWord\PhpWord();
+		$phpWord->getCompatibility()->setOoxmlVersion(14);
+		$phpWord->getCompatibility()->setOoxmlVersion(15);
 
+		$targetFile = "./global/uploads/";
+		$filename = 'test.docx';
+
+		// add style settings for the title and paragraph
+
+  	$section = $phpWord->addSection();
+    $section->addTitle('Welcome to PhpWord', 1);
+    $section->addText('Hello World!');
+
+		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+		$objWriter->save($filename);
+		// send results to browser to download
+		header('Content-Description: File Transfer');
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename='.$filename);
+		header('Content-Transfer-Encoding: binary');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Pragma: public');
+		header('Content-Length: ' . filesize($filename));
+		flush();
+		readfile($filename);
+		unlink($filename); // deletes the temporary file
+		exit;
+    }
 }

@@ -15,11 +15,14 @@
             <hr>
             <h3>Bienvenido al sistema de seguimiento de Servicio Social de la Facultad de Educación</h3>
             <br>
-            <p>
+            <p>Verifica que tu informacion este correcta </p>
 
-            </p>
-            <img id="imagen" src="<?=base_url()?>assets/admin/images/encuesta.jpg" alt="" />
-            <br><br>
+            <p>Nombre de proyecto</p>
+            <p>Nombre de responsable</p>
+            <p>Periodo</p>
+
+            <button>Evaluar</button>
+
 
             <h4><a href="#">Evaluar Prestadores</a></h4>
             <h4><a href="#">Ver Proyectos</a></h4>
