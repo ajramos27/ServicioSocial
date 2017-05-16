@@ -17,6 +17,7 @@
 <!-- DataTables JavaScript -->
 <script src="<?= base_url() ?>assets/admin/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/js/dataTables.bootstrap.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/js/dataTables.bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="<?= base_url() ?>assets/admin/js/sb-admin-2.js"></script>
@@ -38,6 +39,28 @@
         $('#alumno_id').val(data_id);
       })
     });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script type="text/javascript">
+function deleteConfirm(url)
+ {
+    bootbox.confirm({
+    message: "¿Está seguro que desea eliminar este registro?",
+    size: 'small',
+    buttons: {
+        confirm: {
+            label: 'Si',
+            className: 'btn-success'
+        }
+    },
+    callback: function (result) {
+      if(result){
+        window.location.href=url;
+      }
+    }
+  });
+ }
 </script>
 
 </body>

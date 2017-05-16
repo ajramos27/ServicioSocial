@@ -39,16 +39,9 @@
                                     <input class="form-control" id="apellidos" name="apellidos">
                                 </div>
                                 <div class="form-group">
-                                    <label>Correo:</label>
-                                    <input class="form-control" id="correo" name="correo">
-                                </div>
-                                <div class="form-group">
-                                    <label>Teléfono:</label>
-                                    <input class="form-control" id="telefono" name="telefono">
-                                </div>
-                                <div class="form-group">
                                     <label>Dependencia:</label>
-                                    <select class="form-control" id="dependencia_id" name="dependencia_id">
+                                    <select class="form-control" id="dependencia_id" name="dependencia_id" required>
+                                        <option value="">Elija una opción</option>
                                         <?php if (count($dependencias)): ?>
                                           <?php foreach ($dependencias as $key => $dependencia): ?>
                                             <option value="<?= $dependencia['id'] ?>"><?= $dependencia['nombre'] ?></option>
@@ -56,20 +49,30 @@
                                         <?php endif; ?>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label>Correo:</label>
+                                    <input class="form-control" id="correo" name="correo">
+                                </div>
+                                <div class="form-group">
+                                    <label>Teléfono:</label>
+                                    <input class="form-control" id="telefono" name="telefono">
+                                </div>
+
 
                                 <div class="form-group">
-                                    <label>Tipo de Usuario</label>
+                                    <!--label>Tipo de Usuario</label>
                                     <select class="form-control" id="group_id" name="group_id">
-                                        <?php foreach ($groups as $group): ?>
-                                        <option value="<?=$group->id?>"><?=$group->name?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                        <?//php foreach ($groups as $group): ?>
+                                        <option value="<?//=$group->id?>"><?//=$group->name?></option>
+                                        <?//php endforeach; ?>
+                                    </select-->
+                                    <input type="hidden" class="form-control" id="group_id" name="group_id" value="2" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Contraseña</label>
                                     <input type="password" class="form-control" placeholder="Enter password" id="password" name="password"  required>
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                 <button type="reset" class="btn btn-default">Reset</button>
                             </form>

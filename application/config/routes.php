@@ -53,27 +53,27 @@ $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['admin/'] = 'admin/index';
+//Acceso administrador
+$route['admin/'] = 'admin/admin/index';
 
-//alumnos routes
 $route['admin/alumnos'] = 'admin/alumnos';
 $route['admin/alumnos/create'] = 'admin/alumnos/create';
 $route['admin/alumnos/edit/(:any)'] = 'admin/alumnos/edit/$1';
 
-//resposanbles routes
 $route['admin/responsables'] = 'admin/responsables';
 $route['admin/responsables/create'] = 'admin/responsables/create';
 $route['admin/responsables/edit/(:any)'] = 'admin/responsables/edit/$1';
 
-//proyectos routes
 $route['admin/proyectos'] = 'admin/proyectos';
 $route['admin/proyectos/create'] = 'admin/proyectos/create';
 $route['admin/proyectos/edit/(:any)'] = 'admin/proyectos/edit/$1';
 
-//dependecias routes
 $route['admin/dependecias'] = 'admin/dependecias';
 $route['admin/dependecias/create'] = 'admin/dependecias/create';
 $route['admin/dependecias/edit/(:any)'] = 'admin/dependecias/edit/$1';
 
-//Admin responsable
+//Acceso responsable
 $route['responsable'] = 'admin/adminresponsable/index';
+
+//Accesso prestador
+$route['prestador'] = 'admin/adminresponsable/index';

@@ -70,7 +70,7 @@
 
                             </table>
                           </center>
-                        <a  href="<?= base_url('admin/adminresponsable/carta') ?>" class="btn btn-warning">Generar Carta</a>
+                        <a  href="<?= base_url('admin/adminresponsable/carta/'.$alumno->id) ?>" class="btn btn-warning">Generar Carta</a>
                         <a  href="" class="btn btn-warning">Finalizar Servicio</a>
                         </div>
                         <?php if (count($formularios)): ?>

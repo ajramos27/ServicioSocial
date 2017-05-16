@@ -21,12 +21,11 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Username</th>
-                                    <th>Fullname</th>
+                                    <th>Usuario</th>
+                                    <th>Nombre</th>
                                     <th>Email</th>
-                                    <th>IP Address</th>
-                                    <th>Active</th>
-                                    <th>Action</th>
+                                    <th>Activo</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,7 +36,6 @@
                                             <td><?=$user->username?></td>
                                             <td><?=$user->first_name .' '.$user->last_name?></td>
                                             <td><?=$user->email?></td>
-                                            <td><?=$user->ip_address?></td>
                                             <td><?=$user->active?></td>
                                             <td>
                                                 <a href="<?= base_url('admin/users/edit/'.$user->id) ?>" class="btn btn-info">Editar</a>
@@ -52,10 +50,9 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
-                                        <td>No data</td>
                                         <td>
-                                            <a href="#" class="btn btn-info">edit</a>
-                                            <a href="#" class="btn btn-danger">delete</a>
+                                            <a href="#" class="btn btn-info">Editar</a>
+                                            <a href="#" class="btn btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
                                 <?php endif; ?>

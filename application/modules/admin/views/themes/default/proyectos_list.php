@@ -47,7 +47,7 @@
 
                                             <td>
                                                 <a href="<?= base_url('admin/proyectos/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
-                                                <a href="<?= base_url('admin/proyectos/delete/'.$list['id']) ?>" class="btn btn-danger">Eliminar</a>
+                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/proyectos/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger">Eliminar</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

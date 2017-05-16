@@ -66,7 +66,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Proyecto:</label>
-                                    <select class="form-control" id="proyecto_id" name="proyecto_id">
+                                    <select class="form-control" id="proyecto_id" name="proyecto_id" required>
+                                        <option value="">Elija una opción</option>
                                         <?php if (count($proyectos)): ?>
                                             <?php foreach ($proyectos as $key => $proyecto): ?>
                                                 <option value="<?= $proyecto['id'] ?>"><?= $proyecto['nombre'] ?></option>
@@ -83,6 +84,13 @@
                                 <div class="form-group">
                                     <label>Status:</label>
                                     <input class="form-control" id="status" name="status">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" id="group_id" name="group_id" value="3" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña</label>
+                                    <input type="password" class="form-control" id="password" name="password"  required>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>

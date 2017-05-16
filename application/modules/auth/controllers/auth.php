@@ -28,6 +28,7 @@ class Auth extends MY_Controller {
     }
 
     function login() {
+        $this->ion_auth_model->identity_column = 'username';
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
@@ -43,7 +44,8 @@ class Auth extends MY_Controller {
                     redirect('/responsable', 'refresh');
                 }
                 if($this->ion_auth->in_group('prestador')){
-                    redirect('/admin/adminprestador', 'refresh');
+                    $user = $this->ion_auth->user()->row();
+                    redirect('/admin/adminprestador/', 'refresh');
                 }
               }
             } else {

@@ -19,9 +19,9 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
+                                    <th>Matricula</th>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
-                                    <th>Facultad</th>
                                     <th>Licenciatura</th>
                                     <th>Proyecto</th>
                                     <th>Acciones</th>
@@ -31,9 +31,9 @@
                                 <?php if (count($alumnos)): ?>
                                     <?php foreach ($alumnos as $key => $list): ?>
                                         <tr class="odd gradeX">
+                                            <td><?=$list['matricula']?></td>
                                             <td><?=$list['nombres']?></td>
                                             <td><?=$list['apellidos']?></td>
-                                            <td><?=$list['facultad']?></td>
                                             <td><?=$list['licenciatura']?></td>
                                             <td>
                                               <?php foreach ($proyectos as $key => $proyecto): ?>
@@ -45,7 +45,7 @@
                                             <td>
                                                 <a href="<?= base_url('admin/alumnos/view/'.$list['id']) ?>" class="btn btn-info">Ver</a>
                                                 <a href="<?= base_url('admin/alumnos/edit/'.$list['id']) ?>" class="btn btn-warning">Editar</a>
-                                                <a href="<?= base_url('admin/alumnos/delete/'.$list['id']) ?>" class="btn btn-danger">Eliminar</a>
+                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/alumnos/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger">Eliminar</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

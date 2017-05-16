@@ -85,84 +85,8 @@ class AdminResponsable extends Admin_Controller {
         $this->load->view($this->_container, $data);
     }
 
-    public function generarCarta(){
-
-      $html = '<!DOCTYPE HTML>
-
-      <html>
-          <head>
-              <style type="text/css">
-                  .bodyBody {
-                      margin: 10px;
-                      font-size: 1.50em;
-                  }
-                  .divHeader {
-                      text-align: right;
-                      border: 1px solid;
-                  }
-                  .divReturnAddress {
-                      text-align: left;
-                      float: right;
-                  }
-                  .divSubject {
-                      clear: both;
-                      font-weight: bold;
-                      padding-top: 80px;
-                  }
-                  .divAdios {
-                      float: right;
-                      padding-top: 50px;
-                  }
-              </style>
-          </head>
-          <body class="bodyBody">
-              <div class="divReturnAddress">
-                  Mérida, Yucatán a 5 de Marzo de 2014
-              </div>
-
-              <div class="divSubject">
-                  Carta de Terminación de Servicio Social
-              </div>
-
-              <div class="divContents">
-                  <p>
-                      Mtra. en Psic. Hum. Gladys Julieta Guerrero Walker <br>
-                      Directora de la Facultad de Educación <br>
-                      Presente
-                  </p>
-
-                  <p>
-                  Por este medio hago constar que ____________________, estudiante de la
-                  Licenciatura _______________ de la Facultad de ______________ de la Universidad Autónoma de Yucatán,
-                  realizó y concluyó satisfactoriamente su Servicio Social en el proyecto ___________________________ en __________________.
-                  <br/><br/>
-                  La prestación del servicio social se llevó a cabo del ___________ al ________________, periodo en el que se cubrió un total de 480 horas. Sin otro particular, quedo a sus órdenes
-                  para cualquier aclaración y le envío un cordial saludo.
-                  </p>
-              </div>
-
-              <div class="divAdios">
-                  Atentamente<br/>
-                  <!-- Space for signature. -->
-                  <br/>
-                  <br/>
-                  <br/>
-                  ________________________
-                  <br/>
-                  Nombre <br/>
-                  Responsable de Proyecto<br/>
-              </div>
-          </body>
-      </html>';
-      $dompdf = new Dompdf();
-      $dompdf->loadHtml($html);
-      // Render the HTML as PDF
-      $dompdf->render();
-      // Output the generated PDF to Browser
-      $dompdf->stream();
-    }
-
-    public function carta(){
+    public function carta($id){
+      $alumno = $this->alumno->get($id);
       $phpWord = new \PhpOffice\PhpWord\PhpWord();
 		$phpWord->getCompatibility()->setOoxmlVersion(14);
 		$phpWord->getCompatibility()->setOoxmlVersion(15);
@@ -172,10 +96,50 @@ class AdminResponsable extends Admin_Controller {
 
 		// add style settings for the title and paragraph
 
-  	$section = $phpWord->addSection();
-    $section->addTitle('Welcome to PhpWord', 1);
-    $section->addText('Hello World!');
+    $paragraphStyleName = 'pStyle';
+    $phpWord->addParagraphStyle($paragraphStyleName, array('alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, 'spaceAfter' => 100));
 
+    $phpWord->addTitleStyle(1, array('bold' => true), array('spaceAfter' => 240));
+
+    // New portrait section
+    $section = $phpWord->addSection();
+
+    // Simple text
+    setlocale(LC_ALL,"es_ES");
+    $date = strftime("%d de %B del %Y");
+
+    $section->addText('Mérida, Yucatán a '.$date);
+
+    // Two text break
+    $section->addTextBreak(2);
+
+    // Define styles
+    $section->addText('Mtra. en Psic. Hum. Gladys Julieta Guerrero Walker',  array('bold' => true));
+    $section->addText('Directora de la Facultad de Educación');
+    $section->addText('Presente');
+
+    $section->addTextBreak();
+
+    // Inline font style
+    $fontStyle['name'] = 'Times New Roman';
+    $fontStyle['size'] = 20;
+
+    $textrun = $section->addTextRun();
+    $textrun->addText('Por este medio hago constar que ');
+    $textrun->addText($alumno->nombres." ".$alumno->apellidos.", ");
+    $textrun->addText('estudiante de la licenciatura en ');
+    $textrun->addText($alumno->licenciatura);
+    $textrun->addText('de la Facultad de Educación de la Universidad Autónoma de Yucatán,');
+    $textrun->addText('realizó y concluyó satisfactoriamente su Servicio Social en el proyecto');
+    $textrun->addText('nombre de proyecto');
+    $section->addTextBreak();
+    $textrun2 = $section->addTextRun();
+    $textrun2->addText('La prestación del servicio social se llevó a cabo del');
+    $textrun2->addText('fechas');
+    $textrun2->addText('periodo en el que se cubrió un total de 480 horas.');
+    $textrun2->addText('Sin otro particular, quedo a sus órdenes para cualquier aclaración y le envío un cordial saludo.');
+    $section->addTextBreak();
+    
 		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 		$objWriter->save($filename);
 		// send results to browser to download

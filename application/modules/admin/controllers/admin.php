@@ -15,9 +15,7 @@ class Admin extends Admin_Controller {
 
     //Index
     public function index() {
-
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "home";
-
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/home";
         $this->load->view($this->_container, $data);
     }
 
