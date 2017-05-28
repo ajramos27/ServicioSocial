@@ -49,6 +49,20 @@ class Responsables extends Admin_Controller {
 
             $user = $this->ion_auth->register($email, $password, $email, $additional_data,$group_id);
 
+            $message .= "Ha sido registrado como RESPONSABLE ";
+            $message .= "en el Sistema de Seguimiento de Servicio Social de la Facultad de Educación<br><br>";
+            $message .= "Su usuario es: ".$username."<br>";
+            $message .= "Su contraseña es: ".$password."<br><br>";
+            $message .= "Para acceder dirijase a educacion.uady.mx";
+
+
+            $this->email->from('aj.ramos2794@gmail.com', 'Facultad de Educacion UADY');
+            $this->email->to($email);
+            $this->email->subject('Seguimiento Servico Social');
+            $this->email->message($message);
+            $this->email->set_newline("\r\n");
+            $this->email->send();
+
             $data['nombres'] = $this->input->post('nombres');
             $data['apellidos'] = $this->input->post('apellidos');
             $data['correo'] = $this->input->post('correo');

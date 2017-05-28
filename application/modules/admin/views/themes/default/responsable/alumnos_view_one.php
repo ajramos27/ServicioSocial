@@ -68,6 +68,11 @@
                                     <?php endforeach; ?>
                                 <?php endif; ?>
 
+                                <tr>
+                                <th>Status:</th>
+                                <td><?= $alumno->status ?></td>
+                                </tr>
+
                             </table>
                           </center>
                         <a  href="<?= base_url('admin/adminresponsable/carta/'.$alumno->id) ?>" class="btn btn-warning">Generar Carta</a>

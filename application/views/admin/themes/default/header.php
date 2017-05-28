@@ -81,12 +81,12 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <?php if ($this->is_responsable && !$this->is_admin): ?>
-                            <li><a href="<?= base_url('admin/adminresponsable') ?>"><i class="fa fa-home fa-fw"></i> Inicio R</a></li>
+                            <li><a href="<?= base_url('admin/adminresponsable') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
                             <li><a href="<?= base_url('admin/adminresponsable/listAllAlumnos') ?>"><i class="fa fa-user fa-fw"></i> Prestadores</a></li>
                             <li><a href="<?= base_url('admin/adminresponsable/listProyectos') ?>"><i class="fa fa-book fa-fw"></i> Proyectos</a></li>
                             <?php endif; ?>
                             <?php if ($this->is_prestador): ?>
-                            <li><a href="<?= base_url('admin/adminprestador') ?>"><i class="fa fa-home fa-fw"></i> Inicio P</a></li>
+                            <li><a href="<?= base_url('admin/adminprestador') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
                             <?php endif; ?>
                             <?php if ($this->is_admin): ?>
                               <li><a href="<?= base_url('admin/') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>

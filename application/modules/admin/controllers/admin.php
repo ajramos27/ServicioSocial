@@ -19,4 +19,24 @@ class Admin extends Admin_Controller {
         $this->load->view($this->_container, $data);
     }
 
+    public function sendEmail(){
+
+
+      $this->load->library('email');
+
+
+      // Set to, from, message, etc.
+      $this->email->from('aj.ramos2794@gmail.com', 'Aaron Ramos');
+      $this->email->to('aaronchi_13@hotmail.com');
+      $this->email->subject('Email Test');
+      $this->email->message('Testing the email class.');
+      $this->email->set_newline("\r\n");
+      if ($this->email->send()) {
+        echo 'Your email was sent, thanks chamil.';
+      } else {
+        show_error($this->email->print_debugger());
+      }
+
+    }
+
 }

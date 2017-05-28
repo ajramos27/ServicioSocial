@@ -65,8 +65,8 @@
           <table class="table table-striped" id="tblGrid">
             <thead id="tblHead">
               <tr>
-                <th>#</th>
-                <th>Conducta</th>
+                <th>II.</th>
+                <th>De la unidad receptora</th>
                 <th>Si</th>
                 <th>No</th>
               </tr>
@@ -74,52 +74,119 @@
             <tbody>
               <tr>
                 <th>1</th>
-                <td>Asistió puntualmente.</td>
+                <td>Me proporcionaron todos los materiales y recursos necesarios para la prestación de mi servicio</td>
                 <td><input value="SI" type="radio" id = "asistePuntual" name="asistePuntual" ></td>
                 <td><input value="NO" type="radio" id = "asistePuntual" name="asistePuntual"></td>
               </tr>
               <tr>
                 <th>2</th>
-                <td>Cumple el horario establecido para la realización del servicio social
-                o en su defecto, notifica la necesidad de modificar su horario.</td>
+                <td>Recibí un trato amable y respetuoso por parte del responsable del proyecto y/o del prestador
+                    así como de las personas con las que interactué durante la prestación de mi servicio</td>
                 <td><input value="SI" type="radio" id = "cumpleHorario" name="cumpleHorario"></td>
                 <td><input value="NO" type="radio" id = "cumpleHorario" name="cumpleHorario"></td>
               </tr>
               <tr>
                 <th>3</th>
-                <td>Demuestra organización en el desarrollo de las actividades.</td>
+                <td>Recibí un trato amable y respetuoso por parte del responsable del proyecto y/o del prestador
+                  así como de las personas con las que interactué durante la prestación de mi servicio</td>
                 <td><input value="SI" type="radio" id = "demuestraOrganizacion" name="demuestraOrganizacion"></td>
                 <td><input value="NO" type="radio" id = "demuestraOrganizacion" name="demuestraOrganizacion"></td>
               </tr>
               <tr>
                 <th>4</th>
-                <td>Demuestra competencias (genéricas o específicas ) propias de su
-                perfil profesional (LE-LEII)</td>
+                <td>Durante mi prestación, si en algún momento requerí modificar mi horario, notifiqué en tiempo y
+                  forma dicho cambio</td>
                 <td><input value="SI" type="radio" id = "demuestraCompetencias" name="demuestraCompetencias"></td>
                 <td><input value="NO" type="radio" id = "demuestraCompetencias" name="demuestraCompetencias"></td>
               </tr>
               <tr>
                 <th>5</th>
-                <td>Optimiza los recursos con los que cuenta la unidad receptora para
-                la realización de las actividades propias del servicio social.</td>
+                <td>Recibí instrucciones claras y precisas acerca de las actividades que debía desarrollar</td>
                 <td><input value="SI" type="radio" id = "optimizaRecursos" name="optimizaRecursos"></td>
                 <td><input value="NO" type="radio" id = "optimizaRecursos" name="optimizaRecursos"></td>
               </tr>
               <tr>
                 <th>6</th>
-                <td>Establece relaciones favorables con los responsables del proyecto
-                y del prestador o con quienes interactúa.</td>
+                <td>Las actividades que llevé a cabo contribuyeron al desarrollo de competencias (genéricas o específicas )
+                  propias de mi perfil profesional (LE-LEII)</td>
                 <td><input value="SI" type="radio" id = "estableceRelaciones" name="estableceRelaciones"></td>
                 <td><input value="NO" type="radio" id = "estableceRelaciones" name="estableceRelaciones"></td>
               </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-striped" id="tblGrid">
+            <thead id="tblHead">
+              <tr>
+                <th>III.</th>
+                <th>Del proyecto de servicio social</th>
+                <th>Si</th>
+                <th>No</th>
+              </tr>
+            </thead>
+            <tbody>
               <tr>
                 <th>7</th>
-                <td>Atiende las indicaciones que se le proporcionan.</td>
-                <td><input value="SI" type="radio" id = "atiendeIndicaciones" name="atiendeIndicaciones"></td>
-                <td><input value="NO" type="radio" id = "atiendeIndicaciones" name="atiendeIndicaciones"></td>
+                <td>Colaboré con otros perfiles profesionales para el desarrollo de actividades del proyecto.</td>
+                <td><input value="SI" type="radio" id = "asistePuntual" name="asistePuntual" ></td>
+                <td><input value="NO" type="radio" id = "asistePuntual" name="asistePuntual"></td>
+              </tr>
+              <tr>
+                <th>8</th>
+                <td>De manera general, considero que el proyecto contribuye a la solución de una problemática social importante.</td>
+                <td><input value="SI" type="radio" id = "cumpleHorario" name="cumpleHorario"></td>
+                <td><input value="NO" type="radio" id = "cumpleHorario" name="cumpleHorario"></td>
+              </tr>
+              <tr>
+                <th>9</th>
+                <td>Recomendaría a otros estudiantes asignarse a este proyecto de servicio social</td>
+                <td><input value="SI" type="radio" id = "demuestraOrganizacion" name="demuestraOrganizacion"></td>
+                <td><input value="NO" type="radio" id = "demuestraOrganizacion" name="demuestraOrganizacion"></td>
               </tr>
             </tbody>
           </table>
+
+          <table class="table table-striped" id="tblGrid">
+            <thead id="tblHead">
+              <tr>
+                <th>IV.</th>
+                <th>De las actividades realizadas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>10</th>
+                <td>Describa de manera secuencial cada una de las actividades llevadas a cabo durante la
+                  prestación de su servicio social (agregue cuantas filas considere necesarias).</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><textarea class="form-control" name="observaciones" id="observaciones" style="min-width: 100%"></textarea></td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <table class="table table-striped" id="tblGrid">
+            <thead id="tblHead">
+              <tr>
+                <th>V.</th>
+                <th>De la experiencia adquirida</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>10</th>
+                <td>Describa brevemente la experiencia adquirida durante la realización del Servicio Social</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><textarea class="form-control" name="observaciones" id="observaciones" style="min-width: 100%"></textarea></td>
+              </tr>
+
+            </tbody>
+          </table>
+
 
           <p>Observaciones:</p>
           <textarea class="form-control" name="observaciones" id="observaciones" style="min-width: 100%"></textarea>
