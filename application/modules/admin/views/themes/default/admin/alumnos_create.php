@@ -83,7 +83,11 @@
 
                                 <div class="form-group">
                                     <label>Status:</label>
-                                    <input class="form-control" id="status" name="status">
+                                    <select class="form-control" id="status" name="status" required>
+                                        <option value="Activo">Activo</option>
+                                        <option value="">Extemporaneo</option>
+                                        <option value="Externo">Finalizado</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" id="group_id" name="group_id" value="3" required>

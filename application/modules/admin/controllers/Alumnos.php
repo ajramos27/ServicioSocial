@@ -76,7 +76,7 @@ class Alumnos extends Admin_Controller {
         $proyectos = $this->proyecto->get_all();
         $data['proyectos'] = $proyectos;
 
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_create";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/alumnos_create";
         $this->load->view($this->_container, $data);
     }
 
@@ -101,7 +101,7 @@ class Alumnos extends Admin_Controller {
 
         $data['alumno'] = $alumno;
         $data['proyectos'] = $proyectos;
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_edit";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/alumnos_edit";
         $this->load->view($this->_container, $data);
     }
 
@@ -123,7 +123,7 @@ class Alumnos extends Admin_Controller {
       $data['alumno'] = $alumno;
       $data['proyectos'] = $proyectos;
       $data['responsables'] = $responsables;
-      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_view";
+      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/alumnos_view";
 
       $this->load->view($this->_container, $data);
 

@@ -1,33 +1,42 @@
-<div id="page-wrapper">
+<div id="user-wrapper">
       <!-- /.row -->
     <div class="row">
-        <?php if ($this->session->flashdata('message')): ?>
-        <div class="col-lg-12 col-md-12">
-            <div class="alert alert-info alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <?=$this->session->flashdata('message')?>
-            </div>
-        </div>
-        <?php endif; ?>
 
         <div class="inicio">
             <h2>BIENVENIDO</h2>
             <hr>
-            <h3>Bienvenido al sistema de seguimiento de Servicio Social de la Facultad de Educación</h3>
-            <br>
-            <p>
-
-            </p>
-            <img id="imagen" src="<?=base_url()?>assets/admin/images/encuesta.jpg" alt="" />
-            <br><br>
-
-            <h4><a href="#">Evaluar Prestadores</a></h4>
-            <h4><a href="#">Ver Proyectos</a></h4>
 
         </div>
 
+        <a href="#"><div class="col-md-4 col-md-offset-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-user fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="huge">Prestadores</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> </a>
 
-
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-book fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="huge">Proyectos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 

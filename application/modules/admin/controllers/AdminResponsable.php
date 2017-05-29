@@ -23,7 +23,7 @@ class AdminResponsable extends Admin_Controller {
     //Index
     public function index() {
       $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/home";
-      $this->load->view($this->_container, $data);
+      $this->load->view($this->_usercontainer, $data);
     }
 
     //Lista los proyectos pertenecientes al responsable
@@ -39,7 +39,7 @@ class AdminResponsable extends Admin_Controller {
         $data['proyectosresponsables'] = $proyectosresponsables;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/proyectos_list";
-        $this->load->view($this->_container, $data);
+        $this->load->view($this->_usercontainer, $data);
     }
 
     //Lista los alumnos pertenecientes a cada proyecto del responsable
@@ -51,7 +51,7 @@ class AdminResponsable extends Admin_Controller {
         $data['proyectos'] = $proyectos;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_por_proyecto";
-        $this->load->view($this->_container, $data);
+        $this->load->view($this->_usercontainer, $data);
     }
 
     //Ver alumno
@@ -67,7 +67,7 @@ class AdminResponsable extends Admin_Controller {
       $data['proyectos'] = $proyectos;
       $data['responsables'] = $responsables;
       $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_view_one";
-      $this->load->view($this->_container, $data);
+      $this->load->view($this->_usercontainer, $data);
     }
 
     //Lista los alumnos pertenecientes a todos los proyectos del responsable
@@ -82,7 +82,7 @@ class AdminResponsable extends Admin_Controller {
         $data['responsables'] = $responsables;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_list";
-        $this->load->view($this->_container, $data);
+        $this->load->view($this->_usercontainer, $data);
     }
 
     public function carta($id){
@@ -139,7 +139,7 @@ class AdminResponsable extends Admin_Controller {
     $textrun2->addText('periodo en el que se cubrió un total de 480 horas.');
     $textrun2->addText('Sin otro particular, quedo a sus órdenes para cualquier aclaración y le envío un cordial saludo.');
     $section->addTextBreak();
-    
+
 		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 		$objWriter->save($filename);
 		// send results to browser to download

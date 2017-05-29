@@ -22,6 +22,7 @@ if (!defined('BASEPATH'))
 
          // Set container variable
          $this->_container = $this->config->item('ci_my_admin_template_dir_admin') . "layout.php";
+         $this->_usercontainer = $this->config->item('ci_my_admin_template_dir_user') . "layout.php";
          $this->_modules = $this->config->item('modules_locations');
 
          $this->load->library(array('ion_auth'));

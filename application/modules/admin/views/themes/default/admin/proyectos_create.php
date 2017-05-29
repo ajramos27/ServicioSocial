@@ -52,11 +52,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tipo:</label>
-                                    <input class="form-control" id="tipo" name="tipo">
+                                    <select class="form-control" id="tipo" name="tipo" required>
+                                        <option value="">Elija una opción</option>
+                                        <option value="Interno">Interno</option>
+                                        <option value="Externo">Externo</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Vigencia:</label>
-                                    <input class="form-control" id="vigencia" name="vigencia">
+                                    <input type="date" class="form-control" id="vigencia" name="vigencia">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>

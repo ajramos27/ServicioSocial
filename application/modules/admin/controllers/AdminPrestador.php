@@ -29,7 +29,7 @@ class AdminPrestador extends Admin_Controller {
         $data['proyectos'] = $proyectos;
         $data['responsables'] = $responsables;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "prestador/home";
-        $this->load->view($this->_container, $data);
+        $this->load->view($this->_usercontainer, $data);
 
 
 
