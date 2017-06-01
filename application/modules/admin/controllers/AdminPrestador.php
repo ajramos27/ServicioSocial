@@ -30,8 +30,18 @@ class AdminPrestador extends Admin_Controller {
         $data['responsables'] = $responsables;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "prestador/home";
         $this->load->view($this->_usercontainer, $data);
+    }
 
-
-
+    public function informe() {
+        $user = $this->ion_auth->user()->row();
+        $userId = $this->ion_auth->user()->row()->id;
+        $alumno = $this->alumno->get_by_userId($userId);
+        $proyectos = $this->proyecto->get_all();
+        $responsables = $this->responsable->get_all();
+        $data['alumno'] = $alumno;
+        $data['proyectos'] = $proyectos;
+        $data['responsables'] = $responsables;
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "prestador/informe";
+        $this->load->view($this->_usercontainer, $data);
     }
 }

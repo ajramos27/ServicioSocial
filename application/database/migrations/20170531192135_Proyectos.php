@@ -29,9 +29,11 @@ class Migration_Proyectos extends CI_Migration {
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
-            'vigencia' => array(
-                'type' => 'VARCHAR',
-                'constraint' => 100
+            'vigenciaInicio' => array(
+                'type' => 'DATETIME'
+            ),
+            'vigenciaFin' => array(
+                'type' => 'DATETIME'
             ),
             'created_from_ip' => array(
                 'type' => 'VARCHAR',
@@ -48,6 +50,7 @@ class Migration_Proyectos extends CI_Migration {
                 'type' => 'DATETIME'
             )
         ));
+        $this->dbforge->drop_table('proyectos');
         $this->dbforge->add_key('id', TRUE);
         $this->dbforge->create_table('proyectos');
 
@@ -58,7 +61,8 @@ class Migration_Proyectos extends CI_Migration {
             'licEdu' => TRUE,
             'licEi' => FALSE,
             'tipo' => 'Externo',
-            'vigencia' => 'Enero 2018',
+            'vigenciaInicio' => '2017-05-29',
+            'vigenciaFin' => '2017-05-29'
         );
         $this->db->insert('proyectos', $data);
     }
