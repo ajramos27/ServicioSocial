@@ -1,11 +1,7 @@
 <div id="user-wrapper">
       <!-- /.row -->
       <div class="row">
-        <div class="inicio">
-
-            <div class="progress">
-              <!--div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div-->
-            </div>
+        <div class="col-md-6 col-md-offset-3 inicio">
             <form id="informe_form"novalidate action="<?=base_url('admin/informes/create')?>"  method="post">
               <input type="hidden" class="form-control" id = "alumno_id" name= "alumno_id" value="<?=$alumno->id?>">
               <fieldset>
@@ -13,8 +9,8 @@
                 <table class="table table-striped" id="tblGrid">
                   <thead id="tblHead">
                     <tr>
-                      <th>II.</th>
-                      <th>De la unidad receptora</th>
+                      <th></th>
+                      <th></th>
                       <th>Si</th>
                       <th>No</th>
                     </tr>

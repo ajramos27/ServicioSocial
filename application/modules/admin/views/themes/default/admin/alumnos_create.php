@@ -77,8 +77,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Periodo:</label>
-                                    <input class="form-control" id="periodo" name="periodo">
+                                    <label>Fecha de Inicio:</label>
+                                    <input type="date" class="form-control" id="periodoInicio" name="periodoInicio">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fecha de terminación:</label>
+                                    <input type ="date" class="form-control" id="periodoFin" name="periodoFin">
                                 </div>
 
                                 <div class="form-group">

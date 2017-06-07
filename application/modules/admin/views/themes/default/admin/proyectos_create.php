@@ -59,8 +59,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Vigencia:</label>
-                                    <input type="date" class="form-control" id="vigencia" name="vigencia">
+                                    <label>Fecha de Inicio:</label>
+                                    <input type="date" class="form-control" id="vigenciaInicio" name="vigenciaInicio">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fecha de Vigencia:</label>
+                                    <input type="date" class="form-control" id="vigenciaFin" name="vigenciaFin">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>

@@ -41,9 +41,11 @@ class Migration_Alumnos extends CI_Migration {
                 'type' => 'INT',
                 'constraint' => 11
             ),
-            'periodo' => array(
-                'type' => 'VARCHAR',
-                'constraint' => 100
+            'periodoInicio' => array(
+                'type' => 'DATETIME'
+            ),
+            'periodoFin' => array(
+                'type' => 'DATETIME'
             ),
             'status' => array(
                 'type' => 'VARCHAR',
@@ -70,6 +72,7 @@ class Migration_Alumnos extends CI_Migration {
             )
         ));
         $this->dbforge->add_key('id', TRUE);
+        $this->dbforge->drop_table('alumnos');
         $this->dbforge->create_table('alumnos');
 
         $data = array(
@@ -82,10 +85,12 @@ class Migration_Alumnos extends CI_Migration {
             'facultad' => 'Matematicas',
             'licenciatura' => 'Ciencias de la Computacion',
             'proyecto_id' => '1',
-            'periodo' => '2016',
+            'periodoInicio' => '2017-05-29',
+            'periodoFin' => '2017-05-29',
             'status' => 'Activo',
             'usuario_id' => '1',
         );
+
         $this->db->insert('alumnos', $data);
     }
 

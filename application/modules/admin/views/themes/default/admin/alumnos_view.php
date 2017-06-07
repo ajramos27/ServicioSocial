@@ -72,9 +72,15 @@
                                 <td><?= $alumno->status ?></td>
                                 </tr>
                             </table>
+                            <?php if($alumno->status == 'Finalizado'): ?>
+                              <a  href="<?= base_url('admin/adminresponsable/carta/'.$alumno->id) ?>" class="btn btn-warning">Generar Carta</a>
+                            <?php else : ?>
+                              <a  href="<?= base_url('admin/alumnos/finalizar/'.$alumno->id) ?>" class="btn btn-warning">Finalizar Servicio</a>
+                            <?php endif; ?>
                           </center>
-                        <a  href="<?= base_url('admin/adminresponsable/carta/'.$alumno->id) ?>" class="btn btn-warning">Generar Carta</a>
-                        <a  href="<?= base_url('admin/admin/sendEmail')?>" class="btn btn-warning">Finalizar Servicio</a>
+
+
+
                         </div>
                         <?php if (count($formularios)): ?>
                             <?php foreach ($formularios as $key => $list): ?>

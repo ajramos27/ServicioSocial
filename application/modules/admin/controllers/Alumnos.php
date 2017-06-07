@@ -64,9 +64,25 @@ class Alumnos extends Admin_Controller {
             $data['facultad'] = $this->input->post('facultad');
             $data['licenciatura'] = $this->input->post('licenciatura');
             $data['proyecto_id'] = $this->input->post('proyecto_id');
-            $data['periodo'] = $this->input->post('licenciatura');
+            $data['periodoInicio'] = $this->input->post('periodoInicio');
+            $data['periodoFin'] = $this->input->post('periodoFin');
             $data['status'] = $this->input->post('status');
             $data['usuario_id'] = $user;
+
+            $message = '';
+            $message .= "Ha sido registrado como PRESTADOR ";
+            $message .= "en el Sistema de Seguimiento de Servicio Social de la Facultad de Educación<br><br>";
+            $message .= "Su usuario es: ".$username."<br>";
+            $message .= "Su contraseña es: ".$password."<br><br>";
+            $message .= "Para acceder dirijase a educacion.uady.mx";
+
+
+            $this->email->from('aj.ramos2794@gmail.com', 'Facultad de Educacion UADY');
+            $this->email->to($email);
+            $this->email->subject('Seguimiento Servico Social');
+            $this->email->message($message);
+            $this->email->set_newline("\r\n");
+            $this->email->send();
 
             $this->alumno->insert($data);
 
@@ -127,6 +143,13 @@ class Alumnos extends Admin_Controller {
 
       $this->load->view($this->_container, $data);
 
+    }
+
+    public function finalizar($id) {
+
+            $data['status'] = "Finalizado";
+            $this->alumno->update($data, $id);
+            redirect('/admin/alumnos/view/'.$id, 'refresh');
     }
 
 }

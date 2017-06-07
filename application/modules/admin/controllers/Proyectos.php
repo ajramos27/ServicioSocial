@@ -42,7 +42,8 @@ class Proyectos extends Admin_Controller {
             $data['licEdu'] = $this->input->post('licEdu');
             $data['licEi'] = $this->input->post('licEi');
             $data['tipo'] = $this->input->post('tipo');
-            $data['vigencia'] = $this->input->post('vigencia');
+            $data['vigenciaInicio'] = $this->input->post('vigenciaInicio');
+            $data['vigenciaFin'] = $this->input->post('vigenciaFin');
 
             $this->proyecto->insert($data);
 

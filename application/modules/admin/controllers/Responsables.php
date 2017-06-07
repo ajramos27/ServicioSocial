@@ -49,7 +49,7 @@ class Responsables extends Admin_Controller {
 
             $user = $this->ion_auth->register($email, $password, $email, $additional_data,$group_id);
 
-            $message .= "Ha sido registrado como RESPONSABLE ";
+            $message = "Ha sido registrado como RESPONSABLE ";
             $message .= "en el Sistema de Seguimiento de Servicio Social de la Facultad de Educación<br><br>";
             $message .= "Su usuario es: ".$username."<br>";
             $message .= "Su contraseña es: ".$password."<br><br>";
