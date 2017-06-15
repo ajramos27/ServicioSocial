@@ -317,7 +317,7 @@ class Ion_auth_model extends CI_Model
 		// bcrypt
 		if ($use_sha1_override === FALSE && $this->hash_method == 'bcrypt')
 		{
-			if ($this->bcrypt->verify($password,$hash_password_db->password))
+			if ($password === $hash_password_db->password)
 			{
 				return TRUE;
 			}
@@ -969,7 +969,7 @@ class Ion_auth_model extends CI_Model
 		if($this->is_time_locked_out($identity))
 		{
 			// Hash something anyway, just to take up time
-			$this->hash_password($password);
+			//$this->hash_password($password);
 
 			$this->trigger_events('post_login_unsuccessful');
 			$this->set_error('login_timeout');
@@ -2246,5 +2246,21 @@ class Ion_auth_model extends CI_Model
 	protected function _prepare_ip($ip_address) {
 		// just return the string IP address now for better compatibility
 		return $ip_address;
+	}
+
+	public function get_user($email){
+		$result = $this->db->where('email', $email)
+										->get($this->tables['users'])->row();
+
+		if ($result == null)
+		{
+			$this->set_error('No existe usuario, intente de nuevo');
+			return FALSE;
+		} else{
+			$this->set_message('La contraseña fue enviada a su correo');
+			return $result;
+		}
+
+
 	}
 }

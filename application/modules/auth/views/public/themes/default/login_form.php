@@ -29,6 +29,7 @@
                     </form>
                 </div>
             </div>
+            <a href="<?= base_url('auth/olvide_password') ?>">Olvidé mi contraseña</a>
         </div>
     </div>
 </div>

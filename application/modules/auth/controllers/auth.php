@@ -70,4 +70,52 @@ class Auth extends MY_Controller {
         redirect('auth', 'refresh');
     }
 
+    public function olvide_password() {
+        if ($this->ion_auth->logged_in()) {
+            redirect('admin/', 'refresh');
+        } else {
+            $data['page'] = $this->config->item('ci_my_admin_template_dir_public') . "forgot_form";
+            $data['module'] = 'auth';
+
+            $this->load->view($this->_container, $data);
+        }
+    }
+
+    function forgot_password()
+		{
+      if ($this->input->post('email')) {
+        $email = $this->input->post('email');
+        $something = $this->ion_auth->get_user($email);
+        if($something !== FALSE){
+          $data['something'] = $something;
+          $data['page'] = $this->config->item('ci_my_admin_template_dir_public') . "forgot_form";
+          $data['module'] = 'auth';
+
+          $message = '';
+          $message .= "Su usuario es: ".$something->username."<br>";
+          $message .= "Su contraseña es: ".$something->password."<br><br>";
+          $message .= "Para acceder dirijase a educacion.uady.mx";
+
+
+          $this->email->from('aj.ramos2794@gmail.com', 'Facultad de Educacion UADY');
+          $this->email->to($something->email);
+          $this->email->subject('Seguimiento Servicio Social');
+          $this->email->message($message);
+          $this->email->set_newline("\r\n");
+
+          if($this->email->send()){
+          $this->session->set_flashdata('message', $this->ion_auth->messages());
+          redirect('auth', 'refresh');
+          } else{
+          $this->load->view($this->_container, $data);
+          }
+        } else{
+          $this->session->set_flashdata('message', $this->ion_auth->errors());
+          redirect('auth/olvide_password', 'refresh');
+        }
+
+      }
+
+		}
+
 }
