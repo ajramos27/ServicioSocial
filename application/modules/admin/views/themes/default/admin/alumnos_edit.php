@@ -31,6 +31,10 @@
                                     <input type="hidden" class="form-control" value="<?=$alumno->id?>" disabled="1">
                                 </div>
                                 <div class="form-group">
+                                    <label>Matricula:</label>
+                                    <input value="<?= $alumno->matricula ?>" class="form-control" id="matricula" name="matricula">
+                                </div>
+                                <div class="form-group">
                                     <label>Nombre(s):</label>
                                     <input value="<?= $alumno->nombres ?>" class="form-control" id="nombres" name="nombres">
                                 </div>
@@ -43,12 +47,19 @@
                                     <input value="<?= $alumno->correo ?>"  class="form-control" id="correo" name="correo">
                                 </div>
                                 <div class="form-group">
+                                    <label>Teléfono:</label>
+                                    <input value="<?= $alumno->telefono?>"class="form-control" id="telefono" name="telefono">
+                                </div>
+                                <div class="form-group">
                                     <label>Facultad:</label>
                                     <input value="<?= $alumno->facultad ?>" class="form-control" id="facultad" name="facultad">
                                 </div>
                                 <div class="form-group">
                                     <label>Licenciatura:</label>
-                                    <input value="<?= $alumno->licenciatura ?>" class="form-control" id="licenciatura" name="licenciatura">
+                                    <select class="form-control" id="licenciatura" name="licenciatura" required>
+                                      <option value="Educación" <?= ($alumno->licenciatura == 'Educación') ? 'selected="selected"' : '' ?>>Educación</option>
+                                      <option value="Enseñanza del idioma inglés" <?= ($alumno->licenciatura == 'Enseñanza del idioma inglés') ? 'selected="selected"' : '' ?>>Enseñanza del idioma inglés</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Proyecto:</label>
@@ -61,8 +72,26 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Usuario:</label>
-                                    <input value="<?= $alumno->usuario_id ?>" class="form-control" id="usuario_id" name="usuario_id">
+                                    <label>Fecha de Inicio:</label>
+                                    <?php $date = date_create($alumno->periodoInicio);?>
+                                    <input value="<?=date_format($date, 'Y-m-d')?>" type="date" class="form-control" id="periodoInicio" name="periodoInicio">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fecha de terminación:</label>
+                                    <?php $date = date_create($alumno->periodoFin);?>
+                                    <input value="<?=date_format($date, 'Y-m-d')?>" type="date" class="form-control" id="periodoFin" name="periodoFin">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Status:</label>
+                                    <select class="form-control" id="status" name="status" required>
+                                      <option value="Activo" <?= ($alumno->status == 'Activo') ? 'selected="selected"' : '' ?>>Activo</option>
+                                      <option value="Finalizado" <?= ($alumno->status == 'Finalizado') ? 'selected="selected"' : '' ?>>Finalizado</option>
+                                      <option value="Extemporáneo" <?= ($alumno->status == 'Extemporáneo') ? 'selected="selected"' : '' ?>>Extemporáneo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                  <input  type="hidden"  value="<?= $alumno->usuario_id ?>" class="form-control" id="usuario_id" name="usuario_id">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Actualizar</button>

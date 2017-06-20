@@ -58,15 +58,24 @@
                                     <input type="checkbox" id="licEi" name="licEi" value="1" checked>Enseñanza Ingles<br>
                                     <?php else : ?>
                                     <input type="checkbox" id="licEi" name="licEi" value="1">Enseñanza Ingles<br>
-                                    <?php endif; ?>                                
+                                    <?php endif; ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Tipo:</label>
-                                    <input value="<?=$proyecto->tipo?>" class="form-control" id="tipo" name="tipo">
+                                    <select class="form-control" id="tipo" name="tipo" required>
+                                        <option value="Interno" <?= ($proyecto->tipo == 'Interno') ? 'selected="selected"' : '' ?>>Interno</option>
+                                        <option value="Externo" <?= ($proyecto->tipo == 'Externo') ? 'selected="selected"' : '' ?>>Externo</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Vigencia:</label>
-                                    <input value="<?=$proyecto->vigencia?>" class="form-control" id="vigencia" name="vigencia">
+                                    <label>Fecha de Inicio:</label>
+                                    <?php $date = date_create($proyecto->vigenciaInicio);?>
+                                    <input value="<?=date_format($date, 'Y-m-d')?>" type="date" class="form-control" id="vigenciaInicio" name="vigenciaInicio">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fecha de Vigencia:</label>
+                                    <?php $date = date_create($proyecto->vigenciaFin);?>
+                                    <input value="<?=date_format($date, 'Y-m-d')?>" type="date" class="form-control" id="vigenciaFin" name="vigenciaFin">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Actualizar</button>

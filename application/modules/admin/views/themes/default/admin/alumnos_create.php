@@ -89,8 +89,8 @@
                                     <label>Status:</label>
                                     <select class="form-control" id="status" name="status" required>
                                         <option value="Activo">Activo</option>
-                                        <option value="">Extemporaneo</option>
-                                        <option value="Externo">Finalizado</option>
+                                        <option value="Extemporáneo">Extemporáneo</option>
+                                        <option value="Finalizado">Finalizado</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

@@ -61,6 +61,11 @@ class Proyectos extends Admin_Controller {
         if ($this->input->post('nombre')) {
             $data['nombre'] = $this->input->post('nombre');
             $data['responsable_id'] = $this->input->post('responsable_id');
+            $data['licEdu'] = $this->input->post('licEdu');
+            $data['licEi'] = $this->input->post('licEi');
+            $data['tipo'] = $this->input->post('tipo');
+            $data['vigenciaInicio'] = $this->input->post('vigenciaInicio');
+            $data['vigenciaFin'] = $this->input->post('vigenciaFin');
 
             $this->proyecto->update($data, $id);
 

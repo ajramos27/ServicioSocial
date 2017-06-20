@@ -22,12 +22,22 @@ class Informes extends Admin_Controller {
       $user = $this->ion_auth->user()->row();
       $userId = $this->ion_auth->user()->row()->id;
       $alumno = $this->alumno->get_by_userId($userId);
-      $proyectos = $this->proyecto->get_all();
-      $responsables = $this->responsable->get_all();
+      $proyecto = $this->proyecto->get($alumno->proyecto_id);
+      $responsable = $this->responsable->get($proyecto->responsable_id);
+
+      $alumnoId = $alumno->id;
+      $informe = $this->informe->get_by_alumno($alumnoId);
+
       $data['alumno'] = $alumno;
-      $data['proyectos'] = $proyectos;
-      $data['responsables'] = $responsables;
-      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "prestador/informe";
+      $data['proyecto'] = $proyecto;
+      $data['responsable'] = $responsable;
+      if($informe==null){
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "prestador/informe";
+      } else {
+        $data['informe'] = $informe;
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "prestador/consulta";
+      }
+
       $this->load->view($this->_usercontainer, $data);
     }
 
