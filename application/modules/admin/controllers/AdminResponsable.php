@@ -88,16 +88,16 @@ class AdminResponsable extends Admin_Controller {
     public function carta($id){
       $alumno = $this->alumno->get($id);
       $phpWord = new \PhpOffice\PhpWord\PhpWord();
-		$phpWord->getCompatibility()->setOoxmlVersion(14);
-		$phpWord->getCompatibility()->setOoxmlVersion(15);
+		  $phpWord->getCompatibility()->setOoxmlVersion(14);
+		  $phpWord->getCompatibility()->setOoxmlVersion(15);
 
-		$targetFile = "./global/uploads/";
-		$filename = 'test.docx';
+  		$targetFile = "./global/uploads/";
+  		$filename = 'carta.docx';
 
 		// add style settings for the title and paragraph
 
-    $paragraphStyleName = 'pStyle';
-    $phpWord->addParagraphStyle($paragraphStyleName, array('alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, 'spaceAfter' => 100));
+      $paragraphStyleName = 'pStyle';
+      $phpWord->addParagraphStyle($paragraphStyleName, array('alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, 'spaceAfter' => 100));
 
     $phpWord->addTitleStyle(1, array('bold' => true), array('spaceAfter' => 240));
 

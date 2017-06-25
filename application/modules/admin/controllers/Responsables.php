@@ -34,8 +34,10 @@ class Responsables extends Admin_Controller {
     public function create() {
         if ($this->input->post('nombres')) {
             //Crear usuario
+            $input = array("enero", "febrero", "marzo", "abril", "mayo");
+
             $username = $this->input->post('correo');
-            $password = $this->input->post('password');
+            $password = $input[array_rand($input)];
             $email = $this->input->post('correo');
             $group_id = array( $this->input->post('group_id'));
 

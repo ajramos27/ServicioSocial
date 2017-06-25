@@ -41,9 +41,11 @@ class Alumnos extends Admin_Controller {
     public function create() {
         if ($this->input->post('matricula')) {
 
+            $input = array("enero", "febrero", "marzo", "abril", "mayo");
+
             //Crear usuario
             $username = $this->input->post('matricula');
-            $password = $this->input->post('password');
+            $password = $input[array_rand($input)];
             $email = $this->input->post('correo');
             $group_id = array( $this->input->post('group_id'));
 

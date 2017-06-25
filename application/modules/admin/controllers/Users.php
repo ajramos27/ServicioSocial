@@ -87,4 +87,17 @@ class Users extends Admin_Controller {
 
         redirect('/admin/users', 'refresh');
     }
+
+    public function change_password() {
+
+      if ($this->input->post('password')) {
+          $data['password'] = $this->input->post('password');
+          $this->ion_auth->update($this->logged_in_id, $data);
+          redirect('/admin/index', 'refresh');
+      }
+      $data['user'] = $this->ion_auth->user($this->logged_in_id)->row();
+      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "change_password";
+      $this->load->view($this->_container, $data);
+
+    }
 }

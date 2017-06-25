@@ -96,10 +96,7 @@
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" id="group_id" name="group_id" value="3" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Contraseña</label>
-                                    <input type="password" class="form-control" id="password" name="password"  required>
-                                </div>
+                                
 
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                 <button type="reset" class="btn btn-default">Reset</button>

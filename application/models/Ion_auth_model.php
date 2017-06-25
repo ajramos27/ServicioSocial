@@ -894,7 +894,7 @@ class Ion_auth_model extends CI_Model
 		// IP Address
 		$ip_address = $this->_prepare_ip($this->input->ip_address());
 		$salt       = $this->store_salt ? $this->salt() : FALSE;
-		$password   = $this->hash_password($password, $salt);
+		//$password   = $this->hash_password($password, $salt);
 
 		// Users table.
 		$data = array(
@@ -1589,13 +1589,8 @@ class Ion_auth_model extends CI_Model
 		{
 			if (array_key_exists('password', $data))
 			{
-				if( ! empty($data['password']))
+				if(  empty($data['password']))
 				{
-					$data['password'] = $this->hash_password($data['password'], $user->salt);
-				}
-				else
-				{
-					// unset password so it doesn't effect database entry if no password passed
 					unset($data['password']);
 				}
 			}
