@@ -29,6 +29,7 @@ class Formularios extends Admin_Controller {
     public function create($id) {
         if ($this->input->post('alumno_id')) {
             $data['alumno_id'] = $this->input->post('alumno_id');
+            $data['form_num'] = $this->input->post('form_num');
             $data['asistePuntual'] = $this->input->post('asistePuntual');
             $data['cumpleHorario'] = $this->input->post('cumpleHorario');
             $data['demuestraOrganizacion'] = $this->input->post('demuestraOrganizacion');
@@ -78,17 +79,16 @@ class Formularios extends Admin_Controller {
     }
 
     public function view($id){
-
       $formulario = $this->formulario->get($id);
       $data['formulario'] = $formulario;
       $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_view";
       $this->load->view($this->_container, $data);
-
     }
 
     public function create2() {
         if ($this->input->post('alumno_id')) {
             $data['alumno_id'] = $this->input->post('alumno_id');
+            $data['form_num'] = $this->input->post('form_num');
             $data['asistePuntual'] = $this->input->post('asistePuntual');
             $data['cumpleHorario'] = $this->input->post('cumpleHorario');
             $data['demuestraOrganizacion'] = $this->input->post('demuestraOrganizacion');
@@ -101,7 +101,6 @@ class Formularios extends Admin_Controller {
             $this->formulario->insert($data);
 
             redirect('/admin/adminresponsable/listAllAlumnos/', 'refresh');
-
         }
 
         //$data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "formularios_create";

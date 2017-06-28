@@ -34,10 +34,15 @@
     $(document).ready(function() {
       $('a[data-toggle=modal], button[data-toggle=modal]').click(function () {
         var data_id = '';
+        var data_num = '';
         if (typeof $(this).data('id') !== 'undefined') {
           data_id = $(this).data('id');
         }
+        if (typeof $(this).data('num') !== 'undefined') {
+          data_num = $(this).data('num');
+        }
         $('#alumno_id').val(data_id);
+        $('#form_num').val(data_num);
       })
     });
 </script>

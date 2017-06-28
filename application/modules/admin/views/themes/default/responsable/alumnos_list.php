@@ -20,9 +20,9 @@
                                 <tr>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
-                                    <th>Facultad</th>
                                     <th>Licenciatura</th>
                                     <th>Proyecto</th>
+                                    <th>Evaluaciones</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -33,7 +33,6 @@
                                         <tr class="odd gradeX">
                                             <td><?=$list['nombres']?></td>
                                             <td><?=$list['apellidos']?></td>
-                                            <td><?=$list['facultad']?></td>
                                             <td><?=$list['licenciatura']?></td>
                                             <td>
                                               <?php foreach ($proyectos as $key => $proyecto): ?>
@@ -43,8 +42,12 @@
                                               <?php endforeach; ?>
                                             </td>
                                             <td>
+                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="1" data-toggle="modal" class="open-EvaluacionModal btn btn-info">Periodo 1</button>
+                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="2" data-toggle="modal" class="open-EvaluacionModal btn btn-info">Periodo 2</button>
+                                            </td>
+                                            <td>
                                                 <a href="<?= base_url('admin/adminresponsable/viewAlumno/'.$list['id']) ?>" class="btn btn-info">Ver</a>
-                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-toggle="modal" class="open-EvaluacionModal btn btn-info">Evaluar</button>
+                                                <a href="" class="btn btn-info">Finalizar</a>
                                             </td>
                                         </tr>
                                         <?php endif; ?>
@@ -55,7 +58,7 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
-                                        <td>No data</td>
+                                        <td></td>
                                         <td></td>
                                     </tr>
                                 <?php endif; ?>
@@ -75,7 +78,7 @@
 
 
 <div class="modal fade" id="evaluacionModal">
-<div class="modal-dialog">
+  <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -85,6 +88,7 @@
           <h5 class="text-center"></h5>
           <form method="POST" action="<?=base_url('admin/formularios/create2')?>">
           <input type="hidden" class="form-control" id = "alumno_id" name= "alumno_id" value="">
+          <input type="hidden" class="form-control" id = "form_num" name= "form_num" value="">
           <table class="table table-striped" id="tblGrid">
             <thead id="tblHead">
               <tr>
@@ -156,15 +160,3 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
-  <script>
-      $(document).ready(function() {
-        $('a[data-toggle=modal], button[data-toggle=modal]').click(function () {
-          var data_id = '';
-          if (typeof $(this).data('id') !== 'undefined') {
-            data_id = $(this).data('id');
-          }
-          $('#alumno_id').val(data_id);
-        })
-      });
-  </script>

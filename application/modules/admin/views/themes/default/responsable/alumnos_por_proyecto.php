@@ -46,7 +46,7 @@
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('admin/adminresponsable/viewAlumno/'.$list['id']) ?>" class="btn btn-info">Ver</a>
-                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-toggle="modal" class="open-EvaluacionModal btn btn-info">Evaluar</button>
+                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num="2" data-toggle="modal" class="open-EvaluacionModal btn btn-info">Evaluar</button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -86,6 +86,7 @@
           <h5 class="text-center"></h5>
           <form method="POST" action="<?=base_url('admin/formularios/create/'.$list['proyecto_id'])?>">
           <input type="hidden" class="form-control" id = "alumno_id" name= "alumno_id" value="">
+          <input type="hidden" class="form-control" id = "form_num" name= "form_num" value="">
           <table class="table table-striped" id="tblGrid">
             <thead id="tblHead">
               <tr>

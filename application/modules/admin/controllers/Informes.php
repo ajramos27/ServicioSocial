@@ -27,7 +27,6 @@ class Informes extends Admin_Controller {
 
       $alumnoId = $alumno->id;
       $informe = $this->informe->get_by_alumno($alumnoId);
-
       $data['alumno'] = $alumno;
       $data['proyecto'] = $proyecto;
       $data['responsable'] = $responsable;
@@ -59,7 +58,7 @@ class Informes extends Admin_Controller {
 
             $this->informe->insert($data);
 
-            redirect('/admin/adminprestador/', 'refresh');
+            redirect('prestador/consulta', 'refresh');
 
         }
 

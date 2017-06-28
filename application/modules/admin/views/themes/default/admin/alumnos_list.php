@@ -45,7 +45,7 @@
                                             <td>
                                                 <a href="<?= base_url('admin/alumnos/view/'.$list['id']) ?>" class="btn btn-info">Ver</a>
                                                 <a href="<?= base_url('admin/alumnos/edit/'.$list['id']) ?>" class="btn btn-warning">Editar</a>
-                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/alumnos/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger">Eliminar</a>
+                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/alumnos/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

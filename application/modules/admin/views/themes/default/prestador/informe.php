@@ -1,6 +1,12 @@
 <div id="user-wrapper">
       <!-- /.row -->
       <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <a  href="<?= base_url('admin/adminprestador') ?>" class="btn btn-warning">Regresar al Inicio</a>
+          </div>
+          <!-- /.col-lg-12 -->
+      </div>
+      <div class="row">
         <div class="col-md-6 col-md-offset-3 inicio">
             <form id="informe_form"novalidate action="<?=base_url('admin/informes/create')?>"  method="post">
               <input type="hidden" class="form-control" id = "alumno_id" name= "alumno_id" value="<?=$alumno->id?>">

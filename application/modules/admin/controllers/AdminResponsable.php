@@ -39,7 +39,7 @@ class AdminResponsable extends Admin_Controller {
         $data['proyectosresponsables'] = $proyectosresponsables;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/proyectos_list";
-        $this->load->view($this->_usercontainer, $data);
+        $this->load->view($this->_container, $data);
     }
 
     //Lista los alumnos pertenecientes a cada proyecto del responsable
@@ -51,7 +51,7 @@ class AdminResponsable extends Admin_Controller {
         $data['proyectos'] = $proyectos;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_por_proyecto";
-        $this->load->view($this->_usercontainer, $data);
+        $this->load->view($this->_container, $data);
     }
 
     //Ver alumno
@@ -76,17 +76,22 @@ class AdminResponsable extends Admin_Controller {
         $proyectos = $this->proyecto->get_all();
         $alumnos = $this->alumno->get_by_responsable();
         $responsables = $this->responsable->get_all();
+        $formularios = $this->formulario->get_all();
 
         $data['alumnos'] = $alumnos;
         $data['proyectos'] = $proyectos;
         $data['responsables'] = $responsables;
+        $data['formularios'] = $formularios;
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_list";
-        $this->load->view($this->_usercontainer, $data);
+        $this->load->view($this->_container, $data);
     }
 
-    public function carta($id){
+    public function carta($id) {
       $alumno = $this->alumno->get($id);
+      $proyectos = $this->proyecto->get_all();
+      $responsables = $this->responsable->get_all();
+
       $phpWord = new \PhpOffice\PhpWord\PhpWord();
 		  $phpWord->getCompatibility()->setOoxmlVersion(14);
 		  $phpWord->getCompatibility()->setOoxmlVersion(15);
@@ -94,66 +99,87 @@ class AdminResponsable extends Admin_Controller {
   		$targetFile = "./global/uploads/";
   		$filename = 'carta.docx';
 
-		// add style settings for the title and paragraph
+		    // add style settings for the title and paragraph
 
       $paragraphStyleName = 'pStyle';
-      $phpWord->addParagraphStyle($paragraphStyleName, array('alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, 'spaceAfter' => 100));
+      $phpWord->addParagraphStyle($paragraphStyleName, array('alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, 'spaceAfter' => 500));
+      $paragraphOptions = array('space' => array('line' => 1000));
+      $phpWord->setDefaultFontSize(11);
+      $phpWord->setDefaultFontName('arial');
 
-    $phpWord->addTitleStyle(1, array('bold' => true), array('spaceAfter' => 240));
+      // New portrait section
+      $section = $phpWord->addSection();
 
-    // New portrait section
-    $section = $phpWord->addSection();
+      // Simple text
+      setlocale(LC_ALL,"es_ES");
+      $date = strftime("%d de %B del %Y");
 
-    // Simple text
-    setlocale(LC_ALL,"es_ES");
-    $date = strftime("%d de %B del %Y");
+      $section_style = $section->getStyle();
+      $position =
+        $section_style->getPageSizeW()
+        - $section_style->getMarginRight()
+        - $section_style->getMarginLeft();
+      $phpWord->addParagraphStyle("leftRight", array("tabs" => array(
+        new \PhpOffice\PhpWord\Style\Tab("right", $position))));
 
-    $section->addText('Mérida, Yucatán a '.$date);
+      $section->addText("\tMérida, Yucatán a ".$date, array(), "leftRight");
 
-    // Two text break
-    $section->addTextBreak(2);
+      // Two text break
+      $section->addTextBreak(2);
 
-    // Define styles
-    $section->addText('Mtra. en Psic. Hum. Gladys Julieta Guerrero Walker',  array('bold' => true));
-    $section->addText('Directora de la Facultad de Educación');
-    $section->addText('Presente');
+      // Define styles
+      $section->addText('Mtra. en Psic. Hum. Gladys Julieta Guerrero Walker',  array('bold' => true));
+      $section->addText('Directora de la Facultad de Educación');
+      $section->addText('Presente');
 
-    $section->addTextBreak();
+      $section->addTextBreak();
 
-    // Inline font style
-    $fontStyle['name'] = 'Times New Roman';
-    $fontStyle['size'] = 20;
+      // Inline font style
 
-    $textrun = $section->addTextRun();
-    $textrun->addText('Por este medio hago constar que ');
-    $textrun->addText($alumno->nombres." ".$alumno->apellidos.", ");
-    $textrun->addText('estudiante de la licenciatura en ');
-    $textrun->addText($alumno->licenciatura);
-    $textrun->addText('de la Facultad de Educación de la Universidad Autónoma de Yucatán,');
-    $textrun->addText('realizó y concluyó satisfactoriamente su Servicio Social en el proyecto');
-    $textrun->addText('nombre de proyecto');
-    $section->addTextBreak();
-    $textrun2 = $section->addTextRun();
-    $textrun2->addText('La prestación del servicio social se llevó a cabo del');
-    $textrun2->addText('fechas');
-    $textrun2->addText('periodo en el que se cubrió un total de 480 horas.');
-    $textrun2->addText('Sin otro particular, quedo a sus órdenes para cualquier aclaración y le envío un cordial saludo.');
-    $section->addTextBreak();
 
-		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-		$objWriter->save($filename);
-		// send results to browser to download
-		header('Content-Description: File Transfer');
-		header('Content-Type: application/octet-stream');
-		header('Content-Disposition: attachment; filename='.$filename);
-		header('Content-Transfer-Encoding: binary');
-		header('Expires: 0');
-		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-		header('Pragma: public');
-		header('Content-Length: ' . filesize($filename));
-		flush();
-		readfile($filename);
-		unlink($filename); // deletes the temporary file
-		exit;
+      $textrun = $section->addTextRun(array('space' => array('line' => 500, 'align' =>'both')));
+      $textrun->addText('Por este medio hago constar que ');
+      $textrun->addText($alumno->nombres." ".$alumno->apellidos.", ");
+      $textrun->addText('estudiante de la licenciatura en ');
+      $textrun->addText($alumno->licenciatura);
+      $textrun->addText(' de la Facultad de Educación de la Universidad Autónoma de Yucatán, ');
+      $textrun->addText('realizó y concluyó satisfactoriamente su Servicio Social en el proyecto ');
+      $textrun->addText($alumno->proyecto_id);
+      $section->addTextBreak();
+      $textrun2 = $section->addTextRun(array('space' => array('line' => 500, 'align' =>'both')));
+      $textrun2->addText('La prestación del servicio social se llevó a cabo del ');
+      $textrun2->addText($alumno->periodoInicio);
+      $textrun2->addText(" al ".$alumno->periodoFin);
+      $textrun2->addText(', periodo en el que se cubrió un total de 480 horas. ');
+      $textrun2->addText('Sin otro particular, quedo a sus órdenes para cualquier aclaración y le envío un cordial saludo.');
+      $section->addTextBreak();
+
+  		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+  		$objWriter->save($filename);
+  		// send results to browser to download
+  		header('Content-Description: File Transfer');
+  		header('Content-Type: application/octet-stream');
+  		header('Content-Disposition: attachment; filename='.$filename);
+  		header('Content-Transfer-Encoding: binary');
+  		header('Expires: 0');
+  		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+  		header('Pragma: public');
+  		header('Content-Length: ' . filesize($filename));
+  		flush();
+  		readfile($filename);
+  		unlink($filename); // deletes the temporary file
+  		exit;
+    }
+
+    public function change_password() {
+      if ($this->input->post('password')) {
+          $data['password'] = $this->input->post('password');
+          $this->ion_auth->update($this->logged_in_id, $data);
+          redirect('/adminresponsable/index', 'refresh');
+      }
+      $data['user'] = $this->ion_auth->user($this->logged_in_id)->row();
+      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "change_password";
+      $this->load->view($this->_container, $data);
+
     }
 }

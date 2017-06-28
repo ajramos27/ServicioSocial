@@ -24,7 +24,7 @@
                                     <th>Usuario</th>
                                     <th>Nombre</th>
                                     <th>Email</th>
-                                    <th>Activo</th>
+                                    <th>Contraseña</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -36,10 +36,11 @@
                                             <td><?=$user->username?></td>
                                             <td><?=$user->first_name .' '.$user->last_name?></td>
                                             <td><?=$user->email?></td>
-                                            <td><?=$user->active?></td>
+                                            <td><?=$user->password?></td>
                                             <td>
                                                 <a href="<?= base_url('admin/users/edit/'.$user->id) ?>" class="btn btn-info">Editar</a>
                                                 <a href="<?= base_url('admin/users/delete/'.$user->id) ?>" class="btn btn-danger">Eliminar</a>
+                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/users/delete/'.$user->id);?>');" deleteConfirm href="#" class="btn btn-danger">Eliminar</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -51,8 +52,6 @@
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>
-                                            <a href="#" class="btn btn-info">Editar</a>
-                                            <a href="#" class="btn btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
                                 <?php endif; ?>

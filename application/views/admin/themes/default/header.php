@@ -79,7 +79,7 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <?php if ($this->is_responsable && !$this->is_admin): ?>
-                            <li><a href="<?= base_url('admin/adminresponsable') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+                            <li><a href="<?= base_url('responsable') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
                             <li><a href="<?= base_url('admin/adminresponsable/listAllAlumnos') ?>"><i class="fa fa-user fa-fw"></i> Prestadores</a></li>
                             <li><a href="<?= base_url('admin/adminresponsable/listProyectos') ?>"><i class="fa fa-book fa-fw"></i> Proyectos</a></li>
                             <?php endif; ?>

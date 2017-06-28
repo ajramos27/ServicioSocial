@@ -13,6 +13,10 @@ class Migration_Formularios extends CI_Migration {
                 'type' => 'INT',
                 'constraint' => 11,
             ),
+            'form_num' => array(
+                'type' => 'INT',
+                'constraint' => 11,
+            ),
             'asistePuntual' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 3,

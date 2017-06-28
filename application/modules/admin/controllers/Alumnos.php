@@ -100,7 +100,7 @@ class Alumnos extends Admin_Controller {
 
     //Editar un alumno
     public function edit($id) {
-        if ($this->input->post('nombres')) {
+        if ($this->input->post('matricula')) {
             $data['matricula'] = $this->input->post('matricula');
             $data['nombres'] = $this->input->post('nombres');
             $data['apellidos'] = $this->input->post('apellidos');
@@ -112,7 +112,7 @@ class Alumnos extends Admin_Controller {
             $data['periodoInicio'] = $this->input->post('periodoInicio');
             $data['periodoFin'] = $this->input->post('periodoFin');
             $data['status'] = $this->input->post('status');
-            $data['usuario_id'] = $user;
+            $data['usuario_id'] = $this->input->post('usuario_id');
 
             $this->alumno->update($data, $id);
 

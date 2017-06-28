@@ -91,7 +91,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                  <input  type="hidden"  value="<?= $alumno->usuario_id ?>" class="form-control" id="usuario_id" name="usuario_id">
+                                    <label>Usuario:</label>
+                                    <input value="<?= $alumno->usuario_id ?>" class="form-control" id="usuario_id" name="usuario_id">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Actualizar</button>

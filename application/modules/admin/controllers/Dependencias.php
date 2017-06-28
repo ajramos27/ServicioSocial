@@ -24,7 +24,7 @@ class Dependencias extends Admin_Controller {
         $dependencias = $this->dependencia->get_all();
 
         $data['dependencias'] = $dependencias;
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "dependencias_list";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/dependencias_list";
         $this->load->view($this->_container, $data);
     }
 
@@ -39,7 +39,7 @@ class Dependencias extends Admin_Controller {
             redirect('/admin/dependencias', 'refresh');
         }
 
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "dependencias_create";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/dependencias_create";
         $this->load->view($this->_container, $data);
     }
 
@@ -59,7 +59,7 @@ class Dependencias extends Admin_Controller {
         //$proyecto = $this->proyecto->get_all();
 
         $data['dependencia'] = $dependencia;
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "dependencias_edit";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/dependencias_edit";
         $this->load->view($this->_container, $data);
     }
 

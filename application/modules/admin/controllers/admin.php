@@ -19,23 +19,16 @@ class Admin extends Admin_Controller {
         $this->load->view($this->_container, $data);
     }
 
-    public function sendEmail(){
+    public function change_password() {
 
-
-      $this->load->library('email');
-
-
-      // Set to, from, message, etc.
-      $this->email->from('aj.ramos2794@gmail.com', 'Aaron Ramos');
-      $this->email->to('aaronchi_13@hotmail.com');
-      $this->email->subject('Email Test');
-      $this->email->message('Testing the email class.');
-      $this->email->set_newline("\r\n");
-      if ($this->email->send()) {
-        echo 'Your email was sent, thanks chamil.';
-      } else {
-        show_error($this->email->print_debugger());
+      if ($this->input->post('password')) {
+          $data['password'] = $this->input->post('password');
+          $this->ion_auth->update($this->logged_in_id, $data);
+          redirect('/admin/index', 'refresh');
       }
+      $data['user'] = $this->ion_auth->user($this->logged_in_id)->row();
+      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "change_password";
+      $this->load->view($this->_container, $data);
 
     }
 

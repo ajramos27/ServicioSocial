@@ -70,9 +70,7 @@
                             <i class="fa fa-user fa-fw"></i><?=$this->logged_in_name?> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a></li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Opciones</a>
-                            </li>
+                            <li><a href="<?= base_url('admin/change_password') ?>"><i class="fa fa-user fa-fw"></i> Cambiar contraseña</a></li>
                             <li class="divider"></li>
                             <li><a href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a></li>
                         </ul>
