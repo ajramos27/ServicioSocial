@@ -58,7 +58,7 @@ class Informes extends Admin_Controller {
 
             $this->informe->insert($data);
 
-            redirect('prestador/consulta', 'refresh');
+            redirect('admin/informes', 'refresh');
 
         }
 

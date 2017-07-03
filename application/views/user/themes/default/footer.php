@@ -22,85 +22,9 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="<?= base_url() ?>assets/admin/js/sb-admin-2.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-      $('a[data-toggle=modal], button[data-toggle=modal]').click(function () {
-        var data_id = '';
-        if (typeof $(this).data('id') !== 'undefined') {
-          data_id = $(this).data('id');
-        }
-        $('#alumno_id').val(data_id);
-      })
-    });
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-<script type="text/javascript">
-function deleteConfirm(url)
- {
-    bootbox.confirm({
-    message: "¿Está seguro que desea eliminar este registro?",
-    size: 'small',
-    buttons: {
-        confirm: {
-            label: 'Si',
-            className: 'btn-success'
-        }
-    },
-    callback: function (result) {
-      if(result){
-        window.location.href=url;
-      }
-    }
-  });
- }
-</script>
-
-<script>
-$(document).ready(function(){
-  var current = 1,current_step,next_step,steps;
-  steps = $("fieldset").length;
-  $(".next").click(function(){
-    current_step = $(this).parent();
-    next_step = $(this).parent().next();
-    next_step.show();
-    current_step.hide();
-    setProgressBar(++current);
-  });
-  $(".previous").click(function(){
-    current_step = $(this).parent();
-    next_step = $(this).parent().prev();
-    next_step.show();
-    current_step.hide();
-    setProgressBar(--current);
-  });
-  setProgressBar(current);
-  // Change progress bar action
-  function setProgressBar(curStep){
-    var percent = parseFloat(100 / steps) * curStep;
-    percent = percent.toFixed();
-    $(".progress-bar")
-      .css("width",percent+"%")
-      .html(percent+"%");
-  }
-});
-</script>
+<script src="<?= base_url() ?>assets/admin/js/admin.js"></script>
 
 <script type="text/javascript">
-/*$('#button').click(function() {
-  var doc = new jsPDF();
-  //var alumno = $(this).data('alumno');
-  doc.text(23, 81, name);
-  doc.save('jola.pdf');
-});*/
   function imprimir(alumno, responsable, proyecto, informe){
     var alumnoString =  JSON.stringify(alumno);
     var responsableString =  JSON.stringify(responsable);
@@ -116,6 +40,7 @@ $(document).ready(function(){
     //var alumno = $(this).data('alumno');
     //var imgData;
     <?php
+    setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
     $pag1 = base64_encode(file_get_contents(base_url()."assets/admin/images/informe-pag1.jpg"));
     $pag2 = base64_encode(file_get_contents(base_url()."assets/admin/images/informe-pag2.jpg"));
     $pag3 = base64_encode(file_get_contents(base_url()."assets/admin/images/informe-pag3.jpg"));
@@ -127,6 +52,11 @@ $(document).ready(function(){
 
     doc.setFontSize(11);
 
+    var fecha = new Date(jsonAlumno["periodoInicio"]);
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+
+
     doc.addImage(page1, 'JPEG',0,0,210,297);
     doc.text(40, 67, jsonAlumno['nombres'] + " " + jsonAlumno['apellidos']);
     doc.text(42, 77, jsonAlumno['matricula']);
@@ -134,7 +64,7 @@ $(document).ready(function(){
     doc.text(75, 87, jsonAlumno['licenciatura']);
     doc.text(85, 97, "dependencia");
     doc.text(65, 107, jsonProyecto["nombre"]);
-    doc.text(65, 119, jsonAlumno["periodoInicio"] + " - " + jsonAlumno["periodoFin"]);
+    doc.text(65, 119, fecha.toLocaleDateString("es-ES", options) + " - " + jsonAlumno["periodoFin"]);
 
     if(jsonInforme["preg1"] == "SI") { doc.text(154,155, "X")}
     else { doc.text(173,155, "X") }

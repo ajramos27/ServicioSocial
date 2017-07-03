@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Prestadores
-                <a  href="<?= base_url('admin/adminresponsable/listAllAlumnos/')?>" class="btn btn-warning">Regresar</a>
+                <a  href="<?= base_url('admin/adminresponsable/listAlumnos') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->
@@ -57,26 +57,30 @@
                                           <td><?= $proyecto['nombre'] ?></td>
                                           </tr>
                                           <tr>
-                                            <?php foreach ($responsables as $key => $responsable): ?>
-                                                <?php if ($responsable['id'] == $proyecto['responsable_id']): ?>
-                                                  <th>Responsable:</th>
-                                                  <td><?= $responsable['nombres'].' '.$responsable['apellidos'] ?></td>
-                                                  </tr>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
+                                    <?php foreach ($responsables as $key => $responsable): ?>
+                                        <?php if ($responsable['id'] == $proyecto['responsable_id']): ?>
+                                          <th>Responsable:</th>
+                                          <td><?= $responsable['nombres'].' '.$responsable['apellidos'] ?></td>
+                                          </tr>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
-
                                 <tr>
                                 <th>Status:</th>
                                 <td><?= $alumno->status ?></td>
                                 </tr>
-
                             </table>
+                            <?php if($alumno->status == 'Finalizado'): ?>
+                              <a  href="<?= base_url('admin/adminresponsable/carta/'.$alumno->id) ?>" class="btn btn-warning">Generar Carta</a>
+                            <?php else : ?>
+                              <a  href="<?= base_url('admin/alumnos/finalizar/'.$alumno->id) ?>" class="btn btn-warning">Finalizar Servicio</a>
+                            <?php endif; ?>
                           </center>
-                        <a  href="<?= base_url('admin/adminresponsable/carta/'.$alumno->id) ?>" class="btn btn-warning">Generar Carta</a>
-                        <a  href="" class="btn btn-warning">Finalizar Servicio</a>
+
+
+
                         </div>
                         <?php if (count($formularios)): ?>
                             <?php foreach ($formularios as $key => $list): ?>

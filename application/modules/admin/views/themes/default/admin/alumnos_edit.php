@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Prestadores
-                <a  href="<?= base_url('admin/alumnos') ?>" class="btn btn-warning">Regresar</a>
+                <a  href="<?= base_url('alumnos') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->
@@ -26,7 +26,7 @@
                         </div>
                         <?php endif; ?>
                         <div class="col-lg-6">
-                            <form role="form" method="POST" action="<?=base_url('admin/alumnos/edit/'.$alumno->id)?>">
+                            <form role="form" method="POST" action="<?=base_url('alumnos/edit/'.$alumno->id)?>">
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" value="<?=$alumno->id?>" disabled="1">
                                 </div>

@@ -47,7 +47,7 @@ class Proyectos extends Admin_Controller {
 
             $this->proyecto->insert($data);
 
-            redirect('/admin/proyectos', 'refresh');
+            redirect('proyectos', 'refresh');
         }
 
         $responsables = $this->responsable->get_all();
@@ -69,7 +69,7 @@ class Proyectos extends Admin_Controller {
 
             $this->proyecto->update($data, $id);
 
-            redirect('/admin/proyectos', 'refresh');
+            redirect('proyectos', 'refresh');
         }
 
         $proyecto = $this->proyecto->get($id);
@@ -85,6 +85,6 @@ class Proyectos extends Admin_Controller {
     public function delete($id){
         $this->proyecto->delete($id);
 
-        redirect('/admin/proyectos', 'refresh');
+        redirect('proyectos', 'refresh');
     }
 }

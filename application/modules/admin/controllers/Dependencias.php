@@ -35,8 +35,7 @@ class Dependencias extends Admin_Controller {
             $data['telefono'] = $this->input->post('telefono');
 
             $this->dependencia->insert($data);
-
-            redirect('/admin/dependencias', 'refresh');
+            redirect('dependencias', 'refresh');
         }
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/dependencias_create";
@@ -51,7 +50,7 @@ class Dependencias extends Admin_Controller {
 
             $this->dependencia->update($data, $id);
 
-            redirect('/admin/dependencias', 'refresh');
+            redirect('dependencias', 'refresh');
         }
 
         $dependencia = $this->dependencia->get($id);
@@ -66,6 +65,6 @@ class Dependencias extends Admin_Controller {
     public function delete($id){
         $this->dependencia->delete($id);
 
-        redirect('/admin/dependencias', 'refresh');
+        redirect('dependencias', 'refresh');
     }
 }

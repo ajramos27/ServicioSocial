@@ -43,7 +43,7 @@ class AdminResponsable extends Admin_Controller {
     }
 
     //Lista los alumnos pertenecientes a cada proyecto del responsable
-    public function listAlumnos($id) {
+    public function listAlumnosProyecto($id) {
         $proyectos = $this->proyecto->get_all();
         $alumnos = $this->alumno->get_by_proyecto($id);
 
@@ -71,7 +71,7 @@ class AdminResponsable extends Admin_Controller {
     }
 
     //Lista los alumnos pertenecientes a todos los proyectos del responsable
-    public function listAllAlumnos() {
+    public function listAlumnos() {
 
         $proyectos = $this->proyecto->get_all();
         $alumnos = $this->alumno->get_by_responsable();
@@ -85,6 +85,12 @@ class AdminResponsable extends Admin_Controller {
 
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsable/alumnos_list";
         $this->load->view($this->_container, $data);
+    }
+
+    public function finalizarServicio($id) {
+      $data['status'] = "Finalizado";
+      $this->alumno->update($data, $id);
+      redirect('admin/adminresponsable/listAlumnos', 'refresh');
     }
 
     public function carta($id) {
@@ -111,7 +117,7 @@ class AdminResponsable extends Admin_Controller {
       $section = $phpWord->addSection();
 
       // Simple text
-      setlocale(LC_ALL,"es_ES");
+      setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
       $date = strftime("%d de %B del %Y");
 
       $section_style = $section->getStyle();
@@ -137,6 +143,7 @@ class AdminResponsable extends Admin_Controller {
       // Inline font style
 
 
+
       $textrun = $section->addTextRun(array('space' => array('line' => 500, 'align' =>'both')));
       $textrun->addText('Por este medio hago constar que ');
       $textrun->addText($alumno->nombres." ".$alumno->apellidos.", ");
@@ -148,8 +155,8 @@ class AdminResponsable extends Admin_Controller {
       $section->addTextBreak();
       $textrun2 = $section->addTextRun(array('space' => array('line' => 500, 'align' =>'both')));
       $textrun2->addText('La prestación del servicio social se llevó a cabo del ');
-      $textrun2->addText($alumno->periodoInicio);
-      $textrun2->addText(" al ".$alumno->periodoFin);
+      $textrun2->addText(strftime("%d de %B de %Y", strtotime($alumno->periodoInicio)));
+      $textrun2->addText(" al ".strftime("%d de %B de %Y", strtotime($alumno->periodoFin)));
       $textrun2->addText(', periodo en el que se cubrió un total de 480 horas. ');
       $textrun2->addText('Sin otro particular, quedo a sus órdenes para cualquier aclaración y le envío un cordial saludo.');
       $section->addTextBreak();

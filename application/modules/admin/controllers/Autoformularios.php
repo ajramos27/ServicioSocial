@@ -1,6 +1,6 @@
 <?php
 
-class Formularios extends Admin_Controller {
+class Autoformularios extends Admin_Controller {
 
     function __construct() {
         parent::__construct();
@@ -10,7 +10,7 @@ class Formularios extends Admin_Controller {
             redirect('/auth', 'refresh');
         }
 
-        $this->load->model(array('admin/formulario'));
+        $this->load->model(array('admin/autoformulario'));
         $this->load->model(array('admin/alumno'));
 
     }
@@ -27,50 +27,34 @@ class Formularios extends Admin_Controller {
             $data['optimizaRecursos'] = $this->input->post('optimizaRecursos');
             $data['estableceRelaciones'] = $this->input->post('estableceRelaciones');
             $data['atiendeIndicaciones'] = $this->input->post('atiendeIndicaciones');
+            $data['abiertoRetro'] = $this->input->post('abiertoRetro');
+            $data['iniciativa'] = $this->input->post('iniciativa');
+            $data['recursosNecesarios'] = $this->input->post('recursosNecesarios');
+            $data['trabajoEquipo'] = $this->input->post('trabajoEquipo');
+            $data['desarrolloCompetencias'] = $this->input->post('atiendeIndicaciones');
             $data['observaciones'] = $this->input->post('observaciones');
 
-            $this->formulario->insert($data);
-
-            redirect('/admin/adminresponsable/listAlumnos/', 'refresh');
+            $this->autoformulario->insert($data);
+            redirect('/admin/adminprestador', 'refresh');
+            echo "<script>alert('Enviado');</script>";
         }
 
         //$data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "formularios_create";
         //$this->load->view($this->_container, $data);
     }
 
-    public function edit($id) {
-        if ($this->input->post('asistePuntual')) {
-            $data['asistePuntual'] = $this->input->post('asistePuntual');
-            $data['cumpleHorario'] = $this->input->post('cumpleHorario');
-            $data['demuestraOrganizacion'] = $this->input->post('demuestraOrganizacion');
-            $data['demuestraCompetencias'] = $this->input->post('demuestraCompetencias');
-            $data['optimizeRecursos'] = $this->input->post('optimizeRecursos');
-            $data['estableceRelaciones'] = $this->input->post('estableceRelaciones');
-            $data['atiendeIndicaciones'] = $this->input->post('atiendeIndicaciones');
-            $data['observaciones'] = $this->input->post('observaciones');
-
-            $this->formulario->update($data, $id);
-
-            redirect('/admin/formularios', 'refresh');
-        }
-
-        $formulario = $this->formulario->get($id);
-
-        $data['formulario'] = $formulario;
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "formularios_edit";
-        $this->load->view($this->_container, $data);
-    }
-
     public function delete($id){
-        $this->formulario->delete($id);
+        $this->autoformulario->delete($id);
 
         redirect('/admin/formularios', 'refresh');
     }
 
     public function view($id){
-      $formulario = $this->formulario->get($id);
-      $data['formulario'] = $formulario;
+      $autoformulario = $this->autoformulario->get($id);
+      $data['autoformulario'] = $autoformulario;
       $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "alumnos_view";
       $this->load->view($this->_container, $data);
     }
+
+
 }

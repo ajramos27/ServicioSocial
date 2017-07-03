@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Responsables
-                <a  href="<?= base_url('admin/responsables') ?>" class="btn btn-warning">Regresar</a>
+                <a  href="<?= base_url('responsables') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->
@@ -26,7 +26,7 @@
                         </div>
                         <?php endif; ?>
                         <div class="col-lg-6">
-                            <form role="form" method="POST" action="<?=base_url('admin/responsables/create')?>">
+                            <form role="form" method="POST" action="<?=base_url('responsables/create')?>">
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" placeholder="Auto generated" disabled="1">
                                 </div>
@@ -60,12 +60,6 @@
 
 
                                 <div class="form-group">
-                                    <!--label>Tipo de Usuario</label>
-                                    <select class="form-control" id="group_id" name="group_id">
-                                        <?//php foreach ($groups as $group): ?>
-                                        <option value="<?//=$group->id?>"><?//=$group->name?></option>
-                                        <?//php endforeach; ?>
-                                    </select-->
                                     <input type="hidden" class="form-control" id="group_id" name="group_id" value="2" required>
                                 </div>
 

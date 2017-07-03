@@ -27,7 +27,7 @@ class Alumno extends MY_Model {
     public function get_by_responsable() {
         $data = array();
         $this->db->select('alumnos.id, alumnos.nombres, alumnos.apellidos, alumnos.correo, facultad, licenciatura,
-         proyecto_id, proyectos.nombre, proyectos.responsable_id,
+         proyecto_id, status, proyectos.nombre, proyectos.responsable_id,
          responsables.usuario_id');
         $this->db->from('alumnos');
         $this->db->join('proyectos', 'proyectos.id = alumnos.proyecto_id');

@@ -56,21 +56,22 @@ $route['translate_uri_dashes'] = FALSE;
 //Acceso administrador
 $route['admin/'] = 'admin/admin/index';
 
-$route['admin/alumnos'] = 'admin/alumnos';
-$route['admin/alumnos/create'] = 'admin/alumnos/create';
-$route['admin/alumnos/edit/(:any)'] = 'admin/alumnos/edit/$1';
+$route['alumnos'] = 'admin/alumnos';
+$route['alumnos/create'] = 'admin/alumnos/create';
+$route['alumnos/edit/(:any)'] = 'admin/alumnos/edit/$1';
+$route['alumnos/view/(:any)'] = 'admin/alumnos/view/$1';
 
-$route['admin/responsables'] = 'admin/responsables';
-$route['admin/responsables/create'] = 'admin/responsables/create';
-$route['admin/responsables/edit/(:any)'] = 'admin/responsables/edit/$1';
+$route['responsables'] = 'admin/responsables';
+$route['responsables/create'] = 'admin/responsables/create';
+$route['responsables/edit/(:any)'] = 'admin/responsables/edit/$1';
 
-$route['admin/proyectos'] = 'admin/proyectos';
-$route['admin/proyectos/create'] = 'admin/proyectos/create';
-$route['admin/proyectos/edit/(:any)'] = 'admin/proyectos/edit/$1';
+$route['proyectos'] = 'admin/proyectos';
+$route['proyectos/create'] = 'admin/proyectos/create';
+$route['proyectos/edit/(:any)'] = 'admin/proyectos/edit/$1';
 
-$route['admin/dependecias'] = 'admin/dependecias';
-$route['admin/dependecias/create'] = 'admin/dependecias/create';
-$route['admin/dependecias/edit/(:any)'] = 'admin/dependecias/edit/$1';
+$route['dependencias'] = 'admin/dependencias';
+$route['dependencias/create'] = 'admin/dependencias/create';
+$route['dependencias/edit/(:any)'] = 'admin/dependencias/edit/$1';
 
 //Acceso responsable
 $route['responsable'] = 'admin/adminresponsable/index';

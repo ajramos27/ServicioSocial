@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Dependencias
-                <a  href="<?= base_url('admin/dependencias') ?>" class="btn btn-warning">Regresar</a>
+                <a  href="<?= base_url('dependencias') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->

@@ -4,7 +4,7 @@
             <div class="page-header users-header">
                 <h2>
                     Dependencias
-                    <a  href="<?= base_url('admin/dependencias/create') ?>" class="btn btn-success">Nueva Dependencia</a>
+                    <a  href="<?= base_url('dependencias/create') ?>" class="btn btn-success">Nueva Dependencia</a>
                 </h2>
             </div>
         </div>
@@ -34,8 +34,8 @@
                                             <td><?=$list['direccion']?></td>
                                             <td><?=$list['telefono']?></td>
                                             <td>
-                                                <a href="<?= base_url('admin/dependencias/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
-                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/dependencias/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger">Eliminar</a>
+                                                <a href="<?= base_url('dependencias/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
+                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/dependencias/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

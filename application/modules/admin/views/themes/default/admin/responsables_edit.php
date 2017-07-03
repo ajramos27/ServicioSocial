@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Responsables
-                <a  href="<?= base_url('admin/responsables') ?>" class="btn btn-warning">Regresar</a>
+                <a  href="<?= base_url('responsables') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->
@@ -26,7 +26,7 @@
                         </div>
                         <?php endif; ?>
                         <div class="col-lg-6">
-                            <form role="form" method="POST" action="<?=base_url('admin/responsables/edit/'.$responsable->id)?>">
+                            <form role="form" method="POST" action="<?=base_url('responsables/edit/'.$responsable->id)?>">
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" value="<?=$responsable->id?>" placeholder="Auto generated" disabled="1">
                                 </div>
@@ -57,8 +57,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Usuario:</label>
-                                    <input value="<?= $responsable->usuario_id ?>" class="form-control" id="usuario_id" name="usuario_id">
+                                    <input type="hidden" value="<?= $responsable->usuario_id ?>" class="form-control" id="usuario_id" name="usuario_id">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Actualizar</button>

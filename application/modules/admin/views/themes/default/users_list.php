@@ -39,8 +39,7 @@
                                             <td><?=$user->password?></td>
                                             <td>
                                                 <a href="<?= base_url('admin/users/edit/'.$user->id) ?>" class="btn btn-info">Editar</a>
-                                                <a href="<?= base_url('admin/users/delete/'.$user->id) ?>" class="btn btn-danger">Eliminar</a>
-                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/users/delete/'.$user->id);?>');" deleteConfirm href="#" class="btn btn-danger">Eliminar</a>
+                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/users/delete/'.$user->id);?>');" deleteConfirm href="#" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -4,7 +4,7 @@
             <div class="page-header users-header">
                 <h2>
                     Proyectos
-                    <a  href="<?= base_url('admin/proyectos/create') ?>" class="btn btn-success">Nuevo Proyecto</a>
+                    <a  href="<?= base_url('proyectos/create') ?>" class="btn btn-success">Nuevo Proyecto</a>
                 </h2>
             </div>
         </div>
@@ -22,6 +22,8 @@
                                     <th>Nombre</th>
                                     <th>Responsable</th>
                                     <th>Dependencia</th>
+                                    <th>LE</th>
+                                    <th>LEI</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -43,11 +45,16 @@
                                                     </td>
                                                 <?php endif; ?>
                                               <?php endforeach; ?>
-
+                                              <?php if($list['licEdu'] != NULL):?><td><i class="fa fa-check"></i></td>
+                                              <?php else: ?><td></td>
+                                              <?php endif; ?>
+                                              <?php if($list['licEi'] != NULL):?><td><i class="fa fa-check"></i></td>
+                                              <?php else: ?><td></td>
+                                              <?php endif; ?>
 
                                             <td>
-                                                <a href="<?= base_url('admin/proyectos/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
-                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/proyectos/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger">Eliminar</a>
+                                                <a href="<?= base_url('proyectos/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
+                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/proyectos/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

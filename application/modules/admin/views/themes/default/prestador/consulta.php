@@ -10,10 +10,13 @@
             $json_proyecto = json_encode($proyecto);
             $json_informe = json_encode($informe)?>
 
+            <a  href="<?= base_url('admin/adminprestador') ?>" class="btn btn-warning">Regresar al Inicio</a>
             <button class='btn btn-success'
               onclick='imprimir(<?php echo $json_alumno?>,<?php echo $json_responsable?>,
                                 <?php echo $json_proyecto?>,<?php echo $json_informe?> )' id='button'>
             <i class="fa fa-print"></i> Descargar</button>
+
+
         </div>
 
 

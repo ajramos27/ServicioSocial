@@ -27,7 +27,7 @@ class Responsables extends Admin_Controller {
 
         $data['responsables'] = $responsables;
         $data['dependencias'] = $dependencias;
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsables_list";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/responsables_list";
         $this->load->view($this->_container, $data);
     }
 
@@ -74,14 +74,14 @@ class Responsables extends Admin_Controller {
 
             $this->responsable->insert($data);
 
-            redirect('/admin/responsables', 'refresh');
+            redirect('responsables', 'refresh');
         }
 
         $dependencias = $this->dependencia->get_all();
         $data['dependencias'] = $dependencias;
 
         $data['groups'] = $this->ion_auth->groups()->result();
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsables_create";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/responsables_create";
         $this->load->view($this->_container, $data);
     }
 
@@ -96,7 +96,7 @@ class Responsables extends Admin_Controller {
 
             $this->responsable->update($data, $id);
 
-            redirect('/admin/responsables', 'refresh');
+            redirect('responsables', 'refresh');
         }
 
         $responsable = $this->responsable->get($id);
@@ -104,13 +104,13 @@ class Responsables extends Admin_Controller {
 
         $data['responsable'] = $responsable;
         $data['dependencias'] = $dependencias;
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "responsables_edit";
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/responsables_edit";
         $this->load->view($this->_container, $data);
     }
 
     public function delete($id){
         $this->responsable->delete($id);
 
-        redirect('/admin/responsables', 'refresh');
+        redirect('responsables', 'refresh');
     }
 }

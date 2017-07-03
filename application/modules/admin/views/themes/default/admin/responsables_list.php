@@ -4,7 +4,7 @@
             <div class="page-header users-header">
                 <h2>
                     Responsables
-                    <a  href="<?= base_url('admin/responsables/create') ?>" class="btn btn-success">Nuevo Responsable</a>
+                    <a  href="<?= base_url('responsables/create') ?>" class="btn btn-success">Nuevo Responsable</a>
                 </h2>
             </div>
         </div>
@@ -45,7 +45,7 @@
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('admin/responsables/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
-                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/responsables/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger">Eliminar</a>
+                                                <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/responsables/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

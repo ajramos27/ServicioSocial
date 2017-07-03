@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Proyectos
-                <a  href="<?= base_url('admin/proyectos') ?>" class="btn btn-warning">Regresar</a>
+                <a  href="<?= base_url('proyectos') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->
@@ -26,7 +26,7 @@
                         </div>
                         <?php endif; ?>
                         <div class="col-lg-6">
-                            <form role="form" method="POST" action="<?=base_url('admin/proyectos/create')?>">
+                            <form role="form" method="POST" action="<?=base_url('proyectos/create')?>">
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" placeholder="Auto generated" disabled="1">
                                 </div>

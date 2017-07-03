@@ -22,7 +22,8 @@
                                     <th>Apellidos</th>
                                     <th>Licenciatura</th>
                                     <th>Proyecto</th>
-                                    <th>Evaluaciones</th>
+                                    <th>Status</th>
+                                    <th>Evaluar</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -41,13 +42,18 @@
                                                 <?php endif; ?>
                                               <?php endforeach; ?>
                                             </td>
+                                            <td><?=$list['status']?></td>
                                             <td>
-                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="1" data-toggle="modal" class="open-EvaluacionModal btn btn-info">Periodo 1</button>
-                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="2" data-toggle="modal" class="open-EvaluacionModal btn btn-info">Periodo 2</button>
+                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="1" data-toggle="modal" class="open-EvaluacionModal btn btn-success">Periodo 1</button>
+                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="2" data-toggle="modal" class="open-EvaluacionModal btn btn-success">Periodo 2</button>
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('admin/adminresponsable/viewAlumno/'.$list['id']) ?>" class="btn btn-info">Ver</a>
-                                                <a href="" class="btn btn-info">Finalizar</a>
+                                                <?php if($list['status'] == 'Finalizado'): ?>
+                                                  <a  href="<?= base_url('admin/adminresponsable/carta/'.$list['id']) ?>" class="btn btn-warning">Generar Carta</a>
+                                                <?php else : ?>
+                                                  <a  href="<?= base_url('admin/adminresponsable/finalizarServicio/'.$list['id']) ?>" class="btn btn-warning">Finalizar Servicio</a>
+                                                <?php endif; ?>
                                             </td>
                                         </tr>
                                         <?php endif; ?>
@@ -86,9 +92,13 @@
         </div>
         <div class="modal-body">
           <h5 class="text-center"></h5>
-          <form method="POST" action="<?=base_url('admin/formularios/create2')?>">
+          <form method="POST" action="<?=base_url('admin/formularios/create')?>">
           <input type="hidden" class="form-control" id = "alumno_id" name= "alumno_id" value="">
           <input type="hidden" class="form-control" id = "form_num" name= "form_num" value="">
+          <div class="form-group">
+              <label>Al momento, el número de horas cubiertas:</label>
+              <input id="horas" name="horas">
+          </div>
           <table class="table table-striped" id="tblGrid">
             <thead id="tblHead">
               <tr>

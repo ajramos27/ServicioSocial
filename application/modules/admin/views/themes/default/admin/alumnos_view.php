@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Prestadores
-                <a  href="<?= base_url('admin/alumnos') ?>" class="btn btn-warning">Regresar</a>
+                <a  href="<?= base_url('alumnos') ?>" class="btn btn-warning">Regresar</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->

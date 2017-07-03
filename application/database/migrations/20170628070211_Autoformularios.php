@@ -1,6 +1,6 @@
 <?php
 
-class Migration_Formularios extends CI_Migration {
+class Migration_Autoformularios extends CI_Migration {
 
     public function up() {
         $this->dbforge->add_field(array(
@@ -15,6 +15,10 @@ class Migration_Formularios extends CI_Migration {
             ),
             'form_num' => array(
                 'type' => 'INT',
+                'constraint' => 11,
+            ),
+            'horas' => array(
+                'type' => 'VARCHAR',
                 'constraint' => 11,
             ),
             'asistePuntual' => array(
@@ -45,6 +49,26 @@ class Migration_Formularios extends CI_Migration {
                 'type' => 'VARCHAR',
                 'constraint' => 3,
             ),
+            'abiertoRetro' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 3,
+            ),
+            'iniciativa' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 3,
+            ),
+            'recursosNecesarios' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 3,
+            ),
+            'trabajoEquipo' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 3,
+            ),
+            'desarrolloCompetencias' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 3,
+            ),
             'observaciones' => array(
                 'type' => 'TEXT',
                 'constraint' => 250,
@@ -66,11 +90,11 @@ class Migration_Formularios extends CI_Migration {
             )
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('formularios');
+        $this->dbforge->create_table('autoformularios');
     }
 
     public function down() {
-        $this->dbforge->drop_table('formularios');
+        $this->dbforge->drop_table('autoformularios');
     }
 
 }

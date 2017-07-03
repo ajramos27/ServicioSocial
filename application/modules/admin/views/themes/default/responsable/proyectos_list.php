@@ -22,7 +22,6 @@
                                     <th>Descripcion</th>
                                     <th>Responsable</th>
                                     <th>Dependencia</th>
-                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,9 +47,6 @@
                                                     <?php endforeach; ?>
                                                   <?php endif; ?>
                                                 <?php endforeach; ?>
-                                              </td>
-                                              <td>
-                                                  <a href="<?= base_url('admin/adminresponsable/listAlumnos/'.$list['id']) ?>" class="btn btn-info">Alumnos</a>
                                               </td>
                                           </tr>
                                       <?php endif; ?>

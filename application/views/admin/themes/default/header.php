@@ -88,10 +88,11 @@
                             <?php endif; ?>
                             <?php if ($this->is_admin): ?>
                               <li><a href="<?= base_url('admin/') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
-                              <li><a href="<?= base_url('admin/alumnos') ?>"><i class="fa fa-user fa-fw"></i> Prestadores</a></li>
-                              <li><a href="<?= base_url('admin/responsables') ?>"><i class="fa fa-user fa-fw"></i> Responsables</a></li>
-                              <li><a href="<?= base_url('admin/proyectos') ?>"><i class="fa fa-book fa-fw"></i> Proyectos</a></li>
-                              <li><a href="<?= base_url('admin/dependencias') ?>"><i class="fa fa-university fa-fw"></i> Dependencias</a></li>
+                              <li><a href="<?= base_url('alumnos') ?>"><i class="fa fa-user fa-fw"></i> Prestadores</a></li>
+                              <li><a href="<?= base_url('responsables') ?>"><i class="fa fa-user fa-fw"></i> Responsables</a></li>
+                              <li><a href="<?= base_url('proyectos') ?>"><i class="fa fa-book fa-fw"></i> Proyectos</a></li>
+                              <li><a href="<?= base_url('dependencias') ?>"><i class="fa fa-university fa-fw"></i> Dependencias</a></li>
+                              <li><a href="<?= base_url('responsables') ?>"><i class="fa fa-file-text fa-fw"></i> Reportes</a></li>
                               <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-users fa-fw"></i> Usuarios</a></li>
                             <?php endif; ?>
 

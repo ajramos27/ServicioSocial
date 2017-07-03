@@ -8,7 +8,7 @@
 
         </div>
 
-        <a href="<?= base_url('admin/adminresponsable/listAllAlumnos') ?>"><div class="col-md-4 col-md-offset-2">
+        <a href="<?= base_url('admin/adminresponsable/listAlumnos') ?>"><div class="col-md-4 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <div class="row">
