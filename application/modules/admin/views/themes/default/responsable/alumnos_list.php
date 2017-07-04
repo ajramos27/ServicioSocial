@@ -30,6 +30,7 @@
                             <tbody>
                                 <?php if (count($alumnos)): ?>
                                     <?php foreach ($alumnos as $key => $list): ?>
+                                      <?php $form1= false; $form2 = false; ?>
                                       <?php if ($this->logged_in_id == $list['usuario_id']): ?>
                                         <tr class="odd gradeX">
                                             <td><?=$list['nombres']?></td>
@@ -44,8 +45,21 @@
                                             </td>
                                             <td><?=$list['status']?></td>
                                             <td>
-                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="1" data-toggle="modal" class="open-EvaluacionModal btn btn-success">Periodo 1</button>
-                                                <button href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="2" data-toggle="modal" class="open-EvaluacionModal btn btn-success">Periodo 2</button>
+                                              <?php foreach ($formularios as $key => $form):
+                                                    if ($list['id'] == $form['alumno_id']):
+                                                      if ($form['form_num'] == 1):
+                                                        $form1=true;
+                                                      endif;
+                                                      if ($form['form_num'] == 2):
+                                                        $form2=true;
+                                                      endif;
+                                                    endif;
+                                                    endforeach; ?>
+                                                <button <?php if ($form1==true){?>style="display:none"<?php } ?> href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="1" data-toggle="modal" class="open-EvaluacionModal btn btn-success">Periodo 1</button>
+                                                <button <?php if ($form2==true){?>style="display:none"<?php } ?> href="#evaluacionModal" id="openBtn" data-id="<?= $list['id'] ?>" data-num ="2" data-toggle="modal" class="open-EvaluacionModal btn btn-success">Periodo 2</button>
+                                                <?php if($form1 && $form2): ?>
+                                                  <p>Evaluado</p>
+                                                  <?php endif;?>
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('admin/adminresponsable/viewAlumno/'.$list['id']) ?>" class="btn btn-info">Ver</a>

@@ -97,6 +97,8 @@ class AdminResponsable extends Admin_Controller {
       $alumno = $this->alumno->get($id);
       $proyectos = $this->proyecto->get_all();
       $responsables = $this->responsable->get_all();
+      $proyecto = $this->proyecto->get($alumno->proyecto_id);
+      $responsable = $this->responsable->get($proyecto->responsable_id);
 
       $phpWord = new \PhpOffice\PhpWord\PhpWord();
 		  $phpWord->getCompatibility()->setOoxmlVersion(14);
@@ -108,7 +110,7 @@ class AdminResponsable extends Admin_Controller {
 		    // add style settings for the title and paragraph
 
       $paragraphStyleName = 'pStyle';
-      $phpWord->addParagraphStyle($paragraphStyleName, array('alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, 'spaceAfter' => 500));
+      $phpWord->addParagraphStyle($paragraphStyleName, array('alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, 'spaceAfter' => 200));
       $paragraphOptions = array('space' => array('line' => 1000));
       $phpWord->setDefaultFontSize(11);
       $phpWord->setDefaultFontName('arial');
@@ -151,7 +153,7 @@ class AdminResponsable extends Admin_Controller {
       $textrun->addText($alumno->licenciatura);
       $textrun->addText(' de la Facultad de Educación de la Universidad Autónoma de Yucatán, ');
       $textrun->addText('realizó y concluyó satisfactoriamente su Servicio Social en el proyecto ');
-      $textrun->addText($alumno->proyecto_id);
+      $textrun->addText($proyecto->nombre.".");
       $section->addTextBreak();
       $textrun2 = $section->addTextRun(array('space' => array('line' => 500, 'align' =>'both')));
       $textrun2->addText('La prestación del servicio social se llevó a cabo del ');
@@ -159,7 +161,13 @@ class AdminResponsable extends Admin_Controller {
       $textrun2->addText(" al ".strftime("%d de %B de %Y", strtotime($alumno->periodoFin)));
       $textrun2->addText(', periodo en el que se cubrió un total de 480 horas. ');
       $textrun2->addText('Sin otro particular, quedo a sus órdenes para cualquier aclaración y le envío un cordial saludo.');
-      $section->addTextBreak();
+      $section->addTextBreak(3);
+
+      $section->addText('Atentamente', [], 'pStyle');
+      $section->addTextBreak(2);
+      $section->addText($responsable->nombres." ".$responsable->apellidos, [], 'pStyle');
+      $section->addText('Responsable del Proyecto', [], 'pStyle');
+
 
   		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
   		$objWriter->save($filename);

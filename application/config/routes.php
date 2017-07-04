@@ -73,6 +73,8 @@ $route['dependencias'] = 'admin/dependencias';
 $route['dependencias/create'] = 'admin/dependencias/create';
 $route['dependencias/edit/(:any)'] = 'admin/dependencias/edit/$1';
 
+$route['reportes'] = 'admin/reportes';
+
 //Acceso responsable
 $route['responsable'] = 'admin/adminresponsable/index';
 

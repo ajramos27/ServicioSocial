@@ -34,7 +34,7 @@
                                             <td><?=$list['direccion']?></td>
                                             <td><?=$list['telefono']?></td>
                                             <td>
-                                                <a href="<?= base_url('dependencias/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
+                                                <a href="<?= base_url('dependencias/edit/'.$list['id']) ?>" class="btn btn-info"><i class="fa fa-edit fa-lg"></i></a>
                                                 <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/dependencias/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i></a>
                                             </td>
                                         </tr>

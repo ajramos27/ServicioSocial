@@ -75,7 +75,7 @@
                             <?php if($alumno->status == 'Finalizado'): ?>
                               <a  href="<?= base_url('admin/adminresponsable/carta/'.$alumno->id) ?>" class="btn btn-warning">Generar Carta</a>
                             <?php else : ?>
-                              <a  href="<?= base_url('admin/alumnos/finalizar/'.$alumno->id) ?>" class="btn btn-warning">Finalizar Servicio</a>
+                              <a  href="<?= base_url('admin/adminresponsable/finalizarServicio/'.$alumno->id) ?>" class="btn btn-warning">Finalizar Servicio</a>
                             <?php endif; ?>
                           </center>
 

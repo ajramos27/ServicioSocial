@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 use Dompdf\Dompdf;
 
-class Alumnos extends Admin_Controller {
+class Reportes extends Admin_Controller {
 
     function __construct() {
         parent::__construct();
@@ -22,7 +22,10 @@ class Alumnos extends Admin_Controller {
         $this->load->model(array('admin/alumno'));
         $this->load->model(array('admin/proyecto'));
         $this->load->model(array('admin/responsable'));
+        $this->load->model(array('admin/dependencia'));
         $this->load->model(array('admin/formulario'));
+        $this->load->model(array('admin/autoformulario'));
+        $this->load->model(array('admin/informe'));
     }
 
     //Index: Lista de alumnos
@@ -30,132 +33,21 @@ class Alumnos extends Admin_Controller {
         $alumnos = $this->alumno->get_all();
         $proyectos = $this->proyecto->get_all();
         $responsables = $this->responsable->get_all();
+        $dependencias = $this->dependencia->get_all();
+        $formularios = $this->formulario->get_all();
+        $autoformularios = $this->autoformulario->get_all();
+        $informes = $this->informe->get_all();
 
         $data['alumnos'] = $alumnos;
         $data['proyectos'] = $proyectos;
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/alumnos_list";
+        $data['responsables'] = $responsables;
+        $data['dependencias'] = $dependencias;
+        $data['formularios'] = $formularios;
+        $data['autoformularios'] = $autoformularios;
+        $data['informes'] = $informes;
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/reportes_list";
         $this->load->view($this->_container, $data);
     }
 
-    //Crea un nuevo alumno
-    public function create() {
-        if ($this->input->post('matricula')) {
-
-            $input = array("enero", "febrero", "marzo", "abril", "mayo");
-
-            //Crear usuario
-            $username = $this->input->post('matricula');
-            $password = $input[array_rand($input)];
-            $email = $this->input->post('correo');
-            $group_id = array( $this->input->post('group_id'));
-
-            $additional_data = array(
-                'first_name' => $this->input->post('nombres'),
-                'last_name' => $this->input->post('apellidos'),
-                'username' => $this->input->post('correo'),
-                'phone' => $this->input->post('telefono'),
-            );
-
-            $user = $this->ion_auth->register($username, $password, $email, $additional_data,$group_id);
-
-            $data['matricula'] = $this->input->post('matricula');
-            $data['nombres'] = $this->input->post('nombres');
-            $data['apellidos'] = $this->input->post('apellidos');
-            $data['correo'] = $this->input->post('correo');
-            $data['telefono'] = $this->input->post('telefono');
-            $data['facultad'] = $this->input->post('facultad');
-            $data['licenciatura'] = $this->input->post('licenciatura');
-            $data['proyecto_id'] = $this->input->post('proyecto_id');
-            $data['periodoInicio'] = $this->input->post('periodoInicio');
-            $data['periodoFin'] = $this->input->post('periodoFin');
-            $data['status'] = $this->input->post('status');
-            $data['usuario_id'] = $user;
-
-            $message = '';
-            $message .= "Ha sido registrado como PRESTADOR ";
-            $message .= "en el Sistema de Seguimiento de Servicio Social de la Facultad de Educación<br><br>";
-            $message .= "Su usuario es: ".$username."<br>";
-            $message .= "Su contraseña es: ".$password."<br><br>";
-            $message .= "Para acceder dirijase a educacion.uady.mx";
-
-
-            $this->email->from('aj.ramos2794@gmail.com', 'Facultad de Educacion UADY');
-            $this->email->to($email);
-            $this->email->subject('Seguimiento Servico Social');
-            $this->email->message($message);
-            $this->email->set_newline("\r\n");
-            $this->email->send();
-
-            $this->alumno->insert($data);
-
-            redirect('/admin/alumnos', 'refresh');
-        }
-
-        $proyectos = $this->proyecto->get_all();
-        $data['proyectos'] = $proyectos;
-
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/alumnos_create";
-        $this->load->view($this->_container, $data);
-    }
-
-    //Editar un alumno
-    public function edit($id) {
-        if ($this->input->post('matricula')) {
-            $data['matricula'] = $this->input->post('matricula');
-            $data['nombres'] = $this->input->post('nombres');
-            $data['apellidos'] = $this->input->post('apellidos');
-            $data['correo'] = $this->input->post('correo');
-            $data['telefono'] = $this->input->post('telefono');
-            $data['facultad'] = $this->input->post('facultad');
-            $data['licenciatura'] = $this->input->post('licenciatura');
-            $data['proyecto_id'] = $this->input->post('proyecto_id');
-            $data['periodoInicio'] = $this->input->post('periodoInicio');
-            $data['periodoFin'] = $this->input->post('periodoFin');
-            $data['status'] = $this->input->post('status');
-            $data['usuario_id'] = $this->input->post('usuario_id');
-
-            $this->alumno->update($data, $id);
-
-            redirect('/admin/alumnos', 'refresh');
-        }
-
-        $alumno = $this->alumno->get($id);
-        $proyectos = $this->proyecto->get_all();
-
-        $data['alumno'] = $alumno;
-        $data['proyectos'] = $proyectos;
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/alumnos_edit";
-        $this->load->view($this->_container, $data);
-    }
-
-    public function delete($id){
-        $this->alumno->delete($id);
-
-        redirect('/admin/alumnos', 'refresh');
-    }
-
-    //Obtiene un solo registro de alumno
-    public function view($id){
-
-      $alumno = $this->alumno->get($id);
-      $proyectos = $this->proyecto->get_all();
-      $responsables = $this->responsable->get_all();
-      $formularios = $this->formulario->get_formularios_by_alumno($id);
-
-      $data['formularios'] = $formularios;
-      $data['alumno'] = $alumno;
-      $data['proyectos'] = $proyectos;
-      $data['responsables'] = $responsables;
-      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "admin/alumnos_view";
-
-      $this->load->view($this->_container, $data);
-
-    }
-
-    public function finalizar($id) {
-      $data['status'] = "Finalizado";
-      $this->alumno->update($data, $id);
-      redirect('/admin/alumnos/view/'.$id, 'refresh');
-    }
 
 }

@@ -24,12 +24,14 @@ class Informes extends Admin_Controller {
       $alumno = $this->alumno->get_by_userId($userId);
       $proyecto = $this->proyecto->get($alumno->proyecto_id);
       $responsable = $this->responsable->get($proyecto->responsable_id);
+      $dependencia = $this->dependencia->get($responsable->dependencia_id);
 
       $alumnoId = $alumno->id;
       $informe = $this->informe->get_by_alumno($alumnoId);
       $data['alumno'] = $alumno;
       $data['proyecto'] = $proyecto;
       $data['responsable'] = $responsable;
+      $data['dependencia'] = $dependencia;
       if($informe==null){
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "prestador/informe";
       } else {

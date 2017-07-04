@@ -8,7 +8,7 @@ $config = Array(
 'smtp_user' => 'aj.ramos2794@gmail.com',
 'smtp_pass' => 'Aaronchi01D',
 'mailtype'  => 'html',
-'charset'   => 'iso-8859-1',
+'charset'   => 'UTF-8',
 'wordwrap'  => TRUE
 );
 

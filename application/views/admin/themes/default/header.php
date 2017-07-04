@@ -80,7 +80,7 @@
                         <ul class="nav" id="side-menu">
                             <?php if ($this->is_responsable && !$this->is_admin): ?>
                             <li><a href="<?= base_url('responsable') ?>"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
-                            <li><a href="<?= base_url('admin/adminresponsable/listAllAlumnos') ?>"><i class="fa fa-user fa-fw"></i> Prestadores</a></li>
+                            <li><a href="<?= base_url('admin/adminresponsable/listAlumnos') ?>"><i class="fa fa-user fa-fw"></i> Prestadores</a></li>
                             <li><a href="<?= base_url('admin/adminresponsable/listProyectos') ?>"><i class="fa fa-book fa-fw"></i> Proyectos</a></li>
                             <?php endif; ?>
                             <?php if ($this->is_prestador): ?>
@@ -92,7 +92,7 @@
                               <li><a href="<?= base_url('responsables') ?>"><i class="fa fa-user fa-fw"></i> Responsables</a></li>
                               <li><a href="<?= base_url('proyectos') ?>"><i class="fa fa-book fa-fw"></i> Proyectos</a></li>
                               <li><a href="<?= base_url('dependencias') ?>"><i class="fa fa-university fa-fw"></i> Dependencias</a></li>
-                              <li><a href="<?= base_url('responsables') ?>"><i class="fa fa-file-text fa-fw"></i> Reportes</a></li>
+                              <li><a href="<?= base_url('reportes') ?>"><i class="fa fa-file-text fa-fw"></i> Reportes</a></li>
                               <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-users fa-fw"></i> Usuarios</a></li>
                             <?php endif; ?>
 

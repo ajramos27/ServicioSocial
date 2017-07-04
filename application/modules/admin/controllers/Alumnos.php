@@ -81,7 +81,7 @@ class Alumnos extends Admin_Controller {
 
             $this->email->from('aj.ramos2794@gmail.com', 'Facultad de Educacion UADY');
             $this->email->to($email);
-            $this->email->subject('Seguimiento Servico Social');
+            $this->email->subject('Seguimiento Servicio Social');
             $this->email->message($message);
             $this->email->set_newline("\r\n");
             $this->email->send();

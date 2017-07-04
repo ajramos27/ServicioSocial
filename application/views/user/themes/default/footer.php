@@ -25,16 +25,19 @@
 <script src="<?= base_url() ?>assets/admin/js/admin.js"></script>
 
 <script type="text/javascript">
-  function imprimir(alumno, responsable, proyecto, informe){
+  function imprimir(alumno, responsable, proyecto, dependencia, informe){
     var alumnoString =  JSON.stringify(alumno);
     var responsableString =  JSON.stringify(responsable);
     var proyectoString =  JSON.stringify(proyecto);
+    var dependenciaString = JSON.stringify(dependencia);
     var informeString =  JSON.stringify(informe);
 
     var jsonAlumno = JSON.parse(alumnoString);
     var jsonResponsable = JSON.parse(responsableString);
     var jsonProyecto = JSON.parse(proyectoString);
+    var jsonDependencia= JSON.parse(dependenciaString);
     var jsonInforme = JSON.parse(informeString);
+
 
     var doc = new jsPDF();
     //var alumno = $(this).data('alumno');
@@ -52,7 +55,8 @@
 
     doc.setFontSize(11);
 
-    var fecha = new Date(jsonAlumno["periodoInicio"]);
+    var inicio = new Date(jsonAlumno["periodoInicio"]);
+    var fin = new Date(jsonAlumno["periodoFin"]);
     var options = { year: 'numeric', month: 'long', day: 'numeric' };
 
 
@@ -62,9 +66,9 @@
     doc.text(42, 77, jsonAlumno['matricula']);
     doc.text(134, 77, jsonAlumno['correo']);
     doc.text(75, 87, jsonAlumno['licenciatura']);
-    doc.text(85, 97, "dependencia");
+    doc.text(85, 97, jsonDependencia['nombre']);
     doc.text(65, 107, jsonProyecto["nombre"]);
-    doc.text(65, 119, fecha.toLocaleDateString("es-ES", options) + " - " + jsonAlumno["periodoFin"]);
+    doc.text(65, 119, inicio.toLocaleDateString("es-ES", options) + " - " + fin.toLocaleDateString("es-ES", options) );
 
     if(jsonInforme["preg1"] == "SI") { doc.text(154,155, "X")}
     else { doc.text(173,155, "X") }
@@ -103,7 +107,7 @@
     doc.addImage(page3, 'JPEG',0,0,210,297)
     doc.text(22, 55, jsonInforme['observaciones']);
 
-    doc.save('jola.pdf');
+    doc.save('Informe_' + jsonAlumno['nombres'] + jsonAlumno['apellidos'] + '.pdf');
   }
  </script>
 

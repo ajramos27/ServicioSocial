@@ -53,13 +53,15 @@
                                               <?php endif; ?>
 
                                             <td>
-                                                <a href="<?= base_url('proyectos/edit/'.$list['id']) ?>" class="btn btn-info">Editar</a>
+                                                <a href="<?= base_url('proyectos/edit/'.$list['id']) ?>" class="btn btn-info"><i class="fa fa-edit fa-lg"></i></a>
                                                 <a onclick="javascript:deleteConfirm('<?php echo base_url('admin/proyectos/delete/'.$list['id']);?>');" deleteConfirm href="#" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
                                     <tr class="even gradeC">
+                                        <td>No data</td>
+                                        <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
