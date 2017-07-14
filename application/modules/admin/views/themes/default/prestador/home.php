@@ -11,7 +11,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-user fa-4x"></i>
+                            <i class="fa fa-file-text fa-4x"></i>
                         </div>
                         <div class="col-xs-9">
                             <div class="huge">Informe Final</div>
@@ -35,6 +35,22 @@
                 </div>
             </div>
         </div></a>
+
+        <a href="<?= base_url('admin/adminprestador/viewInfo') ?>"><div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-user fa-4x"></i>
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="huge">Mi información</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> </a>
+
     </div>
 </div>
 <!-- /#page-wrapper -->

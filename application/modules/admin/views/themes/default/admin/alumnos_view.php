@@ -49,27 +49,30 @@
                                 <td><?= $alumno->licenciatura ?></td>
                                 </tr>
 
-                                <?php if (count($proyectos)): ?>
-                                    <?php foreach ($proyectos as $key => $proyecto): ?>
-                                        <?php if ($alumno->proyecto_id == $proyecto['id']): ?>
-                                          <tr>
-                                          <th>Proyecto:</th>
-                                          <td><?= $proyecto['nombre'] ?></td>
-                                          </tr>
-                                          <tr>
-                                    <?php foreach ($responsables as $key => $responsable): ?>
-                                        <?php if ($responsable['id'] == $proyecto['responsable_id']): ?>
-                                          <th>Responsable:</th>
-                                          <td><?= $responsable['nombres'].' '.$responsable['apellidos'] ?></td>
-                                          </tr>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
+                                <tr>
+                                <th>Proyecto:</th>
+                                <td><?= $proyecto->nombre?></td>
+                                </tr>
+
+                                <tr>
+                                <th>Responsable:</th>
+                                <td><?= $responsable->nombres.' '.$responsable->apellidos ?></td>
+                                </tr>
+                                <tr>
+
+                                <th>Dependencia:</th>
+                                <td><?= $dependencia->nombre?></td>
+                                </tr>
+
                                 <tr>
                                 <th>Status:</th>
                                 <td><?= $alumno->status ?></td>
+                                </tr>
+                                <?php setlocale(LC_ALL,"es_ES@euro","es_ES","esp");?>
+
+                                <tr>
+                                <th>Periodo de prestación:</th>
+                                <td><?= strftime("%d/%m/%Y", strtotime($alumno->periodoInicio))." - ".strftime("%d/%m/%Y", strtotime($alumno->periodoFin))?></td>
                                 </tr>
                             </table>
                             <?php if($alumno->status == 'Finalizado'): ?>

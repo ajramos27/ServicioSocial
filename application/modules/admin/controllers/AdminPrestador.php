@@ -57,4 +57,18 @@ class AdminPrestador extends Admin_Controller {
       $this->load->view($this->_container, $data);
 
     }
+
+    public function viewInfo() {
+      $alumno = $this->alumno->get_by_userId($this->logged_in_id);
+      $proyecto = $this->proyecto->get($alumno->proyecto_id);
+      $responsable = $this->responsable->get($proyecto->responsable_id);
+      $dependencia = $this->dependencia->get($responsable->dependencia_id);
+
+      $data['alumno'] = $alumno;
+      $data['proyecto'] = $proyecto;
+      $data['responsable'] = $responsable;
+      $data['dependencia'] = $dependencia;
+      $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "prestador/view_info";
+      $this->load->view($this->_usercontainer, $data);
+    }
 }

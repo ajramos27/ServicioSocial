@@ -64,7 +64,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <input type="button" name="password" class="next btn btn-info" value="Next" />
+                <input type="button" name="password" class="next btn btn-info" value="Siguiente" />
               </fieldset>
               <fieldset>
                 <h2> II. Del proyecto de servicio social</h2>
@@ -98,8 +98,8 @@
                     </tr>
                   </tbody>
                 </table>
-                <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
-                <input type="button" name="next" class="next btn btn-info" value="Next" />
+                <input type="button" name="previous" class="previous btn btn-default" value="Regresar" />
+                <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
               </fieldset>
               <fieldset>
                 <h2>Step 3: De las actividades realizadas</h2>
@@ -123,8 +123,8 @@
 
                   </tbody>
                 </table>
-                <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
-                <input type="button" name="next" class="next btn btn-info" value="Next" />
+                <input type="button" name="previous" class="previous btn btn-default" value="Regresar" />
+                <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
               </fieldset>
               <fieldset>
                 <h2>Step 3: De las actividades realizadas</h2>
@@ -151,8 +151,8 @@
 
                 <p>Observaciones:</p>
                 <textarea class="form-control" name="observaciones" id="observaciones" style="min-width: 100%"></textarea>
-                <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
-                <input type="submit" name="submit" class="submit btn btn-success" value="Submit" />
+                <input type="button" name="previous" class="previous btn btn-default" value="Regresar" />
+                <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" />
               </fieldset>
             </form>
 
